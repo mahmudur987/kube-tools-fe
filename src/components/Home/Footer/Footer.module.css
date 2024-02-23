@@ -1,0 +1,155 @@
+/* Footer.module.css */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap");
+.footer {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../assets/images/bg-2.png");
+  background-attachment: fixed;
+  backdrop-filter: blur(4px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 60px;
+}
+
+.mainContainer {
+  width: 100%;
+  min-height: 607px;
+  background: linear-gradient(
+    180deg,
+    rgba(117, 75, 255, 0.8) 2.7%,
+    #6d45f1 50.08%,
+    #6d45f1 50.08%
+  );
+  /* Add your styles for the main container */
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.top {
+  display: flex;
+  gap: 193px;
+  margin-top: 120px;
+}
+.footerLeft {
+  max-width: 250px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 120px;
+}
+.footerLeft h3 {
+  color: var(--Background-color-white, #fff);
+  font-family: "DM Sans";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.28px;
+}
+.footerLeft p {
+  color: var(--Background-color-white, #fff);
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.32px;
+}
+
+.footerRight {
+  flex-grow: 1;
+}
+
+.contents {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-right: 156px;
+}
+.cols {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.cols h4 {
+  color: var(--Background-color-white, #fff);
+  font-family: "DM Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.48px;
+}
+.cols p {
+  color: var(--Background-color-white, #fff);
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.32px;
+}
+.socialMedia {
+  display: flex;
+  gap: 12px;
+}
+.coppy {
+  display: flex;
+  justify-content: center;
+}
+.coppy p {
+  max-width: 400px;
+  width: 100%;
+  border-top: 1px solid white;
+  padding-top: 20px;
+  text-align: center;
+  color: var(--Background-color-white, #fff);
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.32px;
+}
+@media only screen and (max-width: 800px) {
+  .mainContainer {
+    padding: 20px 0px;
+  }
+  .top {
+    flex-direction: column;
+    gap: 20px;
+    margin: 0px;
+  }
+  .footerLeft h3 {
+    font-size: 24px;
+  }
+  .footerLeft p {
+    font-size: 14px;
+  }
+  .contents {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px;
+  }
+  .cols {
+    gap: 8px;
+  }
+  .cols {
+    gap: 8px;
+  }
+  .cols h4 {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  .cols p {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+  }
+}

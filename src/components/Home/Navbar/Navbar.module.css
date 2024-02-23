@@ -1,0 +1,134 @@
+/* Navbar.module.css */
+
+.mainContainer {
+  background: var(--Background-color-white, #fff);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.navbar {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  height: 100px;
+  padding: 27px 414px 28px 120px;
+  align-items: center;
+  gap: 181px;
+  background: var(--Background-color-white, #fff);
+  color: black;
+}
+
+.leftItems {
+  display: flex;
+  gap: 36px;
+}
+
+.navItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.navItem span {
+  color: var(--Primary-color, #6d45f1);
+  font-family: DM Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.64px;
+}
+
+.middle {
+  max-width: 426px;
+  width: 100%;
+  min-height: 100px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.searchInputWrapper {
+  display: flex;
+  max-width: 426px;
+  width: 100%;
+  padding: 12px;
+  height: 40px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 24px;
+  border: 1px solid #9275f3;
+  background: none;
+}
+.searchInput {
+  background: none;
+  outline: none;
+  border: none;
+  color: black;
+}
+.mobileContainer {
+  display: none;
+  position: relative;
+}
+.mobileHamBtn {
+  width: 24px;
+  height: 24px;
+}
+.mobileMenu {
+  position: absolute;
+  right: 20px;
+  top: 80px;
+  z-index: 99;
+  display: inline-flex;
+  padding: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  border-radius: 8px;
+  background: var(--Background-color-white, #fff);
+}
+@media only screen and (max-width: 700px) {
+  .leftItems {
+    display: none;
+  }
+  .navbar {
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    gap: 0;
+  }
+  .middle {
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .searchInputWrapper {
+    max-width: 250px;
+    width: 100%;
+    border: 0;
+    cursor: pointer;
+    margin-left: 60px;
+  }
+  .searchInput {
+    background: none;
+    border: none;
+  }
+  .mobileContainer {
+    max-width: 60px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  .navItem {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,181 @@
+/* OuOffer.module.css */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap");
+.containerWrapper {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../../assets/images/bg-2.png");
+  background-attachment: fixed;
+  backdrop-filter: blur(4px);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.maincontainer {
+  width: 100%;
+  padding: 100px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  background: rgba(109, 69, 241, 0.4);
+}
+.container {
+  max-width: 1440px;
+  width: 100%;
+  min-height: 558px;
+  padding: 40px 0px;
+  border-radius: 40px;
+  padding-bottom: 50px;
+}
+.header {
+  max-width: 1200px;
+  width: 100%;
+  min-height: 101px;
+  text-align: center;
+  padding: 0px 30px;
+}
+
+.header h1 {
+  color: var(--Background-color-white, #fff);
+  font-family: "DM Sans";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -1.2px;
+}
+.header p {
+  color: var(--Background-color-white, #fff);
+  text-align: start;
+  font-family: "DM Sans";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.36px;
+}
+
+.sliderContents {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0px 30px;
+}
+.contents {
+  max-width: 1440px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  width: 546px;
+  width: 100%;
+  min-height: 305px;
+  margin: 0px 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 40px;
+  margin: 20px;
+  border-radius: 12px;
+  border: 1px solid gray;
+  background: var(--Background-color-black, #2b2b2b);
+}
+.cardTop {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  gap: 12px;
+}
+.text1 {
+  border-radius: 8px;
+  border: 1px solid #d3caf0;
+  background: #e9e9e9;
+  display: flex;
+  padding: 4px;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text-light-gray, #404040);
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.56px;
+}
+.text2 {
+  display: flex;
+  padding: 4px;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 8px;
+  border: 1px solid #d3caf0;
+  background: #e9e9e9;
+  color: var(--text-light-gray, #404040);
+  font-family: "DM Sans";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.56px;
+}
+
+.cardMiddle {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardDescription {
+  color: var(--Background-color-white, #fff);
+  font-family: "DM Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.96px;
+}
+
+.cardBottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.cardBottom span {
+  display: flex;
+  padding: 10px 16px 10px 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.cardBottom svg {
+  width: 24px;
+  height: 24px;
+}
+.btnWrapper {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+  margin-right: 20px;
+}
+.leftbtn,
+.rightbtn {
+  background: none;
+  border: none;
+  width: 24px;
+  height: 24px;
+}
+
+@media only screen and (max-width: 700px) {
+  .maincontainer {
+    padding: 20px;
+  }
+}
