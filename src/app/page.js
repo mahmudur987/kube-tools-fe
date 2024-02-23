@@ -7,6 +7,8 @@ import Banner from "@/components/Home/Banner/Banner";
 import Footer from "@/components/Home/Footer/Footer";
 import OurOffer from "@/components/Home/OurOffer/OurOffer";
 import TrendingRepos from "@/components/Home/TrendingRepos/TrendingRepos";
+import Collections from "@/components/Home/HotCollections/Collections";
+import { CollectionsSection } from "@/components/Home/HotCollections";
 
 export default function Home() {
   const inter = css`
@@ -19,7 +21,7 @@ export default function Home() {
       <Navbar />
       <Banner />
       <TrendingRepos />
-
+      <CollectionsSection />
       <OurOffer />
       <Blog />
       <Footer />

@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import styles from "./TrendingRepo.module.css";
 
 import ErrorComponent from "../MyError/Error";
+import { categories, toolsData } from "@/Data/data";
 
 const options = [
   {
@@ -25,14 +26,15 @@ const options = [
 ];
 
 const TrendingRepos = () => {
+  const collections = categories;
   const [period, setPeriod] = useState("past_24_hours");
-  const [collectionId, setCollectionId] = useState("");
-  const handleChangeRowsPerPage = (e) => {
-    console.log(e);
-  };
-  const collections = [];
-  const asyncData = [];
 
+  const [rowsPerPage, setrowsPerPage] = useState(20);
+
+  const [collectionId, setCollectionId] = useState(collections[0].id);
+
+  const tools = toolsData.find((x) => x.category.id === collectionId)?.tools;
+  console.log(tools);
   return (
     <section className={styles.containerWrapper}>
       <div className={styles.mainContainer}>
@@ -87,7 +89,7 @@ const TrendingRepos = () => {
               <div className={styles.hedingItems}>
                 <span>Row per page</span>
                 <select
-                  onChange={(e) => handleChangeRowsPerPage(e)}
+                  onChange={(e) => setrowsPerPage(e.target.value)}
                   className={styles.select2}
                 >
                   <option value={20}>20</option>
@@ -124,47 +126,34 @@ const TrendingRepos = () => {
                     <h4 className={styles.col3}>Score </h4>
                   </div>
 
-                  {asyncData.data?.data
-                    ?.slice(0, rowsPerPage)
-                    .map((item, i) => (
-                      <div
-                        key={i}
-                        className={styles.row2}
+                  {tools?.slice(0, rowsPerPage).map((item, i) => (
+                    <div
+                      key={i}
+                      className={styles.row2}
+                      style={{ fontWeight: `${i === 0 && 700}` }}
+                    >
+                      <p
                         style={{ fontWeight: `${i === 0 && 700}` }}
+                        className={styles.col1}
                       >
-                        <p
-                          style={{ fontWeight: `${i === 0 && 700}` }}
-                          className={styles.col1}
-                        >
-                          {i + 1}
-                        </p>
-                        <p
-                          style={{ fontWeight: `${i === 0 && 700}` }}
-                          className={styles.col2}
-                        >
-                          <span> {item.repo_name} </span>
-                        </p>
-                        <p
-                          style={{ fontWeight: `${i === 0 && 700}` }}
-                          className={styles.col3}
-                        >
-                          {item.last_2nd_period_total}{" "}
-                          {/* <span className={styles.increase}>
-                    {item.last_period_total >
-                      item.last_2nd_period_total && (
-                      <span>
-                        {(
-                          (item.last_2nd_period_total /
-                            item.last_period_total) *
-                          100
-                        ).toFixed(2)}
-                        % I
-                      </span>
-                    )}
-                  </span> */}
-                        </p>
-                      </div>
-                    ))}
+                        {i + 1}
+                      </p>
+                      <p
+                        style={{ fontWeight: `${i === 0 && 700}` }}
+                        className={styles.col2}
+                      >
+                        <span> {item.name} </span>
+                      </p>
+                      <p
+                        style={{ fontWeight: `${i === 0 && 700}` }}
+                        className={styles.col3}
+                      >
+                        {item.githubStars}{" "}
+                      </p>
+                    </div>
+                  ))}
+
+                  {!tools && <ErrorComponent message={"no data to show"} />}
                 </div>
               </div>
             ) : (
