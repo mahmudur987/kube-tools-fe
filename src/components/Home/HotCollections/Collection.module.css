@@ -31,6 +31,7 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  margin: 0 auto;
 }
 .header h1 {
   color: var(--Background-color-white, #fff);
