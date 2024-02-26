@@ -12,7 +12,6 @@
   margin: 0 auto;
   display: flex;
   height: 100px;
-  padding: 27px 414px 28px 120px;
   align-items: center;
   gap: 181px;
   background: var(--Background-color-white, #fff);
@@ -20,7 +19,10 @@
 }
 
 .leftItems {
+  max-width: 500px;
+  width: 100%;
   display: flex;
+  justify-content: center;
   gap: 36px;
 }
 
@@ -61,6 +63,7 @@
   background: none;
 }
 .searchInput {
+  width: 100%;
   background: none;
   outline: none;
   border: none;

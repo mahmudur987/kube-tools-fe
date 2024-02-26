@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
+import { posttools } from "@/utils/ToolsData";
+import { toolsData } from "@/Data/data";
 
 const Navbar = () => {
   const [showMobilemenu, setShoeMobilemenu] = useState(false);
@@ -90,6 +92,7 @@ const Navbar = () => {
                 stroke-linejoin="round"
               />
             </svg>
+            <input className={styles.searchInput} type="text" />
           </p>
         </div>
 

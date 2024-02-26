@@ -232,6 +232,8 @@
   text-align: center;
 }
 .col2 {
+  text-decoration: none;
+  color: black;
   flex-grow: 1;
   display: flex;
   justify-content: start;

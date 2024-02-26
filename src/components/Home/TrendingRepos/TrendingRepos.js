@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./TrendingRepo.module.css";
-
 import ErrorComponent from "../MyError/Error";
-import { categories, toolsData } from "@/Data/data";
+import { useGetCategories, useGetToolsByCategory } from "@/utils/ToolsData";
+import LoadingSpinner from "@/components/Common/LoadingSpiner/LoadingSpiner";
 
 const options = [
   {
@@ -26,15 +26,17 @@ const options = [
 ];
 
 const TrendingRepos = () => {
-  const collections = categories;
   const [period, setPeriod] = useState("past_24_hours");
+  const [rowsPerPage, setRowsPerPage] = useState(20);
+  const categoriesQuery = useGetCategories();
+  const [collectionId, setCollectionId] = useState(
+    categoriesQuery?.data?.data?.[0]?._id
+  );
 
-  const [rowsPerPage, setrowsPerPage] = useState(20);
+  const toolsQuery = useGetToolsByCategory(
+    collectionId ? collectionId : categoriesQuery?.data?.data?.[0]?._id
+  );
 
-  const [collectionId, setCollectionId] = useState(collections[0].id);
-
-  const tools = toolsData.find((x) => x.category.id === collectionId)?.tools;
-  console.log(tools);
   return (
     <section className={styles.containerWrapper}>
       <div className={styles.mainContainer}>
@@ -67,7 +69,7 @@ const TrendingRepos = () => {
                     className={styles.collectionselect}
                   >
                     <option>Collections</option>
-                    {collections?.map((item, i) => {
+                    {categoriesQuery?.data?.data?.map((item, i) => {
                       return (
                         <option
                           value={item.id}
@@ -77,9 +79,9 @@ const TrendingRepos = () => {
                             }`,
                           }}
                           onClick={() => setCollectionId(item.id)}
-                          key={item.id}
+                          key={item._id}
                         >
-                          {item.name}
+                          {item?.category}
                         </option>
                       );
                     })}
@@ -98,21 +100,23 @@ const TrendingRepos = () => {
                 </select>
               </div>
             </header>
-
-            {collections.length > 0 ? (
+            {categoriesQuery.isLoading && <LoadingSpinner />}
+            {categoriesQuery.data && (
               <div className={styles.contentBottom}>
                 <div className={styles.contentleft}>
                   <h3>Collections</h3>
-                  {collections?.map((item, i) => {
+                  {categoriesQuery?.data?.data?.map((item, i) => {
                     return (
                       <p
                         style={{
-                          color: `${item.id === collectionId ? "#6d45f1" : ""}`,
+                          color: `${
+                            item._id === collectionId ? "#6d45f1" : ""
+                          }`,
                         }}
-                        onClick={() => setCollectionId(item.id)}
-                        key={item.id}
+                        onClick={() => setCollectionId(item._id)}
+                        key={item._id}
                       >
-                        {item.name}
+                        {item.category}
                       </p>
                     );
                   })}
@@ -125,39 +129,60 @@ const TrendingRepos = () => {
                     </h4>
                     <h4 className={styles.col3}>Score </h4>
                   </div>
+                  {toolsQuery.isLoading && <LoadingSpinner />}
+                  {toolsQuery.data &&
+                    toolsQuery?.data?.data?.tools.length > 0 &&
+                    toolsQuery?.data?.data?.tools
+                      ?.slice(0, rowsPerPage)
+                      .map((item, i) => (
+                        <div
+                          key={i}
+                          className={styles.row2}
+                          style={{ fontWeight: `${i === 0 && 700}` }}
+                        >
+                          <p
+                            style={{ fontWeight: `${i === 0 && 700}` }}
+                            className={styles.col1}
+                          >
+                            {i + 1}
+                          </p>
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ fontWeight: `${i === 0 && 700}` }}
+                            className={styles.col2}
+                          >
+                            <span> {item.name} </span>
+                          </a>
+                          <p
+                            style={{ fontWeight: `${i === 0 && 700}` }}
+                            className={styles.col3}
+                          >
+                            {item.githubStars}{" "}
+                          </p>
+                        </div>
+                      ))}
 
-                  {tools?.slice(0, rowsPerPage).map((item, i) => (
-                    <div
-                      key={i}
-                      className={styles.row2}
-                      style={{ fontWeight: `${i === 0 && 700}` }}
-                    >
-                      <p
-                        style={{ fontWeight: `${i === 0 && 700}` }}
-                        className={styles.col1}
-                      >
-                        {i + 1}
-                      </p>
-                      <p
-                        style={{ fontWeight: `${i === 0 && 700}` }}
-                        className={styles.col2}
-                      >
-                        <span> {item.name} </span>
-                      </p>
-                      <p
-                        style={{ fontWeight: `${i === 0 && 700}` }}
-                        className={styles.col3}
-                      >
-                        {item.githubStars}{" "}
-                      </p>
-                    </div>
-                  ))}
-
-                  {!tools && <ErrorComponent message={"no data to show"} />}
+                  {toolsQuery.isError && (
+                    <ErrorComponent message={"no data to show"} />
+                  )}
+                  {!toolsQuery.isError &&
+                    toolsQuery?.data?.data?.tools.length === 0 && (
+                      <ErrorComponent message={"no data to show"} />
+                    )}
                 </div>
               </div>
-            ) : (
-              <ErrorComponent message={"No data to show"} />
+            )}
+
+            {categoriesQuery.isError && (
+              <ErrorComponent
+                message={
+                  categoriesQuery.isError
+                    ? categoriesQuery.error.message
+                    : "data not found"
+                }
+              />
             )}
           </div>
         </div>
