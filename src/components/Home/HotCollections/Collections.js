@@ -1,16 +1,16 @@
 "use client";
-
 import React, { useRef } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import styles from "./Collection.module.css";
 import ErrorComponent from "../MyError/Error";
-import { toolsData } from "@/Data/data";
 import ToolCategoryCard from "./ToolCategoryCard/ToolCategoryCard";
+import { useGetTools } from "@/utils/ToolsData";
+import LoadingSpinner from "@/components/Common/LoadingSpiner/LoadingSpiner";
 
 export default function Collections() {
-  const data = toolsData;
+  const { data, isLoading, isError, error } = useGetTools();
   const sliderRef = useRef(null);
   const settings = {
     dots: false,
@@ -57,12 +57,21 @@ export default function Collections() {
   const previous = () => {
     sliderRef.current.slickPrev();
   };
+
+  console.log(data);
+
   return (
     <>
       <section className={styles.container}>
-        {data ? (
+        {isLoading && (
+          <p className={styles.spinerContainer}>
+            <LoadingSpinner />
+          </p>
+        )}
+
+        {data && (
           <Slider ref={sliderRef} {...settings}>
-            {data.map((category) => (
+            {data?.data.map((category) => (
               <ToolCategoryCard
                 key={category.category.id}
                 category={category.category}
@@ -70,8 +79,12 @@ export default function Collections() {
               />
             ))}
           </Slider>
-        ) : (
-          <ErrorComponent message={"No data to show"} />
+        )}
+
+        {isError && (
+          <ErrorComponent
+            message={isError ? error.message : "No data to show"}
+          />
         )}
         <div className={styles.btnWrapper}>
           <button className={styles.leftbtn} onClick={previous} type="button">

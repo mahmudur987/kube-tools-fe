@@ -45,3 +45,12 @@ export const useGetToolsByCategory = (id) => {
     },
   });
 };
+export const useGetTools = () => {
+  return useQuery({
+    queryKey: ["tools"],
+    queryFn: async () => {
+      const { data } = await Axios.get(`/tools`);
+      return data;
+    },
+  });
+};

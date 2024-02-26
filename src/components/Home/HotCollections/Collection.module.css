@@ -78,6 +78,10 @@
   width: 24px;
   height: 24px;
 }
+.spinerContainer {
+  display: inline;
+  background-color: white;
+}
 @media only screen and (max-width: 700px) {
   .header h1 {
     font-size: 20px;
