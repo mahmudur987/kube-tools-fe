@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import Axios from "./Axios";
 
 export const posttools = async (data) => {
@@ -54,3 +54,39 @@ export const useGetTools = () => {
     },
   });
 };
+
+export const useAddToolInCategory = () => {
+  return useMutation({
+    mutationFn: async ({ data, id }) => {
+      console.log(data, id);
+      const response = await Axios.post(`addnewtool/${id}`, data);
+      return response.data;
+    },
+  });
+};
+
+export const useUpdatetool = () => {
+  return useMutation({
+    mutationFn: async ({ data, categoryid, toolid }) => {
+      console.log(data, categoryid, toolid);
+      const response = await Axios.patch(
+        `updatetool/${categoryid}/${toolid}`,
+        data
+      );
+      return response.data;
+    },
+  });
+};
+
+export const useAddcategory = () => {
+  return useMutation({
+    mutationFn: async ({ data }) => {
+      const response = await Axios.post(`/tool`, data);
+      console.log(response);
+      return response.data;
+    },
+  });
+};
+
+// /editCategory
+// serviceId, mainCategoryId, newCategoryName

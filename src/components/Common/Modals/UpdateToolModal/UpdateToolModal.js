@@ -1,26 +1,51 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./UpdateToolModal.module.css";
+import { useGetTools, useUpdatetool } from "@/utils/ToolsData";
+import toast from "react-hot-toast";
 
-const UpdateToolModal = ({ isOpen, onClose, tool }) => {
+const UpdateToolModal = ({ isOpen, onClose, tool, categoryid }) => {
   const [name, setName] = useState(tool?.name);
   const [description, setDescription] = useState(tool?.description);
   const [link, setLink] = useState(tool?.link);
   const [githubStars, setGithubStars] = useState(tool?.githubStars);
+  const { mutate: updatetool } = useUpdatetool();
+  const { refetch } = useGetTools();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = { name, description, link, githubStars };
-    console.log(data);
-    setName("");
-    setDescription("");
-    setLink("");
-    setGithubStars("");
-
-    // onClose();
+    console.log(categoryid, tool._id);
+    const id = tool._id;
+    updatetool(
+      { data, categoryid, toolid: tool._id },
+      {
+        onSuccess: (data) => {
+          toast.success(data.message ? data.message : "update successfully", {
+            id: 1,
+          });
+          onClose();
+          refetch();
+        },
+        onError: (err) => {
+          toast.error(err ? err.message : "Error to update", { id: 2 });
+          console.error(err);
+        },
+      }
+    );
   };
-  console.log(tool);
+
+  useEffect(() => {
+    if (tool) {
+      const { name, description, link, githubStars } = tool;
+      setName(name);
+      setDescription(description);
+      setLink(link);
+      setGithubStars(githubStars);
+    }
+  }, [tool]);
+
   if (!isOpen) return null;
 
   return (

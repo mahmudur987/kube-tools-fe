@@ -1,6 +1,7 @@
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import Providers from "./ReactQuery";
+import { Toaster } from "react-hot-toast";
 
 const inter = DM_Sans({
   weight: ["400", "700"],
@@ -24,7 +25,11 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+
+          <Toaster />
+        </Providers>
       </body>
     </html>
   );

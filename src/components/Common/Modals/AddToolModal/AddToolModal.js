@@ -2,23 +2,40 @@
 
 import { useState } from "react";
 import styles from "./AddToolModal.module.css";
+import { useAddToolInCategory, useGetTools } from "../../../../utils/ToolsData";
+import toast from "react-hot-toast";
 
-const AddToolModal = ({ isOpen, onClose }) => {
+const AddToolModal = ({ isOpen, setAddToolModal, id }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [link, setLink] = useState("");
   const [githubStars, setGithubStars] = useState("");
+  const { mutate: addtool } = useAddToolInCategory();
+  const { refetch } = useGetTools();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const data = { name, description, link, githubStars };
-    console.log(data);
-    setName("");
-    setDescription("");
-    setLink("");
-    setGithubStars("");
+    addtool(
+      { data, id },
+      {
+        onSuccess: (data, isError, error) => {
+          toast.success("a neww tool added ", { id: 1 });
+          setName("");
+          setDescription("");
+          setLink("");
+          setGithubStars("");
+          refetch();
+          setAddToolModal(false);
+          console.log(data);
+        },
+        onError: (error) => {
+          toast.error("Error Happen ", { id: 1 });
 
-    // onClose();
+          console.error("Error", error);
+        },
+      }
+    );
   };
 
   if (!isOpen) return null;
@@ -26,7 +43,10 @@ const AddToolModal = ({ isOpen, onClose }) => {
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>
-        <button className={styles.closeButton} onClick={onClose}>
+        <button
+          className={styles.closeButton}
+          onClick={() => setAddToolModal(false)}
+        >
           x
         </button>
         <h2>Add New Tool</h2>

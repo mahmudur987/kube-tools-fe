@@ -7,15 +7,33 @@ import { AiTwotoneDelete } from "react-icons/ai";
 import styles from "./dashboard.module.css";
 import SingleTool from "@/components/Dashboard/SingleTool";
 import AddToolModal from "@/components/Common/Modals/AddToolModal/AddToolModal";
-const Dashboard = () => {
-  const { data, isLoading, isError, error } = useGetTools();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [addToolModal, setAddToolModal] = useState(false);
+import AddCategoryModal from "@/components/Common/Modals/AddCategoryModal/AddCategoryModal";
+import Axios from "@/utils/Axios";
+import toast from "react-hot-toast";
+// ... (imports)
 
-  const handleCloseModal = () => {
-    setAddToolModal(false);
-    setIsModalOpen(false);
+const Dashboard = () => {
+  const { data, isLoading, isError, error, refetch } = useGetTools();
+  const [addToolModal, setAddToolModal] = useState(false);
+  const [addCategoryModal, setAddCategoryModal] = useState(false);
+  const [categoryId, setCategoryId] = useState("");
+
+  const handleDeleteCategory = async (id) => {
+    try {
+      const { data } = await Axios.delete(`/deletecategory/${id}`);
+      toast.success(data.message ? data.message : "Deleted successfully", {
+        id: 1,
+      });
+      refetch();
+    } catch (error) {
+      toast.error(error ? error.message : "An error occurred", { id: 1 });
+    }
   };
+
+  const handleUpdateCategory = (id) => {
+    console.log(id);
+  };
+
   return (
     <div>
       {isLoading && <LoadingSpinner />}
@@ -24,14 +42,23 @@ const Dashboard = () => {
       {data && (
         <div className={styles.containerWrapper}>
           <div className={styles.addcategory}>
-            <button>Add Category</button>
+            <button onClick={() => setAddCategoryModal(true)}>
+              Add Category
+            </button>
           </div>
 
           {data?.data?.map((category) => (
             <div key={category._id} className={styles.container}>
               <h2>{category.category.name}</h2>
               <div className={styles.categoryActions}>
-                <button onClick={() => setAddToolModal(true)}>Add Tool</button>
+                <button
+                  onClick={() => {
+                    setAddToolModal(true);
+                    setCategoryId(category._id);
+                  }}
+                >
+                  Add Tool
+                </button>
                 <button onClick={() => handleUpdateCategory(category._id)}>
                   Update Category
                 </button>
@@ -49,14 +76,22 @@ const Dashboard = () => {
                     <th>Actions</th>
                   </tr>
                 </thead>
+                {/* Render tools using SingleTool component */}
                 <SingleTool category={category} />
               </table>
             </div>
           ))}
         </div>
       )}
-
-      <AddToolModal isOpen={addToolModal} onClose={handleCloseModal} />
+      <AddToolModal
+        isOpen={addToolModal}
+        setAddToolModal={setAddToolModal}
+        id={categoryId}
+      />
+      <AddCategoryModal
+        isOpen={addCategoryModal}
+        setAddCategoryModal={setAddCategoryModal}
+      />
     </div>
   );
 };
