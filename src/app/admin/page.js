@@ -10,14 +10,16 @@ import AddToolModal from "@/components/Common/Modals/AddToolModal/AddToolModal";
 import AddCategoryModal from "@/components/Common/Modals/AddCategoryModal/AddCategoryModal";
 import Axios from "@/utils/Axios";
 import toast from "react-hot-toast";
+import UpdateCategory from "@/components/Common/Modals/UpdateCategoryModal/UpdateCategoryModal";
 // ... (imports)
 
 const Dashboard = () => {
   const { data, isLoading, isError, error, refetch } = useGetTools();
   const [addToolModal, setAddToolModal] = useState(false);
   const [addCategoryModal, setAddCategoryModal] = useState(false);
+  const [updateCategoryModal, setUpdateCategoryModal] = useState(false);
   const [categoryId, setCategoryId] = useState("");
-
+  const [category, setCategory] = useState("");
   const handleDeleteCategory = async (id) => {
     try {
       const { data } = await Axios.delete(`/deletecategory/${id}`);
@@ -31,7 +33,8 @@ const Dashboard = () => {
   };
 
   const handleUpdateCategory = (id) => {
-    console.log(id);
+    setUpdateCategoryModal(true);
+    setCategory(id);
   };
 
   return (
@@ -59,7 +62,7 @@ const Dashboard = () => {
                 >
                   Add Tool
                 </button>
-                <button onClick={() => handleUpdateCategory(category._id)}>
+                <button onClick={() => handleUpdateCategory(category)}>
                   Update Category
                 </button>
                 <button onClick={() => handleDeleteCategory(category._id)}>
@@ -91,6 +94,11 @@ const Dashboard = () => {
       <AddCategoryModal
         isOpen={addCategoryModal}
         setAddCategoryModal={setAddCategoryModal}
+      />
+      <UpdateCategory
+        isOpen={updateCategoryModal}
+        setUpdateCategoryModal={setUpdateCategoryModal}
+        category={category}
       />
     </div>
   );

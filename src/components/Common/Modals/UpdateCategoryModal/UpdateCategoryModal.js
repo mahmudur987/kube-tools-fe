@@ -1,71 +1,69 @@
-// UpdateCategoryModal.js
+// AddCategoryModal.js
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./UpdateCategoryModal.module.css";
+import { useAddcategory, useGetTools } from "@/utils/ToolsData";
+import toast from "react-hot-toast";
+import Axios from "@/utils/Axios";
 
-const UpdateCategoryModal = ({ isOpen, onClose, onAddTool }) => {
+const UpdateCategory = ({ isOpen, setUpdateCategoryModal, category }) => {
   const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [link, setLink] = useState("");
-  const [githubStars, setGithubStars] = useState("");
 
-  const handleSubmit = (e) => {
+  const { refetch } = useGetTools();
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validate form data
-    // Call onAddTool function to add the tool
-    onAddTool({ name, description, link, githubStars });
-    // Clear form fields
-    setName("");
-    setDescription("");
-    setLink("");
-    setGithubStars("");
-    // Close modal
-    onClose();
+    const update = {
+      name: name,
+    };
+    try {
+      const { data } = await Axios.patch(
+        `updateCategory/${category._id}`,
+        update
+      );
+      toast.success(data ? data.message : "update successfully", { id: 1 });
+      setUpdateCategoryModal(false);
+      refetch();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+      toast.error(error ? error.message : "Error Happen", { id: 2 });
+    }
   };
+  useEffect(() => {
+    setName(category.category.name);
+  }, [category]);
 
   if (!isOpen) return null;
 
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>
-        <button className={styles.closeButton} onClick={onClose}>
+        <button
+          className={styles.closeButton}
+          onClick={() => setUpdateCategoryModal(false)}
+        >
           Close
         </button>
-        <h2>Add New Tool</h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-          <input
-            type="text"
-            placeholder="Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
-          <input
-            type="text"
-            placeholder="Link"
-            value={link}
-            onChange={(e) => setLink(e.target.value)}
-            required
-          />
-          <input
-            type="number"
-            placeholder="GitHub Stars"
-            value={githubStars}
-            onChange={(e) => setGithubStars(e.target.value)}
-            required
-          />
-          <button type="submit">Add Tool</button>
+        <h2>Update Category</h2>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <div className={styles.fromControl}>
+            <label htmlFor="">Category Name</label>
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className={styles.buttonWrapper}>
+            <button type="submit">Update</button>
+          </div>
         </form>
       </div>
     </div>
   );
 };
 
-export default UpdateCategoryModal;
+export default UpdateCategory;
