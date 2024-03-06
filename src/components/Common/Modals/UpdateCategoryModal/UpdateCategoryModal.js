@@ -30,7 +30,7 @@ const UpdateCategory = ({ isOpen, setUpdateCategoryModal, category }) => {
     }
   };
   useEffect(() => {
-    setName(category.category.name);
+    setName(category?.category?.name);
   }, [category]);
 
   if (!isOpen) return null;

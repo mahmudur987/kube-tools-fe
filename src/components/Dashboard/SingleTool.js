@@ -23,9 +23,6 @@ const SingleTool = ({ category }) => {
     setUpdateToolModal(false);
   };
   const handleDeletetool = async (id) => {
-    console.log(id);
-    console.log(category._id);
-
     try {
       const { data } = await Axios.delete(`/deletetool/${category._id}/${id}`);
       toast.success(data.message ? data.message : "Deleted successfully", {
