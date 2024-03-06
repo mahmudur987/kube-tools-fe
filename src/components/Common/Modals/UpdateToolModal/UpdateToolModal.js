@@ -1,67 +1,80 @@
-// UpdateToolModal.js
+"use client";
 
 import { useState } from "react";
-import styles from "./UpdateToolModal.css";
+import styles from "./UpdateToolModal.module.css";
 
-const UpdateToolModal = ({ isOpen, onClose, onAddTool }) => {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [link, setLink] = useState("");
-  const [githubStars, setGithubStars] = useState("");
+const UpdateToolModal = ({ isOpen, onClose, tool }) => {
+  const [name, setName] = useState(tool?.name);
+  const [description, setDescription] = useState(tool?.description);
+  const [link, setLink] = useState(tool?.link);
+  const [githubStars, setGithubStars] = useState(tool?.githubStars);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Validate form data
-    // Call onAddTool function to add the tool
-    onAddTool({ name, description, link, githubStars });
-    // Clear form fields
+    const data = { name, description, link, githubStars };
+    console.log(data);
     setName("");
     setDescription("");
     setLink("");
     setGithubStars("");
-    // Close modal
-    onClose();
-  };
 
+    // onClose();
+  };
+  console.log(tool);
   if (!isOpen) return null;
 
   return (
     <div className={styles.overlay}>
       <div className={styles.modal}>
         <button className={styles.closeButton} onClick={onClose}>
-          Close
+          x
         </button>
-        <h2>Add New Tool</h2>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-          <input
-            type="text"
-            placeholder="Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
-          <input
-            type="text"
-            placeholder="Link"
-            value={link}
-            onChange={(e) => setLink(e.target.value)}
-            required
-          />
-          <input
-            type="number"
-            placeholder="GitHub Stars"
-            value={githubStars}
-            onChange={(e) => setGithubStars(e.target.value)}
-            required
-          />
-          <button type="submit">Add Tool</button>
+        <h2>Update Tool</h2>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <div className={styles.fromControl}>
+            <label htmlFor="">Tool Name</label>
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.fromControl}>
+            <label htmlFor="">Description</label>
+            <input
+              type="text"
+              placeholder="Description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.fromControl}>
+            <label htmlFor="">Link</label>
+            <input
+              type="text"
+              placeholder="Link"
+              value={link}
+              onChange={(e) => setLink(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.fromControl}>
+            <label htmlFor="">GitHub Star</label>
+            <input
+              type="number"
+              placeholder="GitHub Stars"
+              value={githubStars}
+              onChange={(e) => setGithubStars(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className={styles.buttonWrapper}>
+            <button type="submit">Update Tool</button>
+          </div>
         </form>
       </div>
     </div>

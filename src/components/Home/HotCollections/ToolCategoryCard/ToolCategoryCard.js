@@ -3,9 +3,7 @@ import React from "react";
 import styles from "./ToolategoryCard.module.css"; // Import your CSS module
 
 const ToolCategoryCard = ({ category, tools }) => {
-  // Sort tools by githubStars in descending order
   const sortedTools = tools.sort((a, b) => b.githubStars - a.githubStars);
-  // Take the top 3 tools
   const topThreeTools = sortedTools.slice(0, 3);
 
   return (

@@ -96,6 +96,10 @@ const Navbar = () => {
           </p>
         </div>
 
+        <div className={styles.action}>
+          <button>Early access</button>
+        </div>
+
         <div className={styles.mobileContainer}>
           <p
             onClick={() => setShoeMobilemenu((pre) => !pre)}

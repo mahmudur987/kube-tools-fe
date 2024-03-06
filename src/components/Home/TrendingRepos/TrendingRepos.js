@@ -8,25 +8,27 @@ import LoadingSpinner from "@/components/Common/LoadingSpiner/LoadingSpiner";
 
 const options = [
   {
-    key: "past_24_hours",
-    title: "Past 24 hours",
-  },
-  {
-    key: "past_week",
-    title: "Past week",
+    key: "past_3_months",
+    title: "Past 3 months",
   },
   {
     key: "past_month",
     title: "Past month",
   },
   {
-    key: "past_3_months",
-    title: "Past 3 months",
+    key: "past_week",
+    title: "Past week",
+  },
+
+  {
+    key: "past_24_hours",
+    title: "Past 24 hours",
   },
 ];
 
 const TrendingRepos = () => {
-  const [period, setPeriod] = useState("past_24_hours");
+  const [period, setPeriod] = useState(options[0].key);
+  const [tools, setTools] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const categoriesQuery = useGetCategories();
   const [collectionId, setCollectionId] = useState(
@@ -36,7 +38,63 @@ const TrendingRepos = () => {
   const toolsQuery = useGetToolsByCategory(
     collectionId ? collectionId : categoriesQuery?.data?.data?.[0]?._id
   );
+  console.log(period);
+  useEffect(() => {
+    const data = toolsQuery?.data?.data?.tools;
 
+    setTools(data);
+
+    const currentDate = new Date(); // Current date and time
+
+    if (data && period === "past_24_hours") {
+      const filteredDataPast24Hours = data?.filter((item) => {
+        const publishDate = new Date(item.publishDate);
+        const timeDifference = currentDate.getTime() - publishDate.getTime();
+        const hoursDifference = timeDifference / (1000 * 60 * 60); // Convert milliseconds to hours
+        return hoursDifference <= 24;
+      });
+      setTools(filteredDataPast24Hours);
+    }
+    if (data && period === "past_week") {
+      const filteredDataPastWeek = data.filter((item) => {
+        const publishDate = new Date(item.publishDate);
+        const timeDifference = currentDate.getTime() - publishDate.getTime();
+        const daysDifference = timeDifference / (1000 * 60 * 60 * 24); // Convert milliseconds to days
+
+        return daysDifference <= 7; // Filter items published in the last 7 days
+      });
+      setTools(filteredDataPastWeek);
+    }
+    if (data && period === "past_month") {
+      const filteredDataPastMonth = data?.filter((item) => {
+        const publishDate = new Date(item.publishDate);
+        const timeDifference = currentDate.getTime() - publishDate.getTime();
+        const daysDifference = timeDifference / (1000 * 60 * 60 * 24); // Convert milliseconds to days
+
+        return daysDifference <= 30;
+      });
+
+      setTools(filteredDataPastMonth);
+    }
+
+    if (data && period === "past_3_months") {
+      const filteredDataPast3Months = data?.filter((item) => {
+        const publishDate = new Date(item.publishDate);
+        const timeDifference = currentDate.getTime() - publishDate.getTime();
+        const daysDifference = timeDifference / (1000 * 60 * 60 * 24); // Convert milliseconds to days
+
+        return daysDifference <= 90;
+      });
+
+      setTools(filteredDataPast3Months);
+    }
+
+    // console.log("Filtered Data Past 24 Hours:", filteredDataPast24Hours);
+    // console.log("Filtered Data Past Week:", filteredDataPastWeek);
+    // console.log("Filtered Data Past Month:", filteredDataPastMonth);
+    // console.log("Filtered Data Past 3 Months:", filteredDataPast3Months);
+  }, [toolsQuery, period]);
+  console.log(tools);
   return (
     <section className={styles.containerWrapper}>
       <div className={styles.mainContainer}>
@@ -129,11 +187,12 @@ const TrendingRepos = () => {
                     </h4>
                     <h4 className={styles.col3}>Score </h4>
                   </div>
-                  {toolsQuery.isLoading && <LoadingSpinner />}
-                  {toolsQuery.data &&
+                  {toolsQuery?.isLoading && <LoadingSpinner />}
+                  {toolsQuery?.data &&
                     toolsQuery?.data?.data?.tools.length > 0 &&
-                    toolsQuery?.data?.data?.tools
+                    tools
                       ?.slice(0, rowsPerPage)
+                      .sort((a, b) => b.githubStars - a.githubStars)
                       .map((item, i) => (
                         <div
                           key={i}

@@ -5,15 +5,17 @@ import { useGetTools } from "@/utils/ToolsData";
 import React, { useState } from "react";
 import { AiTwotoneDelete } from "react-icons/ai";
 import styles from "./dashboard.module.css";
+import SingleTool from "@/components/Dashboard/SingleTool";
+import AddToolModal from "@/components/Common/Modals/AddToolModal/AddToolModal";
 const Dashboard = () => {
   const { data, isLoading, isError, error } = useGetTools();
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [addToolModal, setAddToolModal] = useState(false);
 
-  const handleCategoryClick = (categoryId) => {
-    setSelectedCategory(categoryId);
+  const handleCloseModal = () => {
+    setAddToolModal(false);
+    setIsModalOpen(false);
   };
-  console.log(data);
-
   return (
     <div>
       {isLoading && <LoadingSpinner />}
@@ -29,9 +31,7 @@ const Dashboard = () => {
             <div key={category._id} className={styles.container}>
               <h2>{category.category.name}</h2>
               <div className={styles.categoryActions}>
-                <button onClick={() => handleAddTool(category._id)}>
-                  Add Tool
-                </button>
+                <button onClick={() => setAddToolModal(true)}>Add Tool</button>
                 <button onClick={() => handleUpdateCategory(category._id)}>
                   Update Category
                 </button>
@@ -49,38 +49,14 @@ const Dashboard = () => {
                     <th>Actions</th>
                   </tr>
                 </thead>
-                <tbody>
-                  {category.tools.map((tool) => (
-                    <tr key={tool._id}>
-                      <td>{tool.name}</td>
-                      <td>{tool.description}</td>
-                      <td>
-                        <a
-                          className={styles.link}
-                          href={tool.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {tool.link}
-                        </a>
-                      </td>
-                      <td>{tool.githubStars}</td>
-                      <td className={styles.tdAction}>
-                        <button onClick={() => handleUpdateTool(tool)}>
-                          Update
-                        </button>
-                        <span onClick={() => handleDeleteTool(tool)}>
-                          <AiTwotoneDelete />
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
+                <SingleTool category={category} />
               </table>
             </div>
           ))}
         </div>
       )}
+
+      <AddToolModal isOpen={addToolModal} onClose={handleCloseModal} />
     </div>
   );
 };
