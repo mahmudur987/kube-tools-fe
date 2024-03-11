@@ -2,18 +2,72 @@
 
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
-import { posttools } from "@/utils/ToolsData";
-import { toolsData } from "@/Data/data";
+import { FaAngleRight } from "react-icons/fa";
+import Link from "next/link";
 
-const Navbar = () => {
+const Navbar = ({ scrollToSection }) => {
   const [showMobilemenu, setShoeMobilemenu] = useState(false);
-
+  const [showMenu, setshowMenu] = useState(false);
   return (
     <section className={styles.mainContainer}>
       <div className={styles.navbar}>
         <div className={styles.leftItems}>
           <nav className={styles.navItem}>
-            <span>Collection</span>
+            <div className={styles.dropdown}>
+              <p>Collection</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+              >
+                <path
+                  d="M5 8L10 13L15 8"
+                  stroke="#6D45F1"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div
+                onMouseEnter={() => setshowMenu(true)}
+                onMouseLeave={() => setshowMenu(false)}
+                className={styles.subDropdown}
+              >
+                <p>
+                  <span>Products</span>
+
+                  <span>
+                    <FaAngleRight />
+                  </span>
+                </p>
+
+                {showMenu && (
+                  <ol className={styles.dropDownMenu}>
+                    <li>
+                      <Link href="#">Ranking Engine</Link>
+                    </li>
+                    <li>
+                      <Link href="#">Kubetools Gpt</Link>
+                    </li>
+                    <li>
+                      <Link href="#">Sandboxes</Link>
+                    </li>
+                    <li>
+                      <Link href="#">Services</Link>
+                    </li>
+                    <li>
+                      <Link href="#">Consulting</Link>
+                    </li>
+                  </ol>
+                )}
+              </div>
+            </div>
+          </nav>
+          <nav className={styles.navItem}>
+            <span onClick={() => scrollToSection("blog")}>Blog</span>
+
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -31,7 +85,7 @@ const Navbar = () => {
             </svg>
           </nav>
           <nav className={styles.navItem}>
-            <span>Blog</span>
+            <span>Community</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -49,7 +103,25 @@ const Navbar = () => {
             </svg>
           </nav>
           <nav className={styles.navItem}>
-            <span>More</span>
+            <span>Events</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="21"
+              viewBox="0 0 20 21"
+              fill="none"
+            >
+              <path
+                d="M5 8L10 13L15 8"
+                stroke="#6D45F1"
+                stroke-width="1.66667"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </nav>
+          <nav className={styles.navItem}>
+            <span onClick={() => scrollToSection("footer")}>Contact us</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -148,7 +220,61 @@ const Navbar = () => {
       {showMobilemenu && (
         <div className={styles.mobileMenu}>
           <nav className={styles.navItem}>
-            <span>Collection</span>
+            <div className={styles.dropdown}>
+              <p>Collection</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+              >
+                <path
+                  d="M5 8L10 13L15 8"
+                  stroke="#6D45F1"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div
+                onMouseEnter={() => setshowMenu(true)}
+                onMouseLeave={() => setshowMenu(false)}
+                className={styles.subDropdown}
+              >
+                <p>
+                  <span>Products</span>
+
+                  <span>
+                    <FaAngleRight />
+                  </span>
+                </p>
+
+                {showMenu && (
+                  <ol className={styles.dropDownMenu}>
+                    <li>
+                      <Link href="#">Ranking Engine</Link>
+                    </li>
+                    <li>
+                      <Link href="#">Kubetools Gpt</Link>
+                    </li>
+                    <li>
+                      <Link href="#">Sandboxes</Link>
+                    </li>
+                    <li>
+                      <Link href="#">Services</Link>
+                    </li>
+                    <li>
+                      <Link href="#">Consulting</Link>
+                    </li>
+                  </ol>
+                )}
+              </div>
+            </div>
+          </nav>
+          <nav className={styles.navItem}>
+            <span onClick={() => scrollToSection("blog")}>Blog</span>
+
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -166,7 +292,7 @@ const Navbar = () => {
             </svg>
           </nav>
           <nav className={styles.navItem}>
-            <span>Blog</span>
+            <span>Community</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -184,7 +310,25 @@ const Navbar = () => {
             </svg>
           </nav>
           <nav className={styles.navItem}>
-            <span>More</span>
+            <span>Events</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="21"
+              viewBox="0 0 20 21"
+              fill="none"
+            >
+              <path
+                d="M5 8L10 13L15 8"
+                stroke="#6D45F1"
+                stroke-width="1.66667"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </nav>
+          <nav className={styles.navItem}>
+            <span>Contact us</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

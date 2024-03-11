@@ -58,8 +58,6 @@ export default function Collections() {
     sliderRef.current.slickPrev();
   };
 
-  console.log(data);
-
   return (
     <>
       <section className={styles.container}>

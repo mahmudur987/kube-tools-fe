@@ -38,7 +38,7 @@ const TrendingRepos = () => {
   const toolsQuery = useGetToolsByCategory(
     collectionId ? collectionId : categoriesQuery?.data?.data?.[0]?._id
   );
-  console.log(period);
+
   useEffect(() => {
     const data = toolsQuery?.data?.data?.tools;
 
@@ -94,12 +94,12 @@ const TrendingRepos = () => {
     // console.log("Filtered Data Past Month:", filteredDataPastMonth);
     // console.log("Filtered Data Past 3 Months:", filteredDataPast3Months);
   }, [toolsQuery, period]);
-  console.log(tools);
+
   return (
     <section className={styles.containerWrapper}>
       <div className={styles.mainContainer}>
         <div className={styles.container}>
-          <h1 className={styles.heading}>Trending Repos</h1>
+          <h1 className={styles.heading}>Trending Tools</h1>
           <p className={styles.description}>
             The following table ranks repositories using three metrics: stars,
             pull requests, and issues. The table compares last 28 days or the

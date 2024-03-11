@@ -85,7 +85,7 @@ const Blog = () => {
   };
 
   return (
-    <main className={styles.containerWrapper}>
+    <main id="blog" className={styles.containerWrapper}>
       <section className={styles.maincontainer}>
         <div className={styles.container}>
           <header className={styles.header}>

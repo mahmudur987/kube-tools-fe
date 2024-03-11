@@ -15,11 +15,16 @@ export default function Home() {
     /* Additional styles */
   `;
   const queryClient = new QueryClient();
-
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <QueryClientProvider client={queryClient}>
       <main className={styles.main} css={inter}>
-        <Navbar />
+        <Navbar scrollToSection={scrollToSection} />
         <Banner />
         <TrendingRepos />
         <CollectionsSection />

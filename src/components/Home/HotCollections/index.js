@@ -8,7 +8,7 @@ export function CollectionsSection() {
       <div className={styles.containerWrapper}>
         <div className={styles.container}>
           <header className={styles.header}>
-            <h1>Hot Collection</h1>
+            <h1>KubeTool Ranking engine</h1>
             <p>
               The following table ranks repositories using three metrics: stars,
               pull requests, and issues. The table compares last 28 days or the
