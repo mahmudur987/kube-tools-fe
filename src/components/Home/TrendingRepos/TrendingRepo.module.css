@@ -195,6 +195,15 @@
   letter-spacing: -0.64px;
   text-align: start;
 }
+.categoryItem {
+  padding: 5px;
+  border-radius: 10px;
+}
+.categoryItem:hover {
+  background-color: rgb(205, 230, 238);
+  padding: 5px;
+  border-radius: 10px;
+}
 .contentRight {
   width: 100%;
   display: flex;

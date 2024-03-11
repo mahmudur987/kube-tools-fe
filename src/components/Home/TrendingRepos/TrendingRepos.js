@@ -166,9 +166,12 @@ const TrendingRepos = () => {
                   {categoriesQuery?.data?.data?.map((item, i) => {
                     return (
                       <p
+                        className={styles.categoryItem}
                         style={{
-                          color: `${
-                            item._id === collectionId ? "#6d45f1" : ""
+                          backgroundColor: `${
+                            item._id === collectionId
+                              ? "rgb(205, 230, 238)"
+                              : ""
                           }`,
                         }}
                         onClick={() => setCollectionId(item._id)}
