@@ -21,6 +21,7 @@ export default function Home() {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <QueryClientProvider client={queryClient}>
       <main className={styles.main} css={inter}>

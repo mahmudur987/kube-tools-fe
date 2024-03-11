@@ -38,7 +38,7 @@ const Blog = () => {
     return () => {
       window.removeEventListener("resize", updateWindowWidth);
     };
-  }, []);
+  }, [""]);
   const sliderRef = useRef(null);
 
   const settings = {

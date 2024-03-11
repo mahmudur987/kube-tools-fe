@@ -34,16 +34,12 @@ const TrendingRepos = () => {
   const [collectionId, setCollectionId] = useState(
     categoriesQuery?.data?.data?.[0]?._id
   );
-
   const toolsQuery = useGetToolsByCategory(
     collectionId ? collectionId : categoriesQuery?.data?.data?.[0]?._id
   );
-
   useEffect(() => {
     const data = toolsQuery?.data?.data?.tools;
-
     setTools(data);
-
     const currentDate = new Date(); // Current date and time
 
     if (data && period === "past_24_hours") {
@@ -81,19 +77,14 @@ const TrendingRepos = () => {
       const filteredDataPast3Months = data?.filter((item) => {
         const publishDate = new Date(item.publishDate);
         const timeDifference = currentDate.getTime() - publishDate.getTime();
-        const daysDifference = timeDifference / (1000 * 60 * 60 * 24); // Convert milliseconds to days
+        const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
 
         return daysDifference <= 90;
       });
 
       setTools(filteredDataPast3Months);
     }
-
-    // console.log("Filtered Data Past 24 Hours:", filteredDataPast24Hours);
-    // console.log("Filtered Data Past Week:", filteredDataPastWeek);
-    // console.log("Filtered Data Past Month:", filteredDataPastMonth);
-    // console.log("Filtered Data Past 3 Months:", filteredDataPast3Months);
-  }, [toolsQuery, period]);
+  }, [toolsQuery, period, tools]);
 
   return (
     <section className={styles.containerWrapper}>
@@ -149,7 +140,7 @@ const TrendingRepos = () => {
               <div className={styles.hedingItems}>
                 <span>Row per page</span>
                 <select
-                  onChange={(e) => setrowsPerPage(e.target.value)}
+                  onChange={(e) => setRowsPerPage(e.target.value)}
                   className={styles.select2}
                 >
                   <option value={20}>20</option>

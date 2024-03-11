@@ -12,7 +12,7 @@ const Navbar = ({ scrollToSection }) => {
     <section className={styles.mainContainer}>
       <div className={styles.navbar}>
         <div className={styles.leftItems}>
-          <nav className={styles.navItem}>
+          <div className={styles.navItem}>
             <div className={styles.dropdown}>
               <p>Collection</p>
               <svg
@@ -64,7 +64,7 @@ const Navbar = ({ scrollToSection }) => {
                 )}
               </div>
             </div>
-          </nav>
+          </div>
           <nav className={styles.navItem}>
             <span onClick={() => scrollToSection("blog")}>Blog</span>
 
@@ -219,7 +219,7 @@ const Navbar = ({ scrollToSection }) => {
 
       {showMobilemenu && (
         <div className={styles.mobileMenu}>
-          <nav className={styles.navItem}>
+          <div className={styles.navItem}>
             <div className={styles.dropdown}>
               <p>Collection</p>
               <svg
@@ -271,7 +271,7 @@ const Navbar = ({ scrollToSection }) => {
                 )}
               </div>
             </div>
-          </nav>
+          </div>
           <nav className={styles.navItem}>
             <span onClick={() => scrollToSection("blog")}>Blog</span>
 
