@@ -24,12 +24,12 @@
   align-items: flex-start;
   gap: 24px;
   border-radius: 24px;
-  background: var(--Background-color-white, #fff);
+  background: #fff;
   text-align: center;
 }
 .heading {
   width: 100%;
-  color: var(--text-dark-gray, #101010);
+  color: #101010;
   font-family: DM Sans;
   font-size: 30px;
   font-style: normal;
@@ -39,7 +39,7 @@
 }
 .description {
   width: 100%;
-  color: var(--text-dark-gray, #101010);
+  color: #101010;
   font-family: DM Sans;
   font-size: 18px;
   font-style: normal;
@@ -63,7 +63,7 @@
   gap: 10px;
   color: #101010;
   align-items: center;
-  color: var(--text-dark-gray, #101010);
+  color: #101010;
   font-family: "DM Sans";
   font-size: 12px;
   font-style: normal;
@@ -76,7 +76,7 @@
   gap: 10px;
   color: #101010;
   align-items: center;
-  color: var(--text-dark-gray, #101010);
+  color: #101010;
   font-family: "DM Sans";
   font-size: 13px;
   font-style: normal;
@@ -126,7 +126,7 @@
   align-items: center;
   border-radius: 4px;
   border: none;
-  color: var(--Primary-color, #6d45f1);
+  color: #6d45f1;
   font-family: "DM Sans";
   font-style: normal;
   font-weight: 500;
@@ -172,7 +172,7 @@
   cursor: pointer;
 }
 .contentleft h3 {
-  color: var(--Primary-color, #6d45f1);
+  color: #6d45f1;
   font-family: DM Sans;
   font-size: 16px;
   font-style: normal;
@@ -181,7 +181,7 @@
   letter-spacing: -0.64px;
 }
 .contentleft p {
-  color: var(--text-dark-gray, #101010);
+  color: #101010;
   font-family: DM Sans;
   font-size: 16px;
   font-style: normal;
@@ -217,7 +217,7 @@
   padding-bottom: 5px;
 }
 .row1 h4 {
-  color: var(--text-dark-gray, #101010);
+  color: #101010;
   font-family: DM Sans;
   font-size: 20px;
   font-style: normal;
@@ -226,7 +226,7 @@
   letter-spacing: -0.8px;
 }
 .row2 p {
-  color: var(--text-dark-gray, #101010);
+  color: #101010;
   font-family: DM Sans;
   font-size: 18px;
   font-style: normal;
