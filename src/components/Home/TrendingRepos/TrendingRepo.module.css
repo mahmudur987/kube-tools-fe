@@ -1,12 +1,7 @@
 .containerWrapper {
+  flex-grow: 1;
   width: 100%;
   height: 100%;
-  background-image: url("../../../assets/images/bg-3.png");
-  background-attachment: fixed;
-  /* backdrop-filter: blur(4px); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: 1;
 }
 
 .mainContainer {
@@ -166,7 +161,7 @@
 .contentBottom {
   width: 100%;
   display: flex;
-  gap: 63px;
+  gap: 80px;
 }
 .contentleft {
   max-width: 160px;
@@ -215,8 +210,12 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  gap: 50px;
 }
-
+.row2 {
+  border-bottom: 1px solid rgb(240, 223, 223);
+  padding-bottom: 5px;
+}
 .row1 h4 {
   color: var(--text-dark-gray, #101010);
   font-family: DM Sans;
@@ -237,7 +236,9 @@
 }
 
 .col1 {
-  width: 15%;
+  max-width: 50px;
+  width: 100%;
+
   text-align: center;
 }
 .col2 {
@@ -247,10 +248,14 @@
   display: flex;
   justify-content: start;
   text-align: start;
+  gap: 20px;
 }
-.col2 span {
-  max-width: 400px;
-  width: 100%;
+.new {
+  background-color: red;
+  color: #fff;
+  border-radius: 10px;
+  padding: 2px;
+  font-size: 14px;
 }
 .col3 {
   width: 20%;

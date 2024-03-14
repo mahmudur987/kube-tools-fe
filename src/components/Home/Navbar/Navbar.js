@@ -2,19 +2,17 @@
 
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
-import { FaAngleRight } from "react-icons/fa";
 import Link from "next/link";
 
 const Navbar = ({ scrollToSection }) => {
   const [showMobilemenu, setShoeMobilemenu] = useState(false);
-  const [showMenu, setshowMenu] = useState(false);
   return (
     <section className={styles.mainContainer}>
       <div className={styles.navbar}>
         <div className={styles.leftItems}>
           <div className={styles.navItem}>
             <div className={styles.dropdown}>
-              <p>Collection</p>
+              <p>Product</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -30,44 +28,29 @@ const Navbar = ({ scrollToSection }) => {
                   stroke-linejoin="round"
                 />
               </svg>
-              <div
-                onMouseEnter={() => setshowMenu(true)}
-                onMouseLeave={() => setshowMenu(false)}
-                className={styles.subDropdown}
-              >
-                <p>
-                  <span>Products</span>
-
-                  <span>
-                    <FaAngleRight />
-                  </span>
-                </p>
-
-                {showMenu && (
-                  <ol className={styles.dropDownMenu}>
-                    <li>
-                      <Link href="#">Ranking Engine</Link>
-                    </li>
-                    <li>
-                      <Link href="#">Kubetools Gpt</Link>
-                    </li>
-                    <li>
-                      <Link href="#">Sandboxes</Link>
-                    </li>
-                    <li>
-                      <Link href="#">Services</Link>
-                    </li>
-                    <li>
-                      <Link href="#">Consulting</Link>
-                    </li>
-                  </ol>
-                )}
+              <div className={styles.subDropdown}>
+                <ol className={styles.dropDownMenu}>
+                  <li>
+                    <Link href="/newpage">Ranking Engine</Link>
+                  </li>
+                  <li>
+                    <Link href="/newpage">Kubetools Gpt</Link>
+                  </li>
+                  <li>
+                    <Link href="/newpage">Sandboxes</Link>
+                  </li>
+                  <li>
+                    <Link href="/newpage">Services</Link>
+                  </li>
+                  <li>
+                    <Link href="/newpage">Consulting</Link>
+                  </li>
+                </ol>
               </div>
             </div>
           </div>
           <nav className={styles.navItem}>
             <span onClick={() => scrollToSection("blog")}>Blog</span>
-
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -85,7 +68,7 @@ const Navbar = ({ scrollToSection }) => {
             </svg>
           </nav>
           <nav className={styles.navItem}>
-            <span>Community</span>
+            <a href="/newpage">Community</a>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -102,8 +85,8 @@ const Navbar = ({ scrollToSection }) => {
               />
             </svg>
           </nav>
-          <nav className={styles.navItem}>
-            <span>Events</span>
+          <p className={styles.navItem}>
+            <Link href={"/newpage"}>Events</Link>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -119,7 +102,7 @@ const Navbar = ({ scrollToSection }) => {
                 stroke-linejoin="round"
               />
             </svg>
-          </nav>
+          </p>
           <nav className={styles.navItem}>
             <span onClick={() => scrollToSection("footer")}>Contact us</span>
             <svg
@@ -237,38 +220,24 @@ const Navbar = ({ scrollToSection }) => {
                   stroke-linejoin="round"
                 />
               </svg>
-              <div
-                onMouseEnter={() => setshowMenu(true)}
-                onMouseLeave={() => setshowMenu(false)}
-                className={styles.subDropdown}
-              >
-                <p>
-                  <span>Products</span>
-
-                  <span>
-                    <FaAngleRight />
-                  </span>
-                </p>
-
-                {showMenu && (
-                  <ol className={styles.dropDownMenu}>
-                    <li>
-                      <Link href="#">Ranking Engine</Link>
-                    </li>
-                    <li>
-                      <Link href="#">Kubetools Gpt</Link>
-                    </li>
-                    <li>
-                      <Link href="#">Sandboxes</Link>
-                    </li>
-                    <li>
-                      <Link href="#">Services</Link>
-                    </li>
-                    <li>
-                      <Link href="#">Consulting</Link>
-                    </li>
-                  </ol>
-                )}
+              <div className={styles.subDropdown}>
+                <ol className={styles.dropDownMenu}>
+                  <li>
+                    <Link href="#">Ranking Engine</Link>
+                  </li>
+                  <li>
+                    <Link href="#">Kubetools Gpt</Link>
+                  </li>
+                  <li>
+                    <Link href="#">Sandboxes</Link>
+                  </li>
+                  <li>
+                    <Link href="#">Services</Link>
+                  </li>
+                  <li>
+                    <Link href="#">Consulting</Link>
+                  </li>
+                </ol>
               </div>
             </div>
           </div>

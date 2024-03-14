@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.css";
+import NewsletterBox from "@/components/Common/NewsLetterBox/NewsletterBox";
 const Footer = () => {
   return (
     <footer id="footer" className={styles.footer}>
@@ -16,27 +17,26 @@ const Footer = () => {
               <div className={styles.contents}>
                 {/* cols-1 */}
                 <div className={styles.cols}>
-                  <h4>Company</h4>
-                  <p>About us</p>
-                  <p>Policy</p>
-                  <p>Events</p>
-                  <p>Careerr</p>
-                  <p>Blog</p>
-                  <p>Contact us</p>
-                </div>
-                {/* cols-2 */}
-                <div className={styles.cols}>
                   <h4>Product</h4>
                   <p>Recommender system</p>
 
                   <p>Contact us</p>
                 </div>
+                {/* cols-2 */}
+                <div className={styles.cols}>
+                  <h4 className={styles.blog}>Blog</h4>
+                  <NewsletterBox />
+                </div>
                 {/* cols-3 */}
                 <div className={styles.cols}>
-                  <h4>Resources</h4>
+                  <h4>Company</h4>
                   <p>About us</p>
+
                   <p>Policy</p>
+                  <p>Events</p>
                   <p>Careerr</p>
+
+                  <p>Contact us</p>
                 </div>
                 {/* cols-4 */}
                 <div className={styles.cols}>

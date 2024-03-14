@@ -1,0 +1,46 @@
+/* LeftBanner.module.css */
+.containerWrapper {
+  max-width: 300px;
+  width: 100%;
+  height: 100%;
+}
+.container {
+  background-color: white;
+  max-width: 300px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 20px;
+}
+.banner {
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.banner img {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.bannerdescription {
+  flex: 1;
+}
+
+.banner-description p {
+  margin-bottom: 10px;
+}
+
+.banner-description a {
+  color: blue;
+}

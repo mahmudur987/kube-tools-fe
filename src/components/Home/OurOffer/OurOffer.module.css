@@ -130,6 +130,7 @@
   gap: 10px;
 }
 .cardBottom a {
+  text-decoration: none;
   color: var(--Primary-color, #6d45f1);
   font-family: "DM Sans";
   font-size: 16px;

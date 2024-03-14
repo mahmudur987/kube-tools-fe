@@ -27,8 +27,9 @@ const options = [
 ];
 
 const TrendingRepos = () => {
-  const [period, setPeriod] = useState(options[0].key);
+  const [period, setPeriod] = useState(options[0]?.key);
   const [tools, setTools] = useState([]);
+  const [filteredTools, setFilteredTools] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const categoriesQuery = useGetCategories();
   const [collectionId, setCollectionId] = useState(
@@ -37,65 +38,67 @@ const TrendingRepos = () => {
   const toolsQuery = useGetToolsByCategory(
     collectionId ? collectionId : categoriesQuery?.data?.data?.[0]?._id
   );
+
   useEffect(() => {
     const data = toolsQuery?.data?.data?.tools;
     setTools(data);
-    const currentDate = new Date(); // Current date and time
+  }, [toolsQuery]);
 
-    if (data && period === "past_24_hours") {
-      const filteredDataPast24Hours = data?.filter((item) => {
-        const publishDate = new Date(item.publishDate);
-        const timeDifference = currentDate.getTime() - publishDate.getTime();
-        const hoursDifference = timeDifference / (1000 * 60 * 60); // Convert milliseconds to hours
-        return hoursDifference <= 24;
-      });
-      setTools(filteredDataPast24Hours);
+  useEffect(() => {
+    const currentDate = new Date();
+
+    if (tools?.length > 0) {
+      let filteredData = tools;
+
+      switch (period) {
+        case "past_24_hours":
+          filteredData = tools.filter((item) => {
+            const publishDate = new Date(item.publishDate);
+            const hoursDifference =
+              (currentDate - publishDate) / (1000 * 60 * 60);
+            return hoursDifference <= 24;
+          });
+          break;
+        case "past_week":
+          filteredData = tools.filter((item) => {
+            const publishDate = new Date(item.publishDate);
+            const daysDifference =
+              (currentDate - publishDate) / (1000 * 60 * 60 * 24);
+            return daysDifference <= 7;
+          });
+          break;
+        case "past_month":
+          filteredData = tools.filter((item) => {
+            const publishDate = new Date(item.publishDate);
+            const daysDifference =
+              (currentDate - publishDate) / (1000 * 60 * 60 * 24);
+            return daysDifference <= 30;
+          });
+          break;
+        case "past_3_months":
+          filteredData = tools.filter((item) => {
+            const publishDate = new Date(item.publishDate);
+            const daysDifference =
+              (currentDate - publishDate) / (1000 * 60 * 60 * 24);
+            return daysDifference <= 90;
+          });
+          break;
+        default:
+          break;
+      }
+
+      setFilteredTools(filteredData);
     }
-    if (data && period === "past_week") {
-      const filteredDataPastWeek = data.filter((item) => {
-        const publishDate = new Date(item.publishDate);
-        const timeDifference = currentDate.getTime() - publishDate.getTime();
-        const daysDifference = timeDifference / (1000 * 60 * 60 * 24); // Convert milliseconds to days
-
-        return daysDifference <= 7; // Filter items published in the last 7 days
-      });
-      setTools(filteredDataPastWeek);
-    }
-    if (data && period === "past_month") {
-      const filteredDataPastMonth = data?.filter((item) => {
-        const publishDate = new Date(item.publishDate);
-        const timeDifference = currentDate.getTime() - publishDate.getTime();
-        const daysDifference = timeDifference / (1000 * 60 * 60 * 24); // Convert milliseconds to days
-
-        return daysDifference <= 30;
-      });
-
-      setTools(filteredDataPastMonth);
-    }
-
-    if (data && period === "past_3_months") {
-      const filteredDataPast3Months = data?.filter((item) => {
-        const publishDate = new Date(item.publishDate);
-        const timeDifference = currentDate.getTime() - publishDate.getTime();
-        const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
-
-        return daysDifference <= 90;
-      });
-
-      setTools(filteredDataPast3Months);
-    }
-  }, [toolsQuery, period, tools]);
-
+  }, [period, tools]);
+  console.log(filteredTools);
   return (
     <section className={styles.containerWrapper}>
       <div className={styles.mainContainer}>
         <div className={styles.container}>
           <h1 className={styles.heading}>Trending Tools</h1>
           <p className={styles.description}>
-            The following table ranks repositories using three metrics: stars,
-            pull requests, and issues. The table compares last 28 days or the
-            most recent two months of data and indicates whether repositories
-            are moving up or down the rankings.
+            The Kubetools ranks Kubernetes tools according to their popularity .
+            The ranking is updated monthly as of now .
           </p>
 
           <div className={styles.content}>
@@ -143,9 +146,9 @@ const TrendingRepos = () => {
                   onChange={(e) => setRowsPerPage(e.target.value)}
                   className={styles.select2}
                 >
+                  <option value={5}>5</option>
+                  <option value={10}>10</option>
                   <option value={20}>20</option>
-                  <option value={50}>50</option>
-                  <option value={100}>100</option>
                 </select>
               </div>
             </header>
@@ -153,7 +156,7 @@ const TrendingRepos = () => {
             {categoriesQuery.data && (
               <div className={styles.contentBottom}>
                 <div className={styles.contentleft}>
-                  <h3>Collections</h3>
+                  <h3>Select a category </h3>
                   {categoriesQuery?.data?.data?.map((item, i) => {
                     return (
                       <p
@@ -184,7 +187,7 @@ const TrendingRepos = () => {
                   {toolsQuery?.isLoading && <LoadingSpinner />}
                   {toolsQuery?.data &&
                     toolsQuery?.data?.data?.tools.length > 0 &&
-                    tools
+                    filteredTools
                       ?.slice(0, rowsPerPage)
                       .sort((a, b) => b.githubStars - a.githubStars)
                       .map((item, i) => (
@@ -207,6 +210,13 @@ const TrendingRepos = () => {
                             className={styles.col2}
                           >
                             <span> {item.name} </span>
+                            {(new Date() - new Date(item.publishDate)) /
+                              (1000 * 60 * 60 * 24) <
+                            7 ? (
+                              <span className={styles.new}>new</span>
+                            ) : (
+                              ""
+                            )}
                           </a>
                           <p
                             style={{ fontWeight: `${i === 0 && 700}` }}

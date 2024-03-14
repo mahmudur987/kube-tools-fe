@@ -16,7 +16,7 @@ const offersData = [
     title: "Kubetools Recommender System",
     description:
       "A Comprehensive Community-driven ranking and catalog of the Kubernetes tools ",
-    bottomText: "Optimize with Top Tools            ",
+    bottomText: "Read More ",
   },
 
   {
@@ -25,7 +25,7 @@ const offersData = [
     title: "Kubetools Sandbox",
     description:
       "Hands-on Learning & Interactive Kubernetes Tools Playground instances on-the-fly.",
-    bottomText: "Learn Kubernetes - Start Now!      ",
+    bottomText: "Read More    ",
   },
 
   {
@@ -34,7 +34,7 @@ const offersData = [
     title: "Kubetools GPT",
     description:
       "A Comprehensive Community-driven ranking and catalog of the Kubernetes tools.      ",
-    bottomText: "Upgrade with Kubetools GPT",
+    bottomText: "Read More",
   },
 ];
 
@@ -131,7 +131,7 @@ const OurOffer = () => {
                   </div>
 
                   <p className={styles.cardBottom}>
-                    <Link href={"/"}> {data.bottomText} </Link>
+                    <Link href={"/newpage"}> {data.bottomText} </Link>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"

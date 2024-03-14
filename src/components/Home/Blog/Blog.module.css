@@ -61,8 +61,6 @@
 }
 
 .sliderContents {
-  max-width: 1440px;
-  width: 100%;
   padding: 0px 30px;
 }
 .contents {
@@ -74,9 +72,10 @@
 }
 
 .content {
-  width: 546px;
+  max-width: 546px;
   width: 100%;
-  min-height: 305px;
+  min-height: 405px;
+  height: 100%;
   margin: 0px 20px;
 }
 
@@ -153,7 +152,7 @@
   justify-content: center;
   gap: 10px;
 }
-.cardBottom span {
+.cardBottom a {
   display: flex;
   padding: 10px 16px 10px 0px;
   justify-content: center;
@@ -170,7 +169,7 @@
   display: flex;
   justify-content: end;
   gap: 20px;
-  margin-right: 20px;
+  padding-right: 80px;
 }
 .leftbtn,
 .rightbtn {

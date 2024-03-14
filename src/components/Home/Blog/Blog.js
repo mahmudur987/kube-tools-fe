@@ -10,20 +10,21 @@ const offersData = [
     id: 1,
     description:
       "Top 5 Kubernetes Backup and Storage Solutions: Velero and More",
+    link: "https://www.kubetools.io/top-5-kubernetes-backup-and-storage-solutions-velero-and-more/",
   },
 
   {
     id: 2,
 
-    description:
-      "Top 5 Kubernetes Backup and Storage Solutions: Velero and More",
+    description: "k0smotron: Revolutionizing Kubernetes Cluster Management",
+    link: "https://www.kubetools.io/k0smotron-revolutionizing-kubernetes-cluster-management-2/",
   },
 
   {
     id: 3,
     title: "Kubetools GPT",
-    description:
-      "Top 5 Kubernetes Backup and Storage Solutions: Velero and More ",
+    description: "Top 5 Storage Provider Tools for Kubernetes",
+    link: "https://www.kubetools.io/top-5-storage-provider-tools-for-kubernetes/",
   },
 ];
 
@@ -49,9 +50,10 @@ const Blog = () => {
     arrows: false,
     centerMode: true,
     centerPadding: "50",
+    adaptiveHeight: true,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1300,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 3,
@@ -60,18 +62,13 @@ const Blog = () => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 900,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "0px",
         },
       },
     ],
@@ -98,9 +95,12 @@ const Blog = () => {
             </p>
           </header>
 
-          {windowWidth > 500 ? (
+          {windowWidth > 620 ? (
             <div>
-              <div className={styles.sliderContents}>
+              <div
+                className={styles.sliderContents}
+                style={{ maxWidth: window.innerWidth, width: "95%" }}
+              >
                 <Slider ref={sliderRef} {...settings}>
                   {offersData.map((data) => (
                     <div key={data.id} className={styles.content}>
@@ -118,7 +118,7 @@ const Blog = () => {
                         </div>
 
                         <p className={styles.cardBottom}>
-                          <span> Read more</span>
+                          <a href={data.link}> Read more</a>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -225,7 +225,7 @@ const Blog = () => {
                     </div>
 
                     <p className={styles.cardBottom}>
-                      <Link href={"/"}> Read more</Link>
+                      <a href={data.link}> Read more</a>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"
