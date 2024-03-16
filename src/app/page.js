@@ -15,7 +15,7 @@ import img1 from "../assets/images/company1.jpg";
 import img2 from "../assets/images/company2.jpg";
 import img3 from "../assets/images/company3.jpg";
 
-const data = [
+export const data = [
   {
     id: 1,
     index: 0,

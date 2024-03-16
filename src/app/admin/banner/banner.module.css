@@ -1,20 +1,41 @@
 /* LeftBanner.module.css */
 .containerWrapper {
-  max-width: 300px;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px 10px;
 }
+/* styles.module.css */
+.btnWrapper {
+  display: flex;
+  justify-content: end;
+}
+.button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
 .container {
-  background-color: white;
-  max-width: 300px;
   width: 100%;
   padding: 20px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: nowrap;
   gap: 10px;
   border-radius: 20px;
 }
 .banner {
+  background-color: white;
   max-width: 300px;
   width: 100%;
   display: flex;
@@ -23,10 +44,9 @@
   align-items: center;
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 20px;
 }
-
 .banner img {
   width: 100px;
   height: 100px;
@@ -43,9 +63,4 @@
 
 .banner-description a {
   color: blue;
-}
-@media only screen and (max-width: 800px) {
-  .containerWrapper {
-    display: none;
-  }
 }

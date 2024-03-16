@@ -1,6 +1,7 @@
 /* style.module.css */
 .containerWrapper {
   padding: 20px;
+  color: black;
 }
 .container {
   width: 100%;
