@@ -103,7 +103,7 @@ const TrendingRepos = () => {
 
           <div className={styles.content}>
             <header className={styles.contentHeading}>
-              <div className={styles.hedingItems}>
+              <div className={styles.headingItems}>
                 <div className={styles.twoSelects}>
                   <select
                     onChange={(e) => setPeriod(e.target.value)}
@@ -118,7 +118,7 @@ const TrendingRepos = () => {
 
                   <select
                     onChange={(e) => setCollectionId(e.target.value)}
-                    className={styles.collectionselect}
+                    className={styles.collectionSelect}
                   >
                     <option>Collections</option>
                     {categoriesQuery?.data?.data?.map((item, i) => {
@@ -140,7 +140,7 @@ const TrendingRepos = () => {
                   </select>
                 </div>
               </div>
-              <div className={styles.hedingItems}>
+              <div className={styles.headingItems}>
                 <span>Row per page</span>
                 <select
                   onChange={(e) => setRowsPerPage(e.target.value)}

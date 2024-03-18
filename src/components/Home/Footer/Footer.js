@@ -10,7 +10,7 @@ const Footer = () => {
             {/* left */}
             <div className={styles.footerLeft}>
               <h3>KUBETOOLS</h3>
-              <p>Subheading</p>
+              {/* <p>Subheading</p> */}
             </div>
             {/* right    */}
             <div className={styles.footerRight}>
@@ -18,9 +18,9 @@ const Footer = () => {
                 {/* cols-1 */}
                 <div className={styles.cols}>
                   <h4>Product</h4>
-                  <p>Recommender system</p>
+                  <p>Recommender System</p>
 
-                  <p>Contact us</p>
+                  <p>Contact Us</p>
                 </div>
                 {/* cols-2 */}
                 <div className={styles.cols}>
@@ -30,17 +30,17 @@ const Footer = () => {
                 {/* cols-3 */}
                 <div className={styles.cols}>
                   <h4>Company</h4>
-                  <p>About us</p>
+                  <p>About Us</p>
 
                   <p>Policy</p>
                   <p>Events</p>
-                  <p>Careerr</p>
+                  <p>Career</p>
 
-                  <p>Contact us</p>
+                  <p>Contact Us</p>
                 </div>
                 {/* cols-4 */}
                 <div className={styles.cols}>
-                  <h4>Follow us</h4>
+                  <h4>Follow Us</h4>
                   <p className={styles.socialMedia}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

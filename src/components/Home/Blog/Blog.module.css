@@ -2,11 +2,6 @@
 .containerWrapper {
   width: 100%;
   height: 100%;
-  background-image: url("../../../assets/images/bg-2.png");
-  background-attachment: fixed;
-  backdrop-filter: blur(4px);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 .maincontainer {
   width: 100%;
@@ -14,8 +9,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 40px;
-  background: rgba(109, 69, 241, 0.4);
+  margin: 20px 10px;
+  border-radius: 8px;
+  border: 1px solid rgb(241, 220, 220);
+  box-shadow: 2px 2px 10px 2px rgba(109, 69, 241, 0.5);
 }
 .container {
   max-width: 1440px;
@@ -41,7 +38,6 @@
 }
 
 .header h1 {
-  color: var(--Background-color-white, #fff);
   font-family: "DM Sans";
   font-size: 30px;
   font-style: normal;
@@ -50,7 +46,6 @@
   letter-spacing: -1.2px;
 }
 .header p {
-  color: var(--Background-color-white, #fff);
   text-align: start;
   font-family: "DM Sans";
   font-size: 18px;
@@ -174,7 +169,7 @@
 }
 .leftbtn,
 .rightbtn {
-  background: none;
+  background: black;
   border: none;
   width: 24px;
   height: 24px;

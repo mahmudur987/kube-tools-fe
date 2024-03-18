@@ -1,7 +1,4 @@
 .join {
-  background-image: url("../assets/images/bg-2.png");
-  background-attachment: fixed;
-  background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   padding: 20px;

@@ -1,14 +1,14 @@
 "use client";
-import React, { useState } from "react";
+
+import Link from "next/link";
 import styles from "./Banner.module.css";
-import Search from "../Search/Search";
 
 const Banner = () => {
-  const [showSearch, setShowSearch] = useState(false);
+  // const [showSearch, setShowSearch] = useState(false);
 
   return (
     <section className={styles.containerWrapper}>
-      <div className={styles.mainContiner}>
+      <div className={styles.mainContainer}>
         <div className={styles.container}>
           <p className={styles.topDescription}>
             Empowering Kubernetes Success with Premier Tools
@@ -19,8 +19,13 @@ const Banner = () => {
           <p className={styles.description}>
             Empowering DevOps Teams with GenAI-Powered Recommendations
           </p>
+          <div className={styles.action}>
+            <Link href={"/newpage"}>
+              <button>Early Access</button>
+            </Link>
+          </div>
 
-          <div className={styles.searchWrapper}>
+          {/* <div className={styles.searchWrapper}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -51,14 +56,14 @@ const Banner = () => {
               onClick={() => setShowSearch((pre) => !pre)}
               onBlur={() => setShowSearch((pre) => !pre)}
             />
-            {/* result */}
+    
 
             {showSearch && (
               <div className={styles.resultsContainer}>
                 <Search />
               </div>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

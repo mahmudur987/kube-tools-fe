@@ -12,8 +12,7 @@
   display: flex;
   height: 100px;
   align-items: center;
-  justify-content: space-between;
-  gap: 30px;
+  gap: 50px;
   background: var(--Background-color-white, #fff);
   color: black;
 }
@@ -144,19 +143,7 @@
   border: none;
   color: black;
 }
-.action {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.action button {
-  padding: 10px 16px 10px 16px;
-  border-radius: 8px;
-  border: 1px solid #6d45f1;
-  background: #6d45f1;
-  color: white;
-}
+
 .mobileContainer {
   display: none;
   position: relative;
@@ -201,9 +188,7 @@
     margin: 0;
     padding: 0;
   }
-  .action {
-    display: none;
-  }
+
   .searchInputWrapper {
     max-width: 250px;
     width: 100%;

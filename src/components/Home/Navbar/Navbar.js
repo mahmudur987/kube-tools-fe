@@ -5,7 +5,7 @@ import styles from "./Navbar.module.css";
 import Link from "next/link";
 
 const Navbar = ({ scrollToSection }) => {
-  const [showMobilemenu, setShoeMobilemenu] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   return (
     <section className={styles.mainContainer}>
       <div className={styles.navbar}>
@@ -104,7 +104,7 @@ const Navbar = ({ scrollToSection }) => {
             </svg>
           </p>
           <nav className={styles.navItem}>
-            <span onClick={() => scrollToSection("footer")}>Contact us</span>
+            <span onClick={() => scrollToSection("footer")}>Contact Us</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -151,13 +151,9 @@ const Navbar = ({ scrollToSection }) => {
           </p>
         </div>
 
-        <div className={styles.action}>
-          <button>Early access</button>
-        </div>
-
         <div className={styles.mobileContainer}>
           <p
-            onClick={() => setShoeMobilemenu((pre) => !pre)}
+            onClick={() => setShowMobileMenu((pre) => !pre)}
             className={styles.mobileHamBtn}
           >
             <svg
@@ -200,7 +196,7 @@ const Navbar = ({ scrollToSection }) => {
         </div>
       </div>
 
-      {showMobilemenu && (
+      {showMobileMenu && (
         <div className={styles.mobileMenu}>
           <div className={styles.navItem}>
             <div className={styles.dropdown}>
