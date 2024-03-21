@@ -90,7 +90,7 @@ const TrendingRepos = () => {
       setFilteredTools(filteredData);
     }
   }, [period, tools]);
-  console.log(filteredTools);
+
   return (
     <section className={styles.containerWrapper}>
       <div className={styles.mainContainer}>

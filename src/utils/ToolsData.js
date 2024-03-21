@@ -26,6 +26,7 @@ export const useGetCategories = () => {
     queryKey: ["/categories"],
     queryFn: async () => {
       const { data } = await Axios.get("/categories");
+
       return data;
     },
   });

@@ -8,6 +8,9 @@
   padding: 30px 10px;
 }
 /* styles.module.css */
+.container {
+  color: black;
+}
 .btnWrapper {
   display: flex;
   justify-content: end;
@@ -30,7 +33,7 @@
   padding: 20px;
   display: flex;
   justify-content: space-around;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 10px;
   border-radius: 20px;
 }
@@ -46,6 +49,7 @@
   border: 1px solid #ccc;
   border-radius: 15px;
   padding: 20px;
+  color: black;
 }
 .banner img {
   width: 100px;
@@ -61,6 +65,6 @@
   margin-bottom: 10px;
 }
 
-.banner-description a {
+.link {
   color: blue;
 }
