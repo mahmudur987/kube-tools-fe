@@ -1,6 +1,26 @@
+.main {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .join {
-  background-size: cover;
+  max-width: 1440px;
+  width: 100%;
   display: flex;
   padding: 20px;
-  gap: 20px;
+  gap: 50px;
+}
+.left {
+  width: 80%;
+  height: 100%;
+}
+.right {
+  width: 20%;
+  height: 100%;
+}
+@media only screen and (max-width: 1000px) {
+  .left {
+    width: 100%;
+  }
 }

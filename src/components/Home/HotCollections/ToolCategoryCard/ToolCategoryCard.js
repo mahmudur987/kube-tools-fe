@@ -15,7 +15,7 @@ const ToolCategoryCard = ({ category, tools }) => {
         {topThreeTools.map((tool, i) => (
           <li key={tool.id} className={styles.tool}>
             <span>{i + 1}</span>
-            <a href={tool.link} target="_blank" rel="noopener noreferrer">
+            <a href={tool.link} target="_blank">
               {tool.name}
             </a>
           </li>

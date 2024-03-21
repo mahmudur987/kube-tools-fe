@@ -1,5 +1,6 @@
 /* OuOffer.module.css */
 .containerWrapper {
+  max-width: 1100px;
   width: 100%;
   height: 100%;
 }
@@ -9,25 +10,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 10px;
+  margin: 20px 0px;
   border-radius: 8px;
   border: 1px solid rgb(241, 220, 220);
   box-shadow: 2px 2px 10px 2px rgba(109, 69, 241, 0.5);
 }
 .container {
-  max-width: 1440px;
   width: 100%;
-  min-height: 558px;
   padding: 40px 0px;
-  border-radius: 40px;
-  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
 }
 .header {
-  max-width: 1200px;
   width: 100%;
   min-height: 101px;
   text-align: center;
@@ -56,32 +52,29 @@
 }
 
 .sliderContents {
-  padding: 0px 30px;
-}
-.contents {
-  max-width: 1440px;
+  max-width: 1100px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
 .content {
-  max-width: 546px;
+  max-width: 400px;
   width: 100%;
-  min-height: 405px;
-  height: 100%;
-  margin: 0px 20px;
+  min-height: 200px;
 }
 
 .card {
+  max-width: 400px;
+  width: 100%;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
   align-items: flex-start;
-  padding: 40px;
-  margin: 20px;
+  padding: 20px;
+
   border-radius: 12px;
   border: 1px solid gray;
   background: var(--Background-color-black, #2b2b2b);
@@ -134,7 +127,7 @@
 .cardDescription {
   color: var(--Background-color-white, #fff);
   font-family: "DM Sans";
-  font-size: 24px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -162,19 +155,27 @@
   height: 24px;
 }
 .btnWrapper {
+  width: 90%;
   display: flex;
   justify-content: end;
+  align-items: center;
   gap: 20px;
-  padding-right: 80px;
 }
 .leftbtn,
 .rightbtn {
   background: black;
   border: none;
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  padding: 5px;
 }
-
+.contents {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 @media only screen and (max-width: 700px) {
   .maincontainer {
     padding: 20px;

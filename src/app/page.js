@@ -14,6 +14,7 @@ import LeftBanner from "@/components/Home/LeftBanner/LeftBanner";
 import img1 from "../assets/images/company1.jpg";
 import img2 from "../assets/images/company2.jpg";
 import img3 from "../assets/images/company3.jpg";
+import MiddleBanner from "@/components/Home/LeftBanner/MiddleBanner";
 
 export const data = [
   {
@@ -65,12 +66,19 @@ export default function Home() {
         <Navbar scrollToSection={scrollToSection} />
         <Banner />
         <div className={styles.join}>
-          <LeftBanner data={data} />
-          <TrendingRepos />
+          <div className={styles.left}>
+            <MiddleBanner />
+
+            <TrendingRepos />
+            <CollectionsSection />
+            <OurOffer />
+            <Blog />
+          </div>
+          <div className={styles.right}>
+            <LeftBanner data={data} />
+          </div>
         </div>
-        <CollectionsSection />
-        <OurOffer />
-        <Blog />
+
         <Footer />
       </main>
     </QueryClientProvider>

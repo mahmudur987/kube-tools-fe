@@ -6,13 +6,11 @@ export function CollectionsSection() {
   return (
     <section className={styles.mainContainer}>
       <div className={styles.containerWrapper}>
-        <div className={styles.container}>
-          <header className={styles.header}>
-            <h1>KubeTool Ranking engine</h1>
-          </header>
+        <header className={styles.header}>
+          <h1>KubeTool Ranking engine</h1>
+        </header>
 
-          <Collections />
-        </div>
+        <Collections />
       </div>
     </section>
   );

@@ -48,12 +48,16 @@ const Blog = () => {
     slidesToScroll: 1,
     speed: 2000,
     arrows: false,
+    dots: false,
     centerMode: true,
-    centerPadding: "50",
-    adaptiveHeight: true,
+    centerPadding: "0",
+    cssEase: "linear",
     responsive: [
       {
         breakpoint: 1300,
+        centerMode: true,
+        centerPadding: "50",
+        adaptiveHeight: true,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 3,
@@ -62,7 +66,18 @@ const Blog = () => {
         },
       },
       {
-        breakpoint: 900,
+        breakpoint: 1200,
+        centerMode: true,
+        adaptiveHeight: true,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1100,
+        centerMode: true,
+        adaptiveHeight: true,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -95,12 +110,9 @@ const Blog = () => {
             </p>
           </header>
 
-          {windowWidth > 620 ? (
-            <div>
-              <div
-                className={styles.sliderContents}
-                style={{ maxWidth: window.innerWidth, width: "95%" }}
-              >
+          {windowWidth > 1024 ? (
+            <>
+              <div className={styles.sliderContents}>
                 <Slider ref={sliderRef} {...settings}>
                   {offersData.map((data) => (
                     <div key={data.id} className={styles.content}>
@@ -206,7 +218,7 @@ const Blog = () => {
                   </svg>
                 </button>
               </div>
-            </div>
+            </>
           ) : (
             <div className={styles.contents}>
               {offersData.map((data) => (
