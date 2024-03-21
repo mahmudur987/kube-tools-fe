@@ -22,7 +22,7 @@ const LeftBanner = () => {
           !isLoading &&
           banner?.data.map((item) => (
             <div key={item.id} className={styles.banner}>
-              <Image
+              <img
                 width={200}
                 height={200}
                 src={item?.image}
