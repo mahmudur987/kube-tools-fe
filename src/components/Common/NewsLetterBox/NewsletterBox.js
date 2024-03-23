@@ -1,14 +1,41 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import styles from "./NewsletterBox.module.css";
+import toast from "react-hot-toast";
+import { postNewsLetter } from "@/utils/newsLetter";
 
 const NewsletterBox = () => {
+  const [email, setEmail] = useState("");
+  const handleSubmit = async () => {
+    if (!email) {
+      return toast.error("please write your email", { id: 1 });
+    }
+    console.log(email);
+    const Email = { email };
+    const { data, error } = await postNewsLetter(Email);
+
+    if (data) {
+      toast.success("thanks for subscribe", { id: 2 });
+      setEmail("");
+    } else if (error) {
+      toast.error("Error happen");
+    }
+  };
+
   return (
     <div className={styles.newsletterBox}>
       <h2>Subscribe to our Newsletter</h2>
       <p>Stay updated with our latest news and promotions.</p>
       <form className={styles.form}>
-        <input type="email" placeholder="Your email address" />
-        <button type="submit">Subscribe</button>
+        <input
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          value={email}
+          placeholder="Your email address"
+        />
+        <button type="button" onClick={handleSubmit}>
+          Subscribe
+        </button>
       </form>
     </div>
   );

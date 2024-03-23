@@ -79,7 +79,6 @@ const Dashboard = () => {
                     <th>Actions</th>
                   </tr>
                 </thead>
-                {/* Render tools using SingleTool component */}
                 <SingleTool category={category} />
               </table>
             </div>

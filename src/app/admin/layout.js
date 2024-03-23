@@ -1,39 +1,64 @@
 "use client";
-import Footer from "@/components/Home/Footer/Footer";
-import Navbar from "@/components/Home/Navbar/Navbar";
-import React, { useState } from "react";
+
+import React, { useEffect, useState } from "react";
 import styles from "./DrawerLayout.module.css";
 import Link from "next/link";
-const layout = ({ children }) => {
-  const [isDrawerOpen, setDrawerOpen] = useState(true);
+import { useRouter } from "next/navigation";
 
-  const toggleDrawer = () => {
-    setDrawerOpen(!isDrawerOpen);
+// Create a function to check token expiration
+function checkTokenExpiration() {
+  const expiration = localStorage.getItem("tokenExpiration");
+  if (expiration) {
+    const currentTime = new Date().getTime();
+    if (currentTime > parseInt(expiration)) {
+      // Token has expired, remove it
+      localStorage.removeItem("token");
+      localStorage.removeItem("tokenExpiration");
+    }
+  }
+}
+
+// Call this function when your application starts or when necessary
+const layout = ({ children }) => {
+  const router = useRouter();
+  const isToken = localStorage.getItem("token");
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    return router.push("/login");
   };
+  useEffect(() => {
+    checkTokenExpiration();
+  }, [isToken]);
+  if (!isToken) {
+    return router.push("/login");
+  }
 
   return (
     <main className={styles.mainContainer}>
-      <div className={`${styles.drawer} `}>
-        {isDrawerOpen && (
-          <div className={styles.drawerContent}>
-            <button className={styles.drawerToggle}>opendrawer</button>
-            <div className={styles.leftSide}>
-              <ul>
-                <li>
-                  <Link href={"/admin"}>Tools</Link>
-                </li>
-                <li>
-                  <Link href={"/admin/user"}>User</Link>
-                </li>
-                <li>
-                  <Link href={"/admin/banner"}>Banner</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        )}
-        <div className={styles.drawerSide}>{children}</div>
+      <div className={styles.drawerContent}>
+        <div className={styles.leftSide}>
+          <p>
+            <span>
+              <Link href={"/admin"}>Tools</Link>
+            </span>
+            <span>
+              <Link href={"/admin/user"}>User</Link>
+            </span>
+            <span>
+              <Link href={"/admin/banner"}>Banner</Link>
+            </span>
+            <span>
+              <Link href={"/admin/newsletter"}>News Letter</Link>
+            </span>
+            <span>
+              <button onClick={handleLogout}>Logout</button>
+            </span>
+          </p>
+        </div>
       </div>
+
+      <div className={styles.drawerSide}>{children}</div>
     </main>
   );
 };

@@ -77,3 +77,16 @@
 .categoryActions button:hover {
   background-color: #0056b3;
 }
+
+@media only screen and (max-width: 768px) {
+  .table th,
+  .table td {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .addcategory button,
+  .tdAction button,
+  .categoryActions button {
+    font-size: 16px; /* Adjust button font size for smaller screens */
+  }
+}

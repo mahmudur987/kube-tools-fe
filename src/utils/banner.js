@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery } from "react-query";
 import Axios from "./Axios";
 
 export const postBanner = async (banner) => {
@@ -11,7 +11,7 @@ export const postBanner = async (banner) => {
 };
 export const useGetAllBanner = () => {
   return useQuery({
-    queryKey: [""],
+    queryKey: ["banner"],
     queryFn: async () => {
       const { data } = await Axios.get("/banner");
       return data;
