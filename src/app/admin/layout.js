@@ -1,37 +1,52 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./DrawerLayout.module.css";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"; // Changed from next/navigation to next/router
 
 // Create a function to check token expiration
 function checkTokenExpiration() {
-  const expiration = localStorage.getItem("tokenExpiration");
-  if (expiration) {
-    const currentTime = new Date().getTime();
-    if (currentTime > parseInt(expiration)) {
-      // Token has expired, remove it
-      localStorage.removeItem("token");
-      localStorage.removeItem("tokenExpiration");
+  if (typeof window !== "undefined") {
+    // Check if localStorage is available
+    const expiration = localStorage.getItem("tokenExpiration");
+    if (expiration) {
+      const currentTime = new Date().getTime();
+      if (currentTime > parseInt(expiration)) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("tokenExpiration");
+      }
     }
   }
 }
 
 // Call this function when your application starts or when necessary
-const layout = ({ children }) => {
+const Layout = ({ children }) => {
   const router = useRouter();
-  const isToken = localStorage.getItem("token");
+  let isToken = null;
+
+  if (typeof window !== "undefined") {
+    isToken = localStorage.getItem("token");
+  }
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    return router.push("/login");
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("token");
+    }
+    router.push("/login");
   };
+
   useEffect(() => {
     checkTokenExpiration();
-  }, [isToken]);
+  }, []); // Empty dependency array to run only once after component mounts
+
   if (!isToken) {
-    return router.push("/login");
+    // Redirect to login page if there's no token
+    if (typeof window !== "undefined") {
+      // Check if localStorage is available
+      router.push("/login");
+    }
+    return null; // Return null to avoid rendering anything if redirecting
   }
 
   return (
@@ -63,4 +78,4 @@ const layout = ({ children }) => {
   );
 };
 
-export default layout;
+export default Layout;

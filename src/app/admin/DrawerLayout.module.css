@@ -24,9 +24,9 @@
 .leftSide span {
   background-color: gray;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 5px;
   color: white;
-  padding: 10px;
+  padding: 5px;
 }
 .leftSide a,
 .leftSide button {

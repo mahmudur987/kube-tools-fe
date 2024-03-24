@@ -24,8 +24,13 @@ const LoginForm = () => {
       const token = generateToken(32); // Generate token
       const expiration = new Date(); // Set expiration to one day from now
       expiration.setDate(expiration.getDate() + 1);
-      localStorage.setItem("token", token);
-      localStorage.setItem("tokenExpiration", expiration.getTime());
+
+      // Use localStorage conditionally
+      if (typeof window !== "undefined") {
+        localStorage.setItem("token", token);
+        localStorage.setItem("tokenExpiration", expiration.getTime());
+      }
+
       router.push("/admin");
     } else {
       setError("Invalid username or password");
