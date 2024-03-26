@@ -8,12 +8,13 @@ import Axios from "@/utils/Axios";
 
 const UpdateCategory = ({ isOpen, setUpdateCategoryModal, category }) => {
   const [name, setName] = useState("");
-
+  const [index, setIndex] = useState(0);
   const { refetch } = useGetTools();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const update = {
-      name: name,
+      name,
+      index,
     };
     try {
       const { data } = await Axios.patch(
@@ -31,6 +32,7 @@ const UpdateCategory = ({ isOpen, setUpdateCategoryModal, category }) => {
   };
   useEffect(() => {
     setName(category?.category?.name);
+    setIndex(category.index);
   }, [category]);
 
   if (!isOpen) return null;
@@ -42,10 +44,20 @@ const UpdateCategory = ({ isOpen, setUpdateCategoryModal, category }) => {
           className={styles.closeButton}
           onClick={() => setUpdateCategoryModal(false)}
         >
-          Close
+          x
         </button>
         <h2>Update Category</h2>
         <form className={styles.form} onSubmit={handleSubmit}>
+          <div className={styles.fromControl}>
+            <label htmlFor="">Category Index</label>
+            <input
+              type="text"
+              placeholder="Name"
+              value={index}
+              onChange={(e) => setIndex(e.target.value)}
+              required
+            />
+          </div>
           <div className={styles.fromControl}>
             <label htmlFor="">Category Name</label>
             <input

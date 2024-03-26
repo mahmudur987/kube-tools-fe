@@ -52,7 +52,10 @@ const Dashboard = () => {
 
           {data?.data?.map((category) => (
             <div key={category._id} className={styles.container}>
-              <h2>{category.category.name}</h2>
+              <h2>
+                {" "}
+                {category.index} {category.category.name}
+              </h2>
               <div className={styles.categoryActions}>
                 <button
                   onClick={() => {

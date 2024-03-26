@@ -6,6 +6,9 @@ import { useAddcategory, useGetTools } from "@/utils/ToolsData";
 import toast from "react-hot-toast";
 
 const AddCategoryModal = ({ isOpen, setAddCategoryModal }) => {
+  const { data: tools } = useGetTools();
+  // console.log();
+
   const [name, setName] = useState("");
   const { mutate: AddNewCategory } = useAddcategory();
   const { refetch } = useGetTools();
@@ -15,6 +18,8 @@ const AddCategoryModal = ({ isOpen, setAddCategoryModal }) => {
       category: {
         name: name,
       },
+      index: tools?.data?.length + 1,
+
       tools: [],
     };
     AddNewCategory(
