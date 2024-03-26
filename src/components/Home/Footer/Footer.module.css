@@ -2,11 +2,12 @@
 .footer {
   width: 100%;
   height: 100%;
-  background-image: url("../../../assets/images/bg-2.png");
-  background-attachment: fixed;
-  backdrop-filter: blur(4px);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: linear-gradient(
+    180deg,
+    rgba(117, 75, 255, 0.8) 2.7%,
+    #6d45f1 50.08%,
+    #6d45f1 50.08%
+  );
 }
 
 .mainContainer {

@@ -12,7 +12,7 @@ const Navbar = ({ scrollToSection }) => {
         <div className={styles.leftItems}>
           <div className={styles.navItem}>
             <div className={styles.dropdown}>
-              <p>Product</p>
+              <p>Products</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"

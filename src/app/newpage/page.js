@@ -6,7 +6,7 @@ import styles from "./NewPage.module.css";
 const MaintenancePage = () => {
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Coming Soon</h1>
+      <h1 className={styles.title}>Coming Soon . . . </h1>
       <Link href={"/"}>Back</Link>
     </div>
   );

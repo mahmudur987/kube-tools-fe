@@ -102,15 +102,9 @@ const Blog = () => {
         <div className={styles.container}>
           <header className={styles.header}>
             <h1>Blogs</h1>
-            <p>
-              The following table ranks repositories using three metrics: stars,
-              pull requests, and issues. The table compares last 28 days or the
-              most recent two months of data and indicates whether repositories
-              are moving up or down the rankings.
-            </p>
           </header>
 
-          {windowWidth > 1024 ? (
+          {windowWidth > 800 ? (
             <>
               <div className={styles.sliderContents}>
                 <Slider ref={sliderRef} {...settings}>

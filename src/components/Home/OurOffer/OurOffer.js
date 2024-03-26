@@ -103,12 +103,6 @@ const OurOffer = () => {
       <section className={styles.container}>
         <header className={styles.header}>
           <h1>What we offer</h1>
-          <p>
-            The following table ranks repositories using three metrics: stars,
-            pull requests, and issues. The table compares last 28 days or the
-            most recent two months of data and indicates whether repositories
-            are moving up or down the rankings.
-          </p>
         </header>
         {windowWidth > 500 ? (
           <div className={styles.contents}>
