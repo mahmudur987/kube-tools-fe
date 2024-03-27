@@ -5,7 +5,7 @@ import styles from "./TrendingRepo.module.css";
 import ErrorComponent from "../MyError/Error";
 import { useGetCategories, useGetToolsByCategory } from "@/utils/ToolsData";
 import LoadingSpinner from "@/components/Common/LoadingSpiner/LoadingSpiner";
-import downArrow from "../../../assets/icons/vector.png";
+import downArrow from "../../../assets/icons/Vector.png";
 import Image from "next/image";
 const options = [
   {
