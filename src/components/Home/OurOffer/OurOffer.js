@@ -104,7 +104,7 @@ const OurOffer = () => {
         <header className={styles.header}>
           <h1>What We Offer</h1>
         </header>
-        {windowWidth > 500 ? (
+        {windowWidth > 600 ? (
           <div className={styles.contents}>
             {offersData.map((data) => (
               <div key={data.id} className={styles.content}>

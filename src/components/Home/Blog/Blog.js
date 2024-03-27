@@ -78,7 +78,7 @@ const Blog = () => {
         centerMode: true,
         adaptiveHeight: true,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 1,
           centerMode: true,
