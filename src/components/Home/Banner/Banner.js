@@ -21,7 +21,7 @@ const Banner = () => {
           </p>
           <div className={styles.action}>
             <Link href={"/newpage"}>
-              <button>Early Access</button>
+              <button>Early access</button>
             </Link>
           </div>
 

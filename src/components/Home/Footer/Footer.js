@@ -1,7 +1,15 @@
+"use client";
 import React from "react";
 import styles from "./Footer.module.css";
 import NewsletterBox from "@/components/Common/NewsLetterBox/NewsletterBox";
+import { useRouter } from "next/navigation";
 const Footer = () => {
+  const router = useRouter();
+
+  const handleNavigate = () => {
+    router.push("/newpage");
+  };
+
   return (
     <footer id="footer" className={styles.footer}>
       <section className={styles.mainContainer}>
@@ -9,7 +17,7 @@ const Footer = () => {
           <div className={styles.top}>
             {/* left */}
             <div className={styles.footerLeft}>
-              <h3>KUBETOOLS</h3>
+              <h3 onClick={() => router.push("/")}>KUBETOOLS</h3>
               {/* <p>Subheading</p> */}
             </div>
             {/* right    */}
@@ -18,9 +26,8 @@ const Footer = () => {
                 {/* cols-1 */}
                 <div className={styles.cols}>
                   <h4>Product</h4>
-                  <p>Recommender System</p>
-
-                  <p>Contact Us</p>
+                  <p onClick={handleNavigate}>Recommended System</p>
+                  <p onClick={handleNavigate}>Contact Us</p>
                 </div>
                 {/* cols-2 */}
                 <div className={styles.cols}>
@@ -30,18 +37,18 @@ const Footer = () => {
                 {/* cols-3 */}
                 <div className={styles.cols}>
                   <h4>Company</h4>
-                  <p>About Us</p>
-
-                  <p>Policy</p>
-                  <p>Events</p>
-                  <p>Career</p>
-
-                  <p>Contact Us</p>
+                  <p onClick={handleNavigate}>About Us</p>
+                  <p onClick={handleNavigate}>Help desk</p>
+                  <p onClick={handleNavigate}>Contact support</p>
+                  <p onClick={handleNavigate}>Knowledge base</p>
+                  <p onClick={handleNavigate}>Policy</p>
+                  <p onClick={handleNavigate}>Events</p>
+                  <p onClick={handleNavigate}> Career</p>
                 </div>
                 {/* cols-4 */}
                 <div className={styles.cols}>
                   <h4>Follow Us</h4>
-                  <p className={styles.socialMedia}>
+                  <p onClick={handleNavigate} className={styles.socialMedia}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -138,7 +145,7 @@ const Footer = () => {
           {/* bottom */}
 
           <div className={styles.coppy}>
-            <p>Copyright@2023 222</p>
+            <p>Copyright@2023</p>
           </div>
         </div>
       </section>

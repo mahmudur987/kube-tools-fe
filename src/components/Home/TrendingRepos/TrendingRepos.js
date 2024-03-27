@@ -5,7 +5,8 @@ import styles from "./TrendingRepo.module.css";
 import ErrorComponent from "../MyError/Error";
 import { useGetCategories, useGetToolsByCategory } from "@/utils/ToolsData";
 import LoadingSpinner from "@/components/Common/LoadingSpiner/LoadingSpiner";
-
+import downArrow from "@/assets/icons/vector.png";
+import Image from "next/image";
 const options = [
   {
     key: "past_3_months",
@@ -32,6 +33,8 @@ const TrendingRepos = () => {
   const [filteredTools, setFilteredTools] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const categoriesQuery = useGetCategories();
+  const [count, setCount] = useState(10);
+
   const [collectionId, setCollectionId] = useState(
     categoriesQuery?.data?.data?.[0]?._id
   );
@@ -141,7 +144,7 @@ const TrendingRepos = () => {
                 </div>
               </div>
               <div className={styles.headingItems}>
-                <span>Row per page</span>
+                <span style={{ color: "black" }}>Row per page</span>
                 <select
                   onChange={(e) => setRowsPerPage(e.target.value)}
                   className={styles.select2}
@@ -157,24 +160,26 @@ const TrendingRepos = () => {
               <div className={styles.contentBottom}>
                 <div className={styles.contentleft}>
                   <h3>Select a category </h3>
-                  {categoriesQuery?.data?.data?.map((item, i) => {
-                    return (
-                      <p
-                        className={styles.categoryItem}
-                        style={{
-                          backgroundColor: `${
-                            item._id === collectionId
-                              ? "rgb(205, 230, 238)"
-                              : ""
-                          }`,
-                        }}
-                        onClick={() => setCollectionId(item._id)}
-                        key={item._id}
-                      >
-                        {item.category}
-                      </p>
-                    );
-                  })}
+                  {categoriesQuery?.data?.data
+                    ?.slice(0, count)
+                    .map((item, i) => {
+                      return (
+                        <p
+                          className={styles.categoryItem}
+                          style={{
+                            backgroundColor: `${
+                              item._id === collectionId
+                                ? "rgb(205, 230, 238)"
+                                : ""
+                            }`,
+                          }}
+                          onClick={() => setCollectionId(item._id)}
+                          key={item._id}
+                        >
+                          {item.category}
+                        </p>
+                      );
+                    })}
                 </div>
                 <div className={styles.contentRight}>
                   <div className={styles.row1}>
@@ -237,7 +242,13 @@ const TrendingRepos = () => {
                 </div>
               </div>
             )}
-
+            <div
+              onClick={() => setCount((pre) => pre + 10)}
+              className={styles.loadMore}
+            >
+              <button>Load more</button>
+              <Image src={downArrow} height={8} width={15} />
+            </div>
             {categoriesQuery.isError && (
               <ErrorComponent
                 message={

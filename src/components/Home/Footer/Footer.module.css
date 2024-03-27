@@ -99,10 +99,12 @@
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.32px;
+  cursor: pointer;
 }
 .socialMedia {
   display: flex;
   gap: 12px;
+  cursor: pointer;
 }
 .coppy {
   display: flex;

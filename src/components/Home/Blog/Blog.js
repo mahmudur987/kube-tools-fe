@@ -50,7 +50,6 @@ const Blog = () => {
     arrows: false,
     dots: false,
     centerMode: true,
-    centerPadding: "0",
     cssEase: "linear",
     responsive: [
       {

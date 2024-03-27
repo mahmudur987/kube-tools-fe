@@ -27,9 +27,10 @@
   border: 1px solid var(--Background-color-white, #fff);
   background: linear-gradient(
     180deg,
-    rgba(109, 69, 241, 0.7) 0%,
-    rgba(109, 69, 241, 0.99) 100%
+    rgba(109, 69, 241, 0.9) 0%,
+    rgba(109, 69, 241, 0.24) 100%
   );
+
   box-shadow: 4px 8px 2px 0px rgba(16, 16, 16, 0.1);
   backdrop-filter: blur(2px);
 }
@@ -82,6 +83,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 .action button {
   padding: 10px 16px 10px 16px;
@@ -89,6 +91,7 @@
   border: 1px solid #6d45f1;
   background: #6d45f1;
   color: white;
+  cursor: pointer;
 }
 .searchWrapper input {
   width: 100%;

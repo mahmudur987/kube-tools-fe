@@ -102,7 +102,7 @@ const OurOffer = () => {
     <main className={styles.maincontainer}>
       <section className={styles.container}>
         <header className={styles.header}>
-          <h1>What we offer</h1>
+          <h1>What We Offer</h1>
         </header>
         {windowWidth > 500 ? (
           <div className={styles.contents}>
