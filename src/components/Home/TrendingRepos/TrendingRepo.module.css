@@ -92,6 +92,7 @@
   justify-content: space-between;
 }
 .select {
+  background-color: white;
   width: 150px;
   min-height: 48px;
   display: flex;
@@ -122,6 +123,7 @@
   align-items: center;
   border-radius: 4px;
   border: none;
+  background-color: white;
   color: #101010;
   font-family: "DM Sans";
   font-size: 15px;
@@ -238,7 +240,6 @@
 .col1 {
   max-width: 50px;
   width: 100%;
-
   text-align: center;
 }
 .col2 {
@@ -254,8 +255,10 @@
   background-color: red;
   color: #fff;
   border-radius: 10px;
-  padding: 2px;
-  font-size: 14px;
+  height: 15px;
+  width: 25px;
+  text-align: center;
+  font-size: 10px;
 }
 .col3 {
   width: 20%;
@@ -331,9 +334,10 @@
   .contentRight {
     margin-top: 16px;
   }
-
+  .col1 {
+    max-width: 0px;
+  }
   .col2 {
-    margin-left: 40px;
   }
   .row1 h4 {
     font-size: 16px;
