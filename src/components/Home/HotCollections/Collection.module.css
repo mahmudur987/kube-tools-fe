@@ -72,7 +72,9 @@
   background: black;
   border: none;
   padding: 8px;
-  border-radius: 30px;
+  border-radius: 20px;
+  color: white;
+  font-size: 18px;
 }
 .spinerContainer {
   display: inline;

@@ -15,6 +15,8 @@ import img1 from "../assets/images/company1.jpg";
 import img2 from "../assets/images/company2.jpg";
 import img3 from "../assets/images/company3.jpg";
 import MiddleBanner from "@/components/Home/LeftBanner/MiddleBanner";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export const data = [
   {
@@ -53,17 +55,22 @@ export default function Home() {
     /* Additional styles */
   `;
   const queryClient = new QueryClient();
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const router = useRouter();
 
+  useEffect(() => {
+    console.log(router);
+
+    const { scrollTo } = router.query || {};
+    if (scrollTo) {
+      const section = document.getElementById(scrollTo);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [router.query]);
   return (
     <QueryClientProvider client={queryClient}>
       <main className={styles.main} css={inter}>
-        <Navbar scrollToSection={scrollToSection} />
         <Banner />
         <div className={styles.join}>
           <div className={styles.left}>

@@ -93,7 +93,7 @@ const TrendingRepos = () => {
       setFilteredTools(filteredData);
     }
   }, [period, tools]);
-
+  console.log(toolsQuery?.data);
   return (
     <section className={styles.containerWrapper}>
       <div className={styles.mainContainer}>
@@ -217,7 +217,7 @@ const TrendingRepos = () => {
                             <span> {item.name} </span>
                             {(new Date() - new Date(item.publishDate)) /
                               (1000 * 60 * 60 * 24) <
-                            7 ? (
+                            3 ? (
                               <span className={styles.new}>new</span>
                             ) : (
                               ""

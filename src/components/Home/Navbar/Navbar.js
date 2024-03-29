@@ -3,9 +3,11 @@
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const Navbar = ({ scrollToSection }) => {
+const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const pathname = usePathname();
   return (
     <section className={styles.mainContainer}>
       <div className={styles.navbar}>
@@ -50,7 +52,7 @@ const Navbar = ({ scrollToSection }) => {
             </div>
           </div>
           <nav className={styles.navItem}>
-            <span onClick={() => scrollToSection("blog")}>Blog</span>
+            <Link href={pathname === "/" ? "#blog" : "/#blog"}>Blog</Link>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
