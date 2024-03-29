@@ -28,9 +28,8 @@ export default function RootLayout({ children }) {
       </head>
       <body className={inter.className}>
         <Providers>
-          <Navbar />
           {children}
-          <Footer />
+
           <Toaster />
         </Providers>
       </body>

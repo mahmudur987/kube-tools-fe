@@ -71,6 +71,7 @@ export default function Home() {
   return (
     <QueryClientProvider client={queryClient}>
       <main className={styles.main} css={inter}>
+        <Navbar />
         <Banner />
         <div className={styles.join}>
           <div className={styles.left}>
@@ -85,7 +86,6 @@ export default function Home() {
             <LeftBanner data={data} />
           </div>
         </div>
-
         <Footer />
       </main>
     </QueryClientProvider>
