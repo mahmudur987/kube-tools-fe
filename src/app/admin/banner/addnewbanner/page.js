@@ -123,6 +123,7 @@ const FormDataForm = () => {
           onChange={handleChange}
           required
         />
+        <label htmlFor="">Image</label>
         <input
           className={styles.input}
           type="file"

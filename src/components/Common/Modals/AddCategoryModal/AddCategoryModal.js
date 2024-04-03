@@ -4,7 +4,7 @@ import { useState } from "react";
 import styles from "./AddCategoryModal.module.css";
 import { useAddcategory, useGetTools } from "@/utils/ToolsData";
 import toast from "react-hot-toast";
-
+import { MdClose } from "react-icons/md";
 const AddCategoryModal = ({ isOpen, setAddCategoryModal }) => {
   const { data: tools } = useGetTools();
   // console.log();
@@ -49,15 +49,15 @@ const AddCategoryModal = ({ isOpen, setAddCategoryModal }) => {
           className={styles.closeButton}
           onClick={() => setAddCategoryModal(false)}
         >
-          Close
+          <MdClose />
         </button>
         <h2>Add Category</h2>
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.fromControl}>
-            <label htmlFor="">Tool Name</label>
+            <label htmlFor=""> Name</label>
             <input
               type="text"
-              placeholder="Name"
+              placeholder="Category name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
