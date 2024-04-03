@@ -31,7 +31,7 @@ const TrendingRepos = () => {
   const [period, setPeriod] = useState(options[0]?.key);
   const [tools, setTools] = useState([]);
   const [filteredTools, setFilteredTools] = useState([]);
-  const [rowsPerPage, setRowsPerPage] = useState(20);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
   const categoriesQuery = useGetCategories();
   const [count, setCount] = useState(10);
 

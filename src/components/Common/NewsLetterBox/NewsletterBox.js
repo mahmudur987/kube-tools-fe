@@ -15,7 +15,7 @@ const NewsletterBox = () => {
     const { data, error } = await postNewsLetter(Email);
 
     if (data) {
-      toast.success("thanks for subscribe", { id: 2 });
+      toast.success("Thanks for subscribe", { id: 2 });
       setEmail("");
     } else if (error) {
       toast.error("Error happen");
