@@ -50,7 +50,7 @@ const FormDataForm = () => {
           formData.image = photoURL;
           const { data, error } = await postBanner(formData);
           if (data) {
-            toast.success("banner added successfully", { id: 3 });
+            toast.success("Banner added successfully", { id: 3 });
             refetch();
             setFormData({
               index: 0,

@@ -20,7 +20,7 @@ const AddToolModal = ({ isOpen, setAddToolModal, id }) => {
       { data, id },
       {
         onSuccess: (data, isError, error) => {
-          toast.success("a neww tool added ", { id: 1 });
+          toast.success(" Tool  added successfully", { id: 1 });
           setName("");
           setDescription("");
           setLink("");

@@ -22,9 +22,12 @@ const UpdateToolModal = ({ isOpen, onClose, tool, categoryid }) => {
       { data, categoryid, toolid: tool._id },
       {
         onSuccess: (data) => {
-          toast.success(data.message ? data.message : "update successfully", {
-            id: 1,
-          });
+          toast.success(
+            data.message ? data.message : " Tool update successfully",
+            {
+              id: 1,
+            }
+          );
           onClose();
           refetch();
         },

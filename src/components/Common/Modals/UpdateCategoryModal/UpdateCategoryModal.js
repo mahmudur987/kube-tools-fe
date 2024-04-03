@@ -21,7 +21,9 @@ const UpdateCategory = ({ isOpen, setUpdateCategoryModal, category }) => {
         `updateCategory/${category._id}`,
         update
       );
-      toast.success(data ? data.message : "update successfully", { id: 1 });
+      toast.success(data ? data.message : "Category update successfully", {
+        id: 1,
+      });
       setUpdateCategoryModal(false);
       refetch();
       console.log(data);

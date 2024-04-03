@@ -26,7 +26,7 @@ const AddCategoryModal = ({ isOpen, setAddCategoryModal }) => {
       { data },
       {
         onSuccess: (data) => {
-          toast.success("a neww tool added ", { id: 1 });
+          toast.success("Category added successfully", { id: 1 });
           setName("");
           refetch();
           setAddCategoryModal(false);

@@ -23,9 +23,12 @@ const Dashboard = () => {
   const handleDeleteCategory = async (id) => {
     try {
       const { data } = await Axios.delete(`/deletecategory/${id}`);
-      toast.success(data.message ? data.message : "Deleted successfully", {
-        id: 1,
-      });
+      toast.success(
+        data.message ? data.message : "Category Deleted successfully",
+        {
+          id: 1,
+        }
+      );
       refetch();
     } catch (error) {
       toast.error(error ? error.message : "An error occurred", { id: 1 });

@@ -20,7 +20,7 @@ const NewsLetter = () => {
     const { data, error } = await deleteEmail(id);
 
     if (data) {
-      toast.success("delete successfully");
+      toast.success("Email delete  successfully");
       refetch();
     }
     if (error) {

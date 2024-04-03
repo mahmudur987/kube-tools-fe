@@ -56,7 +56,7 @@ const SingleBanner = ({ params }) => {
             formData.image = photoURL;
             const { data, error } = await updateBanner(params.slug, formData);
             if (data) {
-              toast.success("banner update successfully", { id: 3 });
+              toast.success("Banner update successfully", { id: 3 });
               refetch();
               setFormData({
                 index: 0,
@@ -76,7 +76,7 @@ const SingleBanner = ({ params }) => {
     } else {
       const { data, error } = await updateBanner(params.slug, formData);
       if (data) {
-        toast.success("banner update successfully", { id: 3 });
+        toast.success("Banner update successfully", { id: 3 });
         refetch();
         setFormData({
           index: 0,
@@ -99,7 +99,7 @@ const SingleBanner = ({ params }) => {
   const handleDelete = async () => {
     const { data, error } = await deleteBanner(params.slug);
     if (data) {
-      toast.success("banner delete successfully", { id: 3 });
+      toast.success("Banner delete successfully", { id: 3 });
       router.push("/admin/banner");
     }
     if (error) {
