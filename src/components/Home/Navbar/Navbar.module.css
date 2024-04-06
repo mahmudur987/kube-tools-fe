@@ -4,7 +4,9 @@
   background: var(--Background-color-white, #fff);
   width: 100%;
 }
-
+.mainContainer a {
+  color: black;
+}
 .navbar {
   max-width: 1440px;
   width: 100%;

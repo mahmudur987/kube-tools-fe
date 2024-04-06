@@ -99,7 +99,7 @@ const OurOffer = () => {
   };
 
   return (
-    <main className={styles.maincontainer}>
+    <main id="offer" className={styles.maincontainer}>
       <section className={styles.container}>
         <header className={styles.header}>
           <h1>What We Offer</h1>

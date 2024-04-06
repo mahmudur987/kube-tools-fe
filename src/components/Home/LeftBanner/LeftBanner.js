@@ -4,10 +4,11 @@ import styles from "./LeftBanner.module.css";
 import { useGetAllBanner } from "@/utils/banner";
 import LoadingSpinner from "@/components/Common/LoadingSpiner/LoadingSpiner";
 import ErrorComponent from "../MyError/Error";
+import { useRouter } from "next/navigation";
 
 const LeftBanner = () => {
   const { data: banner, isLoading, isError, error } = useGetAllBanner();
-
+  const router = useRouter();
   if (isLoading) {
     return <LoadingSpinner />;
   }
@@ -21,7 +22,12 @@ const LeftBanner = () => {
           !isError &&
           !isLoading &&
           banner?.data.map((item) => (
-            <div key={item.id} className={styles.banner}>
+            <a
+              style={{ color: "black" }}
+              href={item.link}
+              key={item.id}
+              className={styles.banner}
+            >
               <Image
                 width={200}
                 height={200}
@@ -35,7 +41,7 @@ const LeftBanner = () => {
                 </p>
                 <a href={item.link}> {item.linkText} </a>
               </div>
-            </div>
+            </a>
           ))}
       </div>
     </div>

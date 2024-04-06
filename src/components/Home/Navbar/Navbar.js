@@ -33,16 +33,24 @@ const Navbar = () => {
               <div className={styles.subDropdown}>
                 <ol className={styles.dropDownMenu}>
                   <li>
-                    <Link href="/newpage">Ranking Engine</Link>
+                    <Link href={pathname === "/" ? "#offer" : "/#offer"}>
+                      Ranking Engine
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/newpage">Kubetools Gpt</Link>
+                    <Link href={pathname === "/" ? "#offer" : "/#offer"}>
+                      Kubetools Gpt
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/newpage">Sandboxes</Link>
+                    <Link href={pathname === "/" ? "#offer" : "/#offer"}>
+                      Sandboxes
+                    </Link>
                   </li>
                   <li>
-                    <Link href="/newpage">Services</Link>
+                    <Link href={pathname === "/" ? "#offer" : "/#offer"}>
+                      Services
+                    </Link>
                   </li>
                   <li>
                     <Link href="/newpage">Consulting</Link>
@@ -201,7 +209,7 @@ const Navbar = () => {
       {showMobileMenu && (
         <div className={styles.mobileMenu}>
           <div className={styles.navItem}>
-            <div className={styles.dropdown}>
+            <Link href={"/newpage"} className={styles.dropdown}>
               <p>Collection</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -221,13 +229,19 @@ const Navbar = () => {
               <div className={styles.subDropdown}>
                 <ol className={styles.dropDownMenu}>
                   <li>
-                    <Link href="#">Ranking Engine</Link>
+                    <Link href={pathname === "/" ? "#offer" : "/#offer"}>
+                      Ranking Engine
+                    </Link>
                   </li>
                   <li>
-                    <Link href="#">Kubetools Gpt</Link>
+                    <Link href={pathname === "/" ? "#offer" : "/#offer"}>
+                      Kubetools Gpt
+                    </Link>
                   </li>
                   <li>
-                    <Link href="#">Sandboxes</Link>
+                    <Link href={pathname === "/" ? "#offer" : "/#offer"}>
+                      Sandboxes
+                    </Link>
                   </li>
                   <li>
                     <Link href="#">Services</Link>
@@ -237,10 +251,10 @@ const Navbar = () => {
                   </li>
                 </ol>
               </div>
-            </div>
+            </Link>
           </div>
           <nav className={styles.navItem}>
-            <span onClick={() => scrollToSection("blog")}>Blog</span>
+            <Link href={pathname === "/" ? "#blog" : "/#blog"}>Blog</Link>
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -259,7 +273,7 @@ const Navbar = () => {
             </svg>
           </nav>
           <nav className={styles.navItem}>
-            <span>Community</span>
+            <Link href={"/newpage"}>Community</Link>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -277,7 +291,7 @@ const Navbar = () => {
             </svg>
           </nav>
           <nav className={styles.navItem}>
-            <span>Events</span>
+            <Link href={"/newpage"}>Events</Link>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -295,7 +309,7 @@ const Navbar = () => {
             </svg>
           </nav>
           <nav className={styles.navItem}>
-            <span>Contact us</span>
+            <Link href={"/newpage"}>Contact us</Link>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
