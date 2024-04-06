@@ -61,6 +61,8 @@ const FormDataForm = () => {
             setImage(null);
           }
           if (error) {
+            console.log(error);
+
             toast.error("Error", { id: 2 });
           }
 
@@ -95,34 +97,21 @@ const FormDataForm = () => {
             onChange={handleChange}
           />
         </p>
+
+        <span>
+          {"<p> description <a href='link'>link text</a> description </p>"}
+        </span>
         <textarea
           rows={8}
           className={styles.input}
           type="text"
           name="description"
-          placeholder="Description"
+          placeholder="Copy the above text and paste it here"
           value={formData.description}
           onChange={handleChange}
           required
         />
-        <input
-          className={styles.input}
-          type="text"
-          name="link"
-          placeholder="Link"
-          value={formData.link}
-          onChange={handleChange}
-          required
-        />
-        <input
-          className={styles.input}
-          type="text"
-          name="linkText"
-          placeholder="Link Text"
-          value={formData.linkText}
-          onChange={handleChange}
-          required
-        />
+
         <label htmlFor="">Image</label>
         <input
           className={styles.input}

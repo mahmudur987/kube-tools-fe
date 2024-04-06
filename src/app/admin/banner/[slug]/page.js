@@ -151,35 +151,16 @@ const SingleBanner = ({ params }) => {
             </div>
             <div>
               <p>Description</p>
+              <span>
+                {
+                  "<p> description <a href='link'>link text</a> description </p>"
+                }
+              </span>
               <textarea
                 rows={10}
                 className={styles.textarea}
                 name="description"
                 value={formData?.description}
-                readOnly={!isEditing}
-                onChange={handleInputChange}
-              />
-            </div>
-            <div>
-              <p>Link</p>
-
-              <input
-                className={styles.input}
-                type="text"
-                name="link"
-                value={formData?.link}
-                readOnly={!isEditing}
-                onChange={handleInputChange}
-              />
-            </div>
-
-            <div>
-              <p>Link text</p>
-              <input
-                className={styles.input}
-                type="text"
-                name="linkText"
-                value={formData?.linkText}
                 readOnly={!isEditing}
                 onChange={handleInputChange}
               />

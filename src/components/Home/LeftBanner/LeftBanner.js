@@ -22,26 +22,18 @@ const LeftBanner = () => {
           !isError &&
           !isLoading &&
           banner?.data.map((item) => (
-            <a
-              style={{ color: "black" }}
-              href={item.link}
-              key={item.id}
-              className={styles.banner}
-            >
+            <div key={item.id} className={styles.banner}>
               <Image
                 width={200}
                 height={200}
                 src={item?.image}
                 alt={`Image ${item.index}`}
               />
-              <div className={styles.bannerDescription}>
-                <p>
-                  {item.description.slice(0, 250)}
-                  {item.description.length > 250 ?? "....."}
-                </p>
-                <a href={item.link}> {item.linkText} </a>
-              </div>
-            </a>
+              <div
+                dangerouslySetInnerHTML={{ __html: item.description }}
+                className={styles.bannerDescription}
+              ></div>
+            </div>
           ))}
       </div>
     </div>
