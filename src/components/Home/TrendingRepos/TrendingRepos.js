@@ -98,10 +98,10 @@ const TrendingRepos = () => {
     <section className={styles.containerWrapper}>
       <div className={styles.mainContainer}>
         <div className={styles.container}>
-          <h1 className={styles.heading}>Trending Tools</h1>
+          <h1 className={styles.heading}>Kubetools Ranking</h1>
           <p className={styles.description}>
-            The Kubetools ranks Kubernetes tools according to their popularity .
-            The ranking is updated monthly as of now .
+            We ranked all the Kubernetes tools with score according to their
+            popularity.
           </p>
 
           <div className={styles.content}>

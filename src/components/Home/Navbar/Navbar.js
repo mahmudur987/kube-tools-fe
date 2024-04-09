@@ -48,9 +48,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href={pathname === "/" ? "#offer" : "/#offer"}>
-                      Services
-                    </Link>
+                    <Link href={"/newpage"}>Services</Link>
                   </li>
                   <li>
                     <Link href="/newpage">Consulting</Link>
@@ -61,21 +59,6 @@ const Navbar = () => {
           </div>
           <nav className={styles.navItem}>
             <Link href={pathname === "/" ? "#blog" : "/#blog"}>Blog</Link>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="21"
-              viewBox="0 0 20 21"
-              fill="none"
-            >
-              <path
-                d="M5 8L10 13L15 8"
-                stroke="#6D45F1"
-                stroke-width="1.66667"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
           </nav>
           <nav className={styles.navItem}>
             <a href="/newpage">Community</a>
@@ -97,39 +80,11 @@ const Navbar = () => {
           </nav>
           <p className={styles.navItem}>
             <Link href={"/newpage"}>Events</Link>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="21"
-              viewBox="0 0 20 21"
-              fill="none"
-            >
-              <path
-                d="M5 8L10 13L15 8"
-                stroke="#6D45F1"
-                stroke-width="1.66667"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
           </p>
           <nav className={styles.navItem}>
-            <Link href="/newpage">Contact Us</Link>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="21"
-              viewBox="0 0 20 21"
-              fill="none"
-            >
-              <path
-                d="M5 8L10 13L15 8"
-                stroke="#6D45F1"
-                stroke-width="1.66667"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <Link href={pathname === "/" ? "#footer" : "/#footer"}>
+              Contact Us
+            </Link>
           </nav>
         </div>
 

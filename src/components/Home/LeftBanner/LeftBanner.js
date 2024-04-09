@@ -1,5 +1,6 @@
 // LeftBanner.js
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./LeftBanner.module.css";
 import { useGetAllBanner } from "@/utils/banner";
 import LoadingSpinner from "@/components/Common/LoadingSpiner/LoadingSpiner";
@@ -35,6 +36,10 @@ const LeftBanner = () => {
               ></div>
             </div>
           ))}
+
+        <div className={styles.bottomLink}>
+          <Link href={"/newpage"}>Advertise Your Product</Link>
+        </div>
       </div>
     </div>
   );
