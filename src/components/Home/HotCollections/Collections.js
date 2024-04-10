@@ -17,11 +17,13 @@ export default function Collections() {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    speed: 2000,
     arrows: false,
     centerMode: true,
     centerPadding: "0",
     cssEase: "linear",
+    autoplay: true,
+    speed: 6000,
+    autoplaySpeed: 200,
     responsive: [
       {
         breakpoint: 1024,

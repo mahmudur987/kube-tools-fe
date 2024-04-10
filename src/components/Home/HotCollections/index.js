@@ -7,7 +7,7 @@ export function CollectionsSection() {
     <section className={styles.mainContainer}>
       <div className={styles.containerWrapper}>
         <header className={styles.header}>
-          <h1>KubeTool Ranking Engine</h1>
+          <h1>Trending Tools</h1>
         </header>
 
         <Collections />

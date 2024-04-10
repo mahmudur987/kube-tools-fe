@@ -158,10 +158,10 @@
 .contentBottom {
   width: 100%;
   display: flex;
-  gap: 80px;
+  gap: 30px;
 }
 .contentleft {
-  max-width: 160px;
+  max-width: 300px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -190,6 +190,8 @@
   line-height: normal;
   letter-spacing: -0.64px;
   text-align: start;
+  display: flex;
+  justify-content: start;
 }
 .categoryItem {
   padding: 5px;
@@ -202,11 +204,12 @@
 }
 .contentRight {
   width: 100%;
-  padding: 0px 10px;
+  padding-left: 30px;
   display: flex;
   flex-direction: column;
   gap: 15px;
   background-color: white;
+  border-left: 1px solid #10101033;
 }
 .row1,
 .row2 {

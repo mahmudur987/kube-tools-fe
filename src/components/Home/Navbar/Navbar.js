@@ -12,6 +12,7 @@ const Navbar = () => {
     <section className={styles.mainContainer}>
       <div className={styles.navbar}>
         <div className={styles.leftItems}>
+          {/* products */}
           <div className={styles.navItem}>
             <div className={styles.dropdown}>
               <p>Products</p>
@@ -57,34 +58,48 @@ const Navbar = () => {
               </div>
             </div>
           </div>
+          {/* community */}
+          <div className={styles.navItem}>
+            <div className={styles.dropdown}>
+              <p>Community</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+              >
+                <path
+                  d="M5 8L10 13L15 8"
+                  stroke="#6D45F1"
+                  stroke-width="1.66667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div className={styles.subDropdown}>
+                <ol className={styles.dropDownMenu}>
+                  <li>
+                    <Link href={"#"}>Twitter</Link>
+                  </li>
+                  <li>
+                    <Link href={"#"}>Linkedin</Link>
+                  </li>
+                  <li>
+                    <Link href={"#"}>Slack</Link>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          {/* Blog */}
           <nav className={styles.navItem}>
             <Link href={pathname === "/" ? "#blog" : "/#blog"}>Blog</Link>
           </nav>
+
+          {/* Event */}
           <nav className={styles.navItem}>
-            <a href="/newpage">Community</a>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="21"
-              viewBox="0 0 20 21"
-              fill="none"
-            >
-              <path
-                d="M5 8L10 13L15 8"
-                stroke="#6D45F1"
-                stroke-width="1.66667"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </nav>
-          <p className={styles.navItem}>
             <Link href={"/newpage"}>Events</Link>
-          </p>
-          <nav className={styles.navItem}>
-            <Link href={pathname === "/" ? "#footer" : "/#footer"}>
-              Contact Us
-            </Link>
           </nav>
         </div>
 
@@ -115,7 +130,13 @@ const Navbar = () => {
             <input className={styles.searchInput} type="text" />
           </p>
         </div>
-
+        <div className={styles.action}>
+          <button>
+            <Link href={pathname === "/" ? "#footer" : "/#footer"}>
+              Contact Us
+            </Link>
+          </button>
+        </div>
         <div className={styles.mobileContainer}>
           <p
             onClick={() => setShowMobileMenu((pre) => !pre)}

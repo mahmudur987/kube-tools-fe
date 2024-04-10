@@ -38,7 +38,7 @@ const LeftBanner = () => {
           ))}
 
         <div className={styles.bottomLink}>
-          <Link href={"/newpage"}>Advertise Your Product</Link>
+          <Link href={"/newpage"}>Promote Your Product Here</Link>
         </div>
       </div>
     </div>
