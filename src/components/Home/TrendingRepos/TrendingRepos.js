@@ -7,6 +7,8 @@ import { useGetCategories, useGetToolsByCategory } from "@/utils/ToolsData";
 import LoadingSpinner from "@/components/Common/LoadingSpiner/LoadingSpiner";
 import downArrow from "../../../assets/icons/Vector.png";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
+import Highlighter from "react-highlight-words";
 const options = [
   {
     key: "past_3_months",
@@ -28,19 +30,25 @@ const options = [
 ];
 
 const TrendingRepos = () => {
+  const searchParams = useSearchParams();
+  const search = searchParams.get("collectionId");
+  const searchText = searchParams.get("SearchText");
+  const toolId = searchParams.get("toolId");
+  const sectionId = searchParams.get("section");
   const [period, setPeriod] = useState(options[0]?.key);
   const [tools, setTools] = useState([]);
   const [filteredTools, setFilteredTools] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const categoriesQuery = useGetCategories();
   const [count, setCount] = useState(10);
-
   const [collectionId, setCollectionId] = useState(
     categoriesQuery?.data?.data?.[0]?._id
   );
   const toolsQuery = useGetToolsByCategory(
     collectionId ? collectionId : categoriesQuery?.data?.data?.[0]?._id
   );
+
+  console.log(toolId);
 
   useEffect(() => {
     const data = toolsQuery?.data?.data?.tools;
@@ -93,9 +101,23 @@ const TrendingRepos = () => {
       setFilteredTools(filteredData);
     }
   }, [period, tools]);
-  console.log(toolsQuery?.data);
+
+  useEffect(() => {
+    if (search) {
+      setCollectionId(search);
+    }
+  }, [search]);
+  useEffect(() => {
+    if (sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [sectionId, toolId, collectionId]);
+  console.log(sectionId);
   return (
-    <section className={styles.containerWrapper}>
+    <section id="rank" className={styles.containerWrapper}>
       <div className={styles.mainContainer}>
         <div className={styles.container}>
           <h1 className={styles.heading}>Kubetools Ranking</h1>
@@ -197,6 +219,7 @@ const TrendingRepos = () => {
                       .sort((a, b) => b.githubStars - a.githubStars)
                       .map((item, i) => (
                         <div
+                          id={item._id}
                           key={i}
                           className={styles.row2}
                           style={{ fontWeight: `${i === 0 && 700}` }}
@@ -210,11 +233,25 @@ const TrendingRepos = () => {
                           <a
                             href={item.link}
                             target="_blank"
-                            rel="noopener noreferrer"
+                            rel=""
                             style={{ fontWeight: `${i === 0 && 700}` }}
                             className={styles.col2}
                           >
-                            <span> {item.name} </span>
+                            {toolId && toolId === item._id ? (
+                              <Highlighter
+                                highlightStyle={{
+                                  color: "blue",
+                                  background: "white",
+                                  fontWeight: "700",
+                                }}
+                                searchWords={searchText.split("")}
+                                autoEscape={true}
+                                textToHighlight={item.name}
+                              />
+                            ) : (
+                              <span> {item.name} </span>
+                            )}
+
                             {(new Date() - new Date(item.publishDate)) /
                               (1000 * 60 * 60 * 24) <
                             3 ? (

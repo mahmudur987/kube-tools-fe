@@ -88,6 +88,15 @@ export const useAddcategory = () => {
     },
   });
 };
+export const useGetSearchResult = (search) => {
+  return useQuery({
+    queryKey: [search],
+    queryFn: async () => {
+      const { data } = await Axios.get(`/tools/search/${search}`);
+      return data;
+    },
+  });
+};
 
 // /editCategory
 // serviceId, mainCategoryId, newCategoryName

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -8,7 +8,19 @@ import Search from "../Search/Search";
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [search, setSearch] = useState("");
   const pathname = usePathname();
+  useEffect(() => {
+    const handleClick = () => {
+      setSearch("");
+    };
+
+    document.body.addEventListener("click", handleClick);
+
+    return () => {
+      document.body.removeEventListener("click", handleClick);
+    };
+  }, []);
   return (
     <section className={styles.mainContainer}>
       <div className={styles.navbar}>
@@ -128,12 +140,19 @@ const Navbar = () => {
                 stroke-linejoin="round"
               />
             </svg>
-            <input className={styles.searchInput} type="text" />
+            <input
+              className={styles.searchInput}
+              value={search ? search : "Search"}
+              onChange={(e) => setSearch(e.target.value)}
+              type="text"
+            />
           </p>
 
-          <div className={styles.result}>
-            <Search />
-          </div>
+          {search && (
+            <div className={styles.result}>
+              <Search search={search} setSearch={setSearch} />
+            </div>
+          )}
         </div>
         <div className={styles.action}>
           <button>

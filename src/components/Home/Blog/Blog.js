@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
-const offersData = [
+export const blogData = [
   {
     id: 1,
     description:
@@ -22,7 +22,6 @@ const offersData = [
 
   {
     id: 3,
-    title: "Kubetools GPT",
     description: "Top 5 Storage Provider Tools for Kubernetes",
     link: "https://www.kubetools.io/top-5-storage-provider-tools-for-kubernetes/",
   },
@@ -109,7 +108,7 @@ const Blog = () => {
             <>
               <div className={styles.sliderContents}>
                 <Slider ref={sliderRef} {...settings}>
-                  {offersData.map((data) => (
+                  {blogData.map((data) => (
                     <div key={data.id} className={styles.content}>
                       <div className={styles.card}>
                         <div className={styles.cardTop}>
@@ -174,7 +173,7 @@ const Blog = () => {
             </>
           ) : (
             <div className={styles.contents}>
-              {offersData.map((data) => (
+              {blogData.map((data) => (
                 <div key={data.id} className={styles.content}>
                   <div className={styles.card}>
                     <div className={styles.cardTop}>
