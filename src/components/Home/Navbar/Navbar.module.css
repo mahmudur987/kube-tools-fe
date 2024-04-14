@@ -123,6 +123,7 @@
   min-height: 100px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 .searchInputWrapper {
   display: flex;
@@ -143,7 +144,12 @@
   border: none;
   color: black;
 }
-
+.result {
+  position: absolute;
+  top: 70px;
+  max-width: 426px;
+  width: 100%;
+}
 .mobileContainer {
   display: none;
   position: relative;

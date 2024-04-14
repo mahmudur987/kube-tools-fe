@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Search from "../Search/Search";
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -129,6 +130,10 @@ const Navbar = () => {
             </svg>
             <input className={styles.searchInput} type="text" />
           </p>
+
+          <div className={styles.result}>
+            <Search />
+          </div>
         </div>
         <div className={styles.action}>
           <button>
