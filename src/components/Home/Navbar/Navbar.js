@@ -117,7 +117,10 @@ const Navbar = () => {
         </div>
 
         <div className={styles.middle}>
-          <p className={styles.searchInputWrapper}>
+          <p
+            style={{ borderRadius: `${search ? " 24px 24px 0px 0px" : ""}` }}
+            className={styles.searchInputWrapper}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -142,9 +145,10 @@ const Navbar = () => {
             </svg>
             <input
               className={styles.searchInput}
-              value={search ? search : "Search"}
+              value={search ? search : ""}
               onChange={(e) => setSearch(e.target.value)}
               type="text"
+              placeholder="Search"
             />
           </p>
 

@@ -14,7 +14,8 @@
   display: flex;
   height: 100px;
   align-items: center;
-  gap: 50px;
+  justify-content: space-between;
+  gap: 20px;
   background: var(--Background-color-white, #fff);
   color: black;
 }
@@ -23,9 +24,10 @@
   max-width: 600px;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 50px;
+  padding: 0px 20px;
+  gap: 10px;
 }
 /* styles.module.css */
 .navItem {
@@ -33,7 +35,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
   cursor: pointer;
 }
 
@@ -51,13 +52,8 @@
 .dropdown {
   display: flex;
   align-items: center;
+  gap: 5px;
   color: var(--Primary-color, #6d45f1);
-  font-family: DM Sans;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -0.64px;
 }
 
 .subDropdown {
@@ -83,9 +79,12 @@
 }
 
 .dropdown p {
-  cursor: pointer;
-  margin: 0;
-  padding: 8px 16px;
+  font-family: DM Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.64px;
 }
 
 .subDropdown ol {
@@ -120,6 +119,8 @@
 
 .middle {
   flex-grow: 1;
+  max-width: 426px;
+  width: 100%;
   min-height: 100px;
   display: flex;
   align-items: center;
@@ -146,7 +147,7 @@
 }
 .result {
   position: absolute;
-  top: 70px;
+  top: 60px;
   max-width: 426px;
   width: 100%;
 }

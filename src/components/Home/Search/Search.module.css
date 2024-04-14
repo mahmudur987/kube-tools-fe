@@ -2,10 +2,12 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  border-radius: 24px;
+  border-radius: 0px 0px 24px 24px;
   gap: 20px;
   background-color: white;
-  border: 0px 1px 1px 1px solid #9275f3;
+  border-left: 1px solid #9275f3;
+  border-right: 1px solid #9275f3;
+  border-bottom: 1px solid #9275f3;
 }
 .resultContainer {
   width: 100%;
@@ -16,7 +18,16 @@
   padding: 20px 25px;
   gap: 30px;
 }
-
+.noResult {
+  width: 100%;
+  font-family: DM Sans;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18.23px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  color: var(--Primary-color, #6d45f1);
+}
 .resultsRow1,
 .resultsRow2 {
   width: 100%;
@@ -42,6 +53,7 @@
 
 .resultsRow1 h5,
 .resultsRow2 h5 {
+  font-size: 14px;
   display: flex;
   align-items: center;
   gap: 10px;
