@@ -19,7 +19,9 @@ const Search = ({ search, setSearch }) => {
   const router = useRouter();
   const [blogs, setBlogs] = useState([]);
   const { data, isLoading, isError, error } = useGetSearchResult(search);
-  const HandleSetCollection = (collectionId, toolId) => {
+  const HandleSetCollection = (collectionId, toolId, e) => {
+    e.stopPropagation();
+
     setSearch("");
     router.push(
       `/?collectionId=${collectionId}&toolId=${toolId}&SearchText=${search}&section=${"rank"} `
@@ -66,7 +68,12 @@ const Search = ({ search, setSearch }) => {
                   {x?.tools.length > 0 &&
                     x.tools.map((y) => {
                       return (
-                        <p onClick={() => HandleSetCollection(x._id, y._id)}>
+                        <p
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            HandleSetCollection(x._id, y._id, e);
+                          }}
+                        >
                           <Highlighter
                             highlightStyle={{
                               color: "blue",

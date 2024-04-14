@@ -5,24 +5,21 @@ import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Search from "../Search/Search";
-
+import { Suspense } from "react";
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [search, setSearch] = useState("");
   const pathname = usePathname();
-  useEffect(() => {
-    const handleClick = () => {
-      setSearch("");
-    };
 
-    document.body.addEventListener("click", handleClick);
-
-    return () => {
-      document.body.removeEventListener("click", handleClick);
-    };
-  }, []);
   return (
-    <section className={styles.mainContainer}>
+    <section
+      className={styles.mainContainer}
+      onMouseLeave={() =>
+        setTimeout(() => {
+          setSearch("");
+        }, 1000)
+      }
+    >
       <div className={styles.navbar}>
         <div className={styles.leftItems}>
           {/* products */}
@@ -152,11 +149,13 @@ const Navbar = () => {
             />
           </p>
 
-          {search && (
-            <div className={styles.result}>
-              <Search search={search} setSearch={setSearch} />
-            </div>
-          )}
+          <Suspense>
+            {search && (
+              <div className={styles.result}>
+                <Search search={search} setSearch={setSearch} />
+              </div>
+            )}
+          </Suspense>
         </div>
         <div className={styles.action}>
           <button>
