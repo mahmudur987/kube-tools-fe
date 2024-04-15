@@ -3,6 +3,7 @@
 .mainContainer {
   background: var(--Background-color-white, #fff);
   width: 100%;
+  box-shadow: 0px 4px 2px 0px #6d45f199;
 }
 .mainContainer a {
   color: black;
