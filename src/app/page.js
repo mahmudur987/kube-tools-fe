@@ -10,13 +10,14 @@ import TrendingRepos from "@/components/Home/TrendingRepos/TrendingRepos";
 import { CollectionsSection } from "@/components/Home/HotCollections";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import LeftBanner from "@/components/Home/LeftBanner/LeftBanner";
-
+import { Suspense } from "react";
 import img1 from "../assets/images/company1.jpg";
 import img2 from "../assets/images/company2.jpg";
 import img3 from "../assets/images/company3.jpg";
 import MiddleBanner from "@/components/Home/LeftBanner/MiddleBanner";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import LoadingSpinner from "@/components/Common/LoadingSpiner/LoadingSpiner";
 
 export const data = [
   {
@@ -68,6 +69,7 @@ export default function Home() {
       }
     }
   }, [router.query]);
+
   return (
     <QueryClientProvider client={queryClient}>
       <main className={styles.main} css={inter}>
@@ -76,8 +78,16 @@ export default function Home() {
         <div className={styles.join}>
           <div className={styles.left}>
             <MiddleBanner />
+            <Suspense
+              fallback={
+                <div>
+                  <LoadingSpinner />
+                </div>
+              }
+            >
+              <TrendingRepos />
+            </Suspense>
 
-            <TrendingRepos />
             <CollectionsSection />
             <OurOffer />
             <Blog />
