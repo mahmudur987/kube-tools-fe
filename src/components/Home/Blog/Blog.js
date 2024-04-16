@@ -29,6 +29,7 @@ export const blogData = [
 
 const Blog = () => {
   const [windowWidth, setWindowWidth] = useState(0);
+  const [AutoPlay, setAutoPlay] = useState(true);
   const updateWindowWidth = () => {
     setWindowWidth(window.innerWidth);
   };
@@ -45,7 +46,7 @@ const Blog = () => {
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: AutoPlay,
     speed: 6000,
     autoplaySpeed: 200,
     arrows: false,
@@ -62,7 +63,6 @@ const Blog = () => {
           slidesToShow: 2,
           slidesToScroll: 3,
           infinite: true,
-          dots: true,
         },
       },
       {
@@ -89,10 +89,16 @@ const Blog = () => {
     ],
   };
   const next = () => {
+    if (AutoPlay) {
+      setAutoPlay(!AutoPlay);
+    }
     sliderRef.current.slickNext();
   };
 
   const previous = () => {
+    if (AutoPlay) {
+      setAutoPlay(!AutoPlay);
+    }
     sliderRef.current.slickPrev();
   };
 
@@ -101,7 +107,7 @@ const Blog = () => {
       <section className={styles.maincontainer}>
         <div className={styles.container}>
           <header className={styles.header}>
-            <h1>Blogs</h1>
+            <h1>Blog</h1>
           </header>
 
           {windowWidth > 800 ? (

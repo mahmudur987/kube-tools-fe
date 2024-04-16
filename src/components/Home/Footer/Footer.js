@@ -23,28 +23,26 @@ const Footer = () => {
           <div className={styles.top}>
             {/* left */}
             <div className={styles.footerLeft}>
-              <h3 onClick={() => router.push("/")}>KUBETOOLS</h3>
-              <div className={styles.contatUs}>
-                <h4>Contact Us</h4>
-                <p>
-                  Kubetools Technologies Inc 8 Nelson St W, Brampton, ON L6X 1B7
-                  Canada  Email : contact@kubetools.io
-                </p>
-                <p onClick={handleNavigate} className={styles.socialMedia}>
-                  <Image src={img1} width={30} height={30} />
-                  <Image src={img2} width={30} height={30} />
-                  <Image src={img3} width={30} height={30} />
-                  <Image src={img4} width={30} height={30} />
-                </p>
+              <div className={styles.footerLeftWrapper}>
+                <h3 onClick={() => router.push("/")}>KUBETOOLS</h3>
+                <div className={styles.contatUs}>
+                  <h4>Contact Us</h4>
+                  <p>
+                    Kubetools Technologies Inc 8 Nelson St W, Brampton, ON L6X
+                    1B7 Canada  Email : contact@kubetools.io
+                  </p>
+                  <p onClick={handleNavigate} className={styles.socialMedia}>
+                    <Image src={img1} width={30} height={30} />
+                    <Image src={img2} width={30} height={30} />
+                    <Image src={img3} width={30} height={30} />
+                    <Image src={img4} width={30} height={30} />
+                  </p>
+                </div>
               </div>
             </div>
             {/* right    */}
             <div className={styles.footerRight}>
               <div className={styles.contents}>
-                <div className={styles.cols}>
-                  <NewsletterBox />
-                </div>
-
                 {/* cols-1 */}
                 <div className={styles.cols}>
                   <h4>Company</h4>

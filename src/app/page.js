@@ -18,6 +18,7 @@ import MiddleBanner from "@/components/Home/LeftBanner/MiddleBanner";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import LoadingSpinner from "@/components/Common/LoadingSpiner/LoadingSpiner";
+import Subscribe from "@/components/Home/Subscribe/Subscribe";
 
 export default function Home() {
   const inter = css`
@@ -60,6 +61,7 @@ export default function Home() {
             <CollectionsSection />
             <OurOffer />
             <Blog />
+            <Subscribe />
           </div>
           <div className={styles.right}>
             <LeftBanner />

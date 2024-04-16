@@ -20,7 +20,12 @@ const Banner = () => {
             Empowering DevOps Teams with GenAI-Powered Recommendations
           </p>
           <div className={styles.action}>
-            <Link href={"/newpage"}>
+            <Link
+              href={
+                "https://docs.google.com/forms/d/1Icdpfich9abQBcStAhBMCSMdj9vn__fQmDkbr1RgAok/viewform?edit_requested=true"
+              }
+              target="_blank"
+            >
               <button>Early access</button>
             </Link>
           </div>

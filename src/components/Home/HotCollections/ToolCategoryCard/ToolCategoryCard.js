@@ -10,7 +10,10 @@ const ToolCategoryCard = ({ category, tools }) => {
   const topThreeTools = sortedTools.slice(0, count);
 
   return (
-    <div className={styles.card}>
+    <div
+      className={styles.card}
+      style={{ display: `${tools.length == 0 ? "none" : ""}` }}
+    >
       <h2 className={styles.categoryName}>{category.name}</h2>
       <p className={styles.toolsNumber}> {tools.length} repository</p>
 
@@ -19,7 +22,7 @@ const ToolCategoryCard = ({ category, tools }) => {
           <li key={tool.id} className={styles.tool}>
             <span>{i + 1}</span>
             <a href={tool.link} target="_blank">
-              {tool.name}
+              {tool.name.slice(0, 30)}
             </a>
           </li>
         ))}

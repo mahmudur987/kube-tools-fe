@@ -5,7 +5,8 @@
   border-radius: 12px;
   padding: 14px;
   margin: 10px;
-  min-height: 300px;
+
+  height: 330px;
   background-color: #2b2b2b;
   color: white;
   display: flex;

@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -11,6 +11,8 @@ import LoadingSpinner from "@/components/Common/LoadingSpiner/LoadingSpiner";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 export default function Collections() {
   const { data, isLoading, isError, error } = useGetTools();
+  const [AutoPlay, setAutoPlay] = useState(true);
+
   const sliderRef = useRef(null);
   const settings = {
     dots: false,
@@ -21,7 +23,7 @@ export default function Collections() {
     centerMode: true,
     centerPadding: "0",
     cssEase: "linear",
-    autoplay: true,
+    autoplay: AutoPlay,
     speed: 6000,
     autoplaySpeed: 200,
     responsive: [
@@ -53,10 +55,16 @@ export default function Collections() {
     ],
   };
   const next = () => {
+    if (AutoPlay) {
+      setAutoPlay(!AutoPlay);
+    }
     sliderRef.current.slickNext();
   };
 
   const previous = () => {
+    if (AutoPlay) {
+      setAutoPlay(!AutoPlay);
+    }
     sliderRef.current.slickPrev();
   };
   if (isLoading) {
