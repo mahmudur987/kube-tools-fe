@@ -1,27 +1,50 @@
 .newsletterBox {
-  background-color: #e7d8d8;
+  max-width: 440px;
+  width: 100%;
+  min-height: 170px;
   padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-}
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
+  background: linear-gradient(#6d45f1, #6d45f1) padding-box,
+    linear-gradient(to left, #56f4f4 1.97%, #ffffff 99.26%);
+  border-radius: 12px;
+  border: 2px solid transparent;
+}
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .newsletterBox h2 {
+  color: white;
+  font-family: DM Sans;
   font-size: 16px;
+  font-weight: 500;
+  line-height: 20.83px;
+  letter-spacing: -0.02em;
+  text-align: left;
 }
 
 .newsletterBox p {
-  font-size: 10px;
-  margin-bottom: 10px;
-  color: black;
+  font-family: DM Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.83px;
+  letter-spacing: -0.02em;
+  text-align: left;
 }
 
 .newsletterBox form {
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 20px;
 }
 
 .newsletterBox input {
+  width: 100%;
   padding: 10px;
   font-size: 10px;
   border: 1px solid #ccc;

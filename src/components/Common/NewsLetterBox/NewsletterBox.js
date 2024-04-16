@@ -24,8 +24,10 @@ const NewsletterBox = () => {
 
   return (
     <div className={styles.newsletterBox}>
-      <h2>Subscribe to our Newsletter</h2>
-      <p>Stay updated with our latest news and promotions.</p>
+      <div className={styles.top}>
+        <h2>Subscribe to our Newsletter</h2>
+        <p>Stay updated with our latest news and promotions.</p>
+      </div>
       <form className={styles.form}>
         <input
           onChange={(e) => setEmail(e.target.value)}

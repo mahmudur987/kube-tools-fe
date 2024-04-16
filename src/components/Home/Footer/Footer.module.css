@@ -19,7 +19,6 @@
     #6d45f1 50.08%,
     #6d45f1 50.08%
   );
-  /* Add your styles for the main container */
 }
 
 .container {
@@ -30,17 +29,17 @@
 }
 .top {
   display: flex;
-  gap: 193px;
+  justify-content: space-between;
+  gap: 20 px;
   margin-top: 120px;
+  padding: 0px 30px;
 }
 .footerLeft {
-  max-width: 250px;
+  max-width: 200px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 30px;
-  padding-left: 120px;
 }
 .footerLeft h3 {
   color: var(--Background-color-white, #fff);
@@ -51,7 +50,21 @@
   line-height: normal;
   letter-spacing: 1.28px;
 }
-.footerLeft p {
+.contatUs {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.contatUs h4 {
+  color: white;
+  font-family: DM Sans;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20.83px;
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+.contatUs p {
   color: var(--Background-color-white, #fff);
   font-family: "DM Sans";
   font-size: 16px;
@@ -72,7 +85,6 @@
   justify-content: space-around;
   flex-wrap: nowrap;
   gap: 10px;
-  padding-right: 50px;
 }
 .cols {
   display: flex;
