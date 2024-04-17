@@ -7,8 +7,10 @@ import styles from "./addnewbanner.module.css"; // Import CSS module
 import { postBanner, useGetAllBanner } from "@/utils/banner";
 import toast from "react-hot-toast";
 import LoadingSpinner from "@/components/Common/LoadingSpiner/LoadingSpiner";
+import { useRouter } from "next/navigation";
 
-const FormDataForm = () => {
+const AddNewBanner = () => {
+  const router = useRouter();
   const { data, refetch } = useGetAllBanner();
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -119,12 +121,21 @@ const FormDataForm = () => {
           name="image"
           onChange={(e) => setImage(e.target.files[0])}
         />
-        <button className={styles.button} type="submit">
-          Submit
-        </button>
+        <div className={styles.btnWrapper}>
+          <button
+            className={styles.button}
+            type="button"
+            onClick={() => router.push("/admin/banner")}
+          >
+            Cancel
+          </button>
+          <button className={styles.button} type="submit">
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );
 };
 
-export default FormDataForm;
+export default AddNewBanner;

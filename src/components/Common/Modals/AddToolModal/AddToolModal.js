@@ -93,6 +93,9 @@ const AddToolModal = ({ isOpen, setAddToolModal, id }) => {
           </div>
 
           <div className={styles.buttonWrapper}>
+            <button type="button" onClick={() => setAddToolModal(false)}>
+              Cancel
+            </button>
             <button type="submit">Add Tool</button>
           </div>
         </form>

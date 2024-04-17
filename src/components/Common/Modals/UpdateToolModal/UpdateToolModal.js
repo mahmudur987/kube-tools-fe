@@ -101,6 +101,9 @@ const UpdateToolModal = ({ isOpen, onClose, tool, categoryid }) => {
           </div>
 
           <div className={styles.buttonWrapper}>
+            <button type="button" onClick={onClose}>
+              Cancel
+            </button>
             <button type="submit">Update Tool</button>
           </div>
         </form>

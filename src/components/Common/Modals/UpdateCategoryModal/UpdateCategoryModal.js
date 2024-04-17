@@ -72,6 +72,9 @@ const UpdateCategory = ({ isOpen, setUpdateCategoryModal, category }) => {
           </div>
 
           <div className={styles.buttonWrapper}>
+            <button type="button" onClick={() => setUpdateCategoryModal(false)}>
+              Cancel
+            </button>
             <button type="submit">Update</button>
           </div>
         </form>

@@ -65,6 +65,10 @@ const AddCategoryModal = ({ isOpen, setAddCategoryModal }) => {
           </div>
 
           <div className={styles.buttonWrapper}>
+            <button type="button" onClick={() => setAddCategoryModal(false)}>
+              {" "}
+              Cancel
+            </button>
             <button type="submit">Add Category</button>
           </div>
         </form>
