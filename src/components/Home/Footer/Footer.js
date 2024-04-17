@@ -45,6 +45,9 @@ const Footer = () => {
               <div className={styles.contents}>
                 {/* cols-1 */}
                 <div className={styles.cols}>
+                  <NewsletterBox />
+                </div>
+                <div className={styles.cols}>
                   <h4>Company</h4>
                   <p onClick={handleNavigate}>About Us</p>
                   <p onClick={handleNavigate}>Policy</p>

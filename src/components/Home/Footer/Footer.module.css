@@ -52,9 +52,9 @@
   font-family: "DM Sans";
   font-size: 32px;
   font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 1.28px;
+  line-height: 41.66px;
+  letter-spacing: 0.04em;
+  text-align: left;
 }
 .contatUs {
   display: flex;
@@ -98,13 +98,14 @@
   gap: 24px;
 }
 .cols h4 {
-  color: var(--Background-color-white, #fff);
-  font-family: "DM Sans";
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.48px;
+  font-family: DM Sans;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20.83px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  cursor: pointer;
+  color: white;
 }
 .blog {
   text-align: center;

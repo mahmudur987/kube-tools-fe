@@ -61,6 +61,7 @@
   max-width: 400px;
   width: 100%;
   min-height: 200px;
+  padding: 0px 10px;
 }
 
 .card {
@@ -164,12 +165,17 @@
 }
 .leftbtn,
 .rightbtn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: black;
   border: none;
-  border-radius: 20px;
   padding: 8px;
+  border-radius: 50%;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
 }
 .contents {
   display: flex;

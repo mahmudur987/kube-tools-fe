@@ -11,14 +11,10 @@ import { CollectionsSection } from "@/components/Home/HotCollections";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import LeftBanner from "@/components/Home/LeftBanner/LeftBanner";
 import { Suspense } from "react";
-import img1 from "../assets/images/company1.jpg";
-import img2 from "../assets/images/company2.jpg";
-import img3 from "../assets/images/company3.jpg";
 import MiddleBanner from "@/components/Home/LeftBanner/MiddleBanner";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import LoadingSpinner from "@/components/Common/LoadingSpiner/LoadingSpiner";
-import Subscribe from "@/components/Home/Subscribe/Subscribe";
 
 export default function Home() {
   const inter = css`
@@ -61,7 +57,6 @@ export default function Home() {
             <CollectionsSection />
             <OurOffer />
             <Blog />
-            <Subscribe />
           </div>
           <div className={styles.right}>
             <LeftBanner />
