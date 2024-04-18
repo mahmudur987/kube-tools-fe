@@ -2,6 +2,8 @@
 import { useState } from "react";
 import styles from "./LoginForm.module.css";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import Axios from "@/utils/Axios";
 function generateToken(length) {
   let token = "";
   const characters =
@@ -14,26 +16,38 @@ function generateToken(length) {
 }
 const LoginForm = () => {
   const router = useRouter();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (username === "admin" && password === "admin") {
-      const token = generateToken(32); // Generate token
-      const expiration = new Date(); // Set expiration to one day from now
-      expiration.setDate(expiration.getDate() + 1);
+    if (!email || !password) {
+      return setError("please write your email and password ");
+    }
 
-      // Use localStorage conditionally
-      if (typeof window !== "undefined") {
-        localStorage.setItem("token", token);
-        localStorage.setItem("tokenExpiration", expiration.getTime());
+    try {
+      const { data } = await Axios.post("/user/login-user", {
+        email,
+        password,
+      });
+
+      if (data?.status === "ok") {
+        const token = data.accessToken; // Generate token
+        const expiration = new Date(); // Set expiration to one day from now
+        expiration.setDate(expiration.getDate() + 1);
+        if (typeof window !== "undefined") {
+          localStorage.setItem("token", token);
+          localStorage.setItem("tokenExpiration", expiration.getTime());
+          setError("");
+          router.push("/admin");
+        }
+      } else {
+        return toast.error(data?.status ?? "Error");
       }
-
-      router.push("/admin");
-    } else {
-      setError("Invalid username or password");
+    } catch (error) {
+      console.error(error);
+      toast.error(error.message ?? "Error");
     }
   };
 
@@ -42,9 +56,9 @@ const LoginForm = () => {
       <h2>Login</h2>
       <input
         type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <input
         type="password"

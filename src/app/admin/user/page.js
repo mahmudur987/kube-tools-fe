@@ -18,8 +18,7 @@ const User = () => {
       const { data } = await Axios.delete(`/user/deleteUser/${userId}`);
       console.log(data);
       refetch();
-      toast.success(data?.status ?? "Delete  successfully");
-      setAddToolModal(false);
+      toast.success("Delete  successfully");
     } catch (error) {
       console.error(error);
       toast.error(error.message ?? "Error Happen ");
