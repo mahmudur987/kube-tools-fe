@@ -89,7 +89,7 @@
 }
 
 .subDropdown ol {
-  width: 150px;
+  width: 160px;
   position: absolute;
   left: 100%;
   top: 0;
@@ -115,7 +115,9 @@
   text-decoration: none;
 }
 .subDropdown li a:hover {
-  font-weight: 700;
+  background-color: lightblue;
+  padding: 5px;
+  border-radius: 8px;
 }
 
 .middle {

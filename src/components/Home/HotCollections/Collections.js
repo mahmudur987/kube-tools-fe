@@ -25,7 +25,7 @@ export default function Collections() {
     cssEase: "linear",
     autoplay: AutoPlay,
     speed: 6000,
-    autoplaySpeed: 200,
+    autoplaySpeed: 0,
     responsive: [
       {
         breakpoint: 1024,
