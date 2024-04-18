@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation"; // Changed from next/navigation to 
 // Create a function to check token expiration
 function checkTokenExpiration() {
   if (typeof window !== "undefined") {
-    // Check if localStorage is available
     const expiration = localStorage.getItem("tokenExpiration");
     if (expiration) {
       const currentTime = new Date().getTime();

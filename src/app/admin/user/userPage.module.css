@@ -1,0 +1,12 @@
+.btnWrapper {
+  margin: 20px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.btnWrapper button {
+  background-color: brown;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
