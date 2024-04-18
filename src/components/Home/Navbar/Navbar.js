@@ -24,16 +24,20 @@ const Navbar = () => {
     >
       <div className={styles.navbar}>
         <div className={styles.siteLogo}>
-          <figure>
-            <Image height={100} width={100} src={logo} />
-          </figure>
+          <Link href={"/"}>
+            <figure>
+              <Image height={100} width={100} src={logo} />
+            </figure>
+          </Link>
         </div>
 
         <div className={styles.leftItems}>
           {/* products */}
           <div className={styles.navItem}>
             <div className={styles.dropdown}>
-              <p>Products</p>
+              <p>
+                <Link href={"/newpage"}>Products</Link>
+              </p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -98,13 +102,27 @@ const Navbar = () => {
               <div className={styles.subDropdown}>
                 <ol className={styles.dropDownMenu}>
                   <li>
-                    <Link href={"#"}>Twitter</Link>
+                    <Link href={"https://x.com/kubetools"} target="_blank">
+                      Twitter
+                    </Link>
                   </li>
                   <li>
-                    <Link href={"#"}>Linkedin</Link>
+                    <Link
+                      href={" https://www.linkedin.com/company/kubetools/"}
+                      target="_blank"
+                    >
+                      Linkedin
+                    </Link>
                   </li>
                   <li>
-                    <Link href={"#"}>Slack</Link>
+                    <Link
+                      href={
+                        "https://join.slack.com/t/kubetoolsio/shared_invite/zt-2haak9hap-bwum9UwIwcZEfAAXZXVqwA"
+                      }
+                      target="_blank"
+                    >
+                      Slack
+                    </Link>
                   </li>
                 </ol>
               </div>

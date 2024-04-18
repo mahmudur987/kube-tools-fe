@@ -26,6 +26,7 @@ export default function Collections() {
     autoplay: AutoPlay,
     speed: 6000,
     autoplaySpeed: 0,
+    pauseOnHover: true,
     responsive: [
       {
         breakpoint: 1024,

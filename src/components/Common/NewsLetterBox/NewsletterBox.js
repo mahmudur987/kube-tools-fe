@@ -24,21 +24,23 @@ const NewsletterBox = () => {
 
   return (
     <div className={styles.newsletterBox}>
-      <div className={styles.top}>
-        <h2>Subscribe to our Newsletter</h2>
-        <p>Stay updated with our latest news and promotions.</p>
+      <div className={styles.wrapper}>
+        <div className={styles.top}>
+          <h2>Subscribe to our Newsletter</h2>
+          <p>Stay updated with our latest news and promotions.</p>
+        </div>
+        <form className={styles.form}>
+          <input
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            value={email}
+            placeholder="Your email address"
+          />
+          <button type="button" onClick={handleSubmit}>
+            Subscribe
+          </button>
+        </form>
       </div>
-      <form className={styles.form}>
-        <input
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          value={email}
-          placeholder="Your email address"
-        />
-        <button type="button" onClick={handleSubmit}>
-          Subscribe
-        </button>
-      </form>
     </div>
   );
 };

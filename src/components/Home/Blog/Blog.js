@@ -49,6 +49,7 @@ const Blog = () => {
     autoplay: AutoPlay,
     speed: 6000,
     autoplaySpeed: 200,
+    pauseOnHover: true,
     arrows: false,
     dots: false,
     centerMode: true,

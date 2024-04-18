@@ -3,12 +3,13 @@ import React from "react";
 import Image from "next/image";
 import styles from "./Footer.module.css";
 import NewsletterBox from "@/components/Common/NewsLetterBox/NewsletterBox";
-import img1 from "@/assets/icons/icon (1).png";
+import logo from "@/assets/logo.jpg";
 import img2 from "@/assets/icons/icon (2).png";
 import img3 from "@/assets/icons/icon (3).png";
-import img4 from "@/assets/icons/icon (4).png";
 
+import { FaSlack } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 const Footer = () => {
   const router = useRouter();
 
@@ -24,6 +25,9 @@ const Footer = () => {
             {/* left */}
             <div className={styles.footerLeft}>
               <div className={styles.footerLeftWrapper}>
+                <figure onClick={() => router.push("/")}>
+                  <Image src={logo} width={50} height={50} />
+                </figure>
                 <h3 onClick={() => router.push("/")}>KUBETOOLS</h3>
                 <div className={styles.contatUs}>
                   <h4>Contact Us</h4>
@@ -31,11 +35,27 @@ const Footer = () => {
                     Kubetools Technologies Inc 8 Nelson St W, Brampton, ON L6X
                     1B7 Canada  Email : contact@kubetools.io
                   </p>
-                  <p onClick={handleNavigate} className={styles.socialMedia}>
-                    <Image src={img1} width={30} height={30} />
-                    <Image src={img2} width={30} height={30} />
-                    <Image src={img3} width={30} height={30} />
-                    <Image src={img4} width={30} height={30} />
+                  <p className={styles.socialMedia}>
+                    <Link
+                      target="_blank"
+                      href={
+                        "https://join.slack.com/t/kubetoolsio/shared_invite/zt-2haak9hap-bwum9UwIwcZEfAAXZXVqwA"
+                      }
+                    >
+                      <span style={{ fontSize: "25px", color: "white" }}>
+                        <FaSlack />
+                      </span>
+                    </Link>
+                    <Link href={"https://x.com/kubetools"} target="_blank">
+                      <Image src={img2} width={30} height={30} />
+                    </Link>
+
+                    <Link
+                      href={"https://www.linkedin.com/company/kubetools/"}
+                      target="_blank"
+                    >
+                      <Image src={img3} width={30} height={30} />
+                    </Link>
                   </p>
                 </div>
               </div>

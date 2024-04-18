@@ -20,6 +20,7 @@ const MiddleBanner = () => {
     cssEase: "linear",
     autoplay: true,
     autoplaySpeed: 2000,
+    pauseOnHover: true,
     responsive: [
       {
         breakpoint: 1300,
@@ -76,13 +77,10 @@ const MiddleBanner = () => {
                 src={item?.image}
                 alt={`Image ${item.index}`}
               />
-              <div className={styles.bannerDescription}>
-                <p>
-                  {item.description.slice(0, 250)}
-                  {item.description.length > 250 ?? "....."}
-                </p>
-                <a href={item.link}> {item.linkText} </a>
-              </div>
+              <div
+                dangerouslySetInnerHTML={{ __html: item.description }}
+                className={styles.bannerDescription}
+              ></div>
             </div>
           ))}
       </Slider>
