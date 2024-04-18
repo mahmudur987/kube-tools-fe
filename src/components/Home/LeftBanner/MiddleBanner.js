@@ -12,14 +12,14 @@ const MiddleBanner = () => {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    speed: 2000,
+    speed: 1000,
     arrows: false,
     dots: false,
     centerMode: true,
     centerPadding: "0",
     cssEase: "linear",
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     pauseOnHover: true,
     responsive: [
       {

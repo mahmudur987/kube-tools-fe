@@ -20,12 +20,11 @@ export default function Collections() {
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: false,
-    centerMode: true,
     centerPadding: "0",
     cssEase: "linear",
     autoplay: AutoPlay,
-    speed: 6000,
-    autoplaySpeed: 0,
+    speed: 1000,
+    autoplaySpeed: 3000,
     pauseOnHover: true,
     responsive: [
       {
