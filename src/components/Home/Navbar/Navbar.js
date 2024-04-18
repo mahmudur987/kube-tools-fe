@@ -6,6 +6,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Search from "../Search/Search";
 import { Suspense } from "react";
+import Image from "next/image";
+import logo from "@/assets/logo.jpg";
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [search, setSearch] = useState("");
@@ -21,6 +23,12 @@ const Navbar = () => {
       }
     >
       <div className={styles.navbar}>
+        <div className={styles.siteLogo}>
+          <figure>
+            <Image height={100} width={100} src={logo} />
+          </figure>
+        </div>
+
         <div className={styles.leftItems}>
           {/* products */}
           <div className={styles.navItem}>
