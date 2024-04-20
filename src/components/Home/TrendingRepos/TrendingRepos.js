@@ -151,13 +151,12 @@ const TrendingRepos = () => {
                       {categoriesQuery?.data?.data?.map((item, i) => {
                         return (
                           <option
-                            value={item.id}
+                            value={item._id}
                             style={{
                               color: `${
                                 item.id === collectionId ? "#6d45f1" : ""
                               }`,
                             }}
-                            onClick={() => setCollectionId(item.id)}
                             key={item._id}
                           >
                             {item?.category}

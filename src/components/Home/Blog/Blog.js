@@ -131,7 +131,10 @@ const Blog = () => {
                         </div>
 
                         <p className={styles.cardBottom}>
-                          <a href={data.link}> Read more</a>
+                          <a href={data.link} target="_blank">
+                            {" "}
+                            Read more
+                          </a>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -196,7 +199,10 @@ const Blog = () => {
                     </div>
 
                     <p className={styles.cardBottom}>
-                      <a href={data.link}> Read more</a>
+                      <a href={data.link} target="_blank">
+                        {" "}
+                        Read more
+                      </a>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="24"

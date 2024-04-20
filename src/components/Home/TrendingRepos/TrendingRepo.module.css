@@ -150,6 +150,7 @@
   font-weight: 400;
   border: none;
   overflow: hidden;
+  outline: none;
   display: none;
 }
 .collectionSelect option {

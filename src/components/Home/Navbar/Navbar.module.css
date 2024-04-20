@@ -241,6 +241,9 @@
     background: none;
     border: none;
   }
+  .action {
+    display: none;
+  }
   .mobileContainer {
     max-width: 60px;
     width: 100%;

@@ -183,8 +183,8 @@
     padding: 10px;
   }
   .cols {
+    margin-top: 10px;
     gap: 8px;
-    text-align: center;
   }
 
   .cols h4 {
@@ -196,5 +196,6 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
+    text-align: left;
   }
 }
