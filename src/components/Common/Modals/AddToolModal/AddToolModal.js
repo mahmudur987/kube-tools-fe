@@ -84,7 +84,7 @@ const AddToolModal = ({ isOpen, setAddToolModal, id }) => {
           <div className={styles.fromControl}>
             <label htmlFor="">GitHub Star</label>
             <input
-              type="number"
+              type="text"
               placeholder="GitHub Stars"
               value={githubStars}
               onChange={(e) => setGithubStars(e.target.value)}
