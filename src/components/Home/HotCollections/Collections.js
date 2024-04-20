@@ -14,6 +14,8 @@ export default function Collections() {
   const [AutoPlay, setAutoPlay] = useState(true);
 
   const sliderRef = useRef(null);
+  console.log(AutoPlay);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -22,9 +24,9 @@ export default function Collections() {
     arrows: false,
     centerPadding: "0",
     cssEase: "linear",
-    autoplay: AutoPlay,
+    autoplay: true,
     speed: 1000,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
     pauseOnHover: true,
     responsive: [
       {
@@ -55,16 +57,12 @@ export default function Collections() {
     ],
   };
   const next = () => {
-    if (AutoPlay) {
-      setAutoPlay(!AutoPlay);
-    }
+    sliderRef.current.slickPause();
     sliderRef.current.slickNext();
   };
 
   const previous = () => {
-    if (AutoPlay) {
-      setAutoPlay(!AutoPlay);
-    }
+    sliderRef.current.slickPause();
     sliderRef.current.slickPrev();
   };
   if (isLoading) {
@@ -76,6 +74,7 @@ export default function Collections() {
       <ErrorComponent message={isError ? error.message : "No data to show"} />
     );
   }
+
   return (
     <>
       {data && (
@@ -91,11 +90,21 @@ export default function Collections() {
           </Slider>
 
           <div className={styles.btnWrapper}>
-            <button className={styles.leftbtn} onClick={previous} type="button">
+            <button
+              className={styles.leftbtn}
+              onClick={previous}
+              onMouseLeave={() => sliderRef.current.slickPlay()}
+              type="button"
+            >
               <FaArrowLeft />
             </button>
 
-            <button className={styles.rightbtn} onClick={next} type="button">
+            <button
+              className={styles.rightbtn}
+              onClick={next}
+              onMouseLeave={() => sliderRef.current.slickPlay()}
+              type="button"
+            >
               <FaArrowRight />
             </button>
           </div>

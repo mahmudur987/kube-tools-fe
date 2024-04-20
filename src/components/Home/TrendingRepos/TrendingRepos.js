@@ -49,7 +49,7 @@ const TrendingRepos = () => {
     collectionId ? collectionId : categoriesQuery?.data?.data?.[0]?._id
   );
 
-  console.log(toolId);
+  // console.log(toolId);
 
   useEffect(() => {
     const data = toolsQuery?.data?.data?.tools;
@@ -148,21 +148,23 @@ const TrendingRepos = () => {
                       className={styles.collectionSelect}
                     >
                       <option>Collections</option>
-                      {categoriesQuery?.data?.data?.map((item, i) => {
-                        return (
-                          <option
-                            value={item._id}
-                            style={{
-                              color: `${
-                                item.id === collectionId ? "#6d45f1" : ""
-                              }`,
-                            }}
-                            key={item._id}
-                          >
-                            {item?.category}
-                          </option>
-                        );
-                      })}
+                      {categoriesQuery?.data?.data
+                        ?.slice(0, count)
+                        .map((item, i) => {
+                          return (
+                            <option
+                              value={item._id}
+                              style={{
+                                color: `${
+                                  item.id === collectionId ? "#6d45f1" : ""
+                                }`,
+                              }}
+                              key={item._id}
+                            >
+                              {item?.category}
+                            </option>
+                          );
+                        })}
                     </select>
                   </div>
                 </div>
@@ -280,13 +282,15 @@ const TrendingRepos = () => {
                   </div>
                 </div>
               )}
-              <div
-                onClick={() => setCount((pre) => pre + 10)}
-                className={styles.loadMore}
-              >
-                <button>Load more</button>
-                <Image src={downArrow} height={8} width={15} />
-              </div>
+              {count < categoriesQuery?.data?.data?.length && (
+                <div
+                  onClick={() => setCount((pre) => pre + 5)}
+                  className={styles.loadMore}
+                >
+                  <button>Load more</button>
+                  <Image src={downArrow} height={8} width={15} />
+                </div>
+              )}
               {categoriesQuery.isError && (
                 <ErrorComponent
                   message={

@@ -7,7 +7,7 @@ const ToolCategoryCard = ({ category, tools }) => {
   const [count, setCount] = useState(3);
 
   const sortedTools = tools.sort((a, b) => b.githubStars - a.githubStars);
-  const topThreeTools = sortedTools.slice(0, count);
+  const topThreeTools = sortedTools.slice(0, 4);
 
   return (
     <div
@@ -27,18 +27,6 @@ const ToolCategoryCard = ({ category, tools }) => {
           </li>
         ))}
       </ul>
-
-      <p
-        onClick={() => {
-          if (count < 4) {
-            setCount(count + 1);
-          }
-        }}
-        className={styles.seeMore}
-      >
-        <span>See more</span>
-        <Image src={arrowright} height={20} width={20} />
-      </p>
     </div>
   );
 };

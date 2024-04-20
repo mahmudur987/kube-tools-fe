@@ -8,6 +8,8 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 export const blogData = [
   {
     id: 1,
+    tag1: " Backup",
+    tag2: " Storage",
     description:
       "Top 5 Kubernetes Backup and Storage Solutions: Velero and More",
     link: "https://www.kubetools.io/top-5-kubernetes-backup-and-storage-solutions-velero-and-more/",
@@ -15,13 +17,16 @@ export const blogData = [
 
   {
     id: 2,
-
+    tag1: "Cluster Management",
+    tag2: "Kubernetes",
     description: "k0smotron: Revolutionizing Kubernetes Cluster Management",
     link: "https://www.kubetools.io/k0smotron-revolutionizing-kubernetes-cluster-management-2/",
   },
 
   {
     id: 3,
+    tag1: " Kubernetes",
+    tag2: "Storage Providers",
     description: "Top 5 Storage Provider Tools for Kubernetes",
     link: "https://www.kubetools.io/top-5-storage-provider-tools-for-kubernetes/",
   },
@@ -46,9 +51,9 @@ const Blog = () => {
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay: AutoPlay,
+    autoplay: true,
     speed: 1000,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
     pauseOnHover: true,
     arrows: false,
     dots: false,
@@ -90,16 +95,12 @@ const Blog = () => {
     ],
   };
   const next = () => {
-    if (AutoPlay) {
-      setAutoPlay(!AutoPlay);
-    }
+    sliderRef.current.slickPause();
     sliderRef.current.slickNext();
   };
 
   const previous = () => {
-    if (AutoPlay) {
-      setAutoPlay(!AutoPlay);
-    }
+    sliderRef.current.slickPause();
     sliderRef.current.slickPrev();
   };
 
@@ -119,8 +120,8 @@ const Blog = () => {
                     <div key={data.id} className={styles.content}>
                       <div className={styles.card}>
                         <div className={styles.cardTop}>
-                          <span className={styles.text1}>Tags</span>
-                          <span className={styles.text2}>New Technology</span>
+                          <span className={styles.text1}>{data.tag1}</span>
+                          <span className={styles.text2}>{data.tag2}</span>
                         </div>
 
                         <div className={styles.cardMiddle}>
@@ -167,6 +168,7 @@ const Blog = () => {
                 <button
                   className={styles.leftbtn}
                   onClick={previous}
+                  onMouseLeave={() => sliderRef.current.slickPlay()}
                   type="button"
                 >
                   <FaArrowLeft />
@@ -175,6 +177,7 @@ const Blog = () => {
                 <button
                   className={styles.rightbtn}
                   onClick={next}
+                  onMouseLeave={() => sliderRef.current.slickPlay()}
                   type="button"
                 >
                   <FaArrowRight />
@@ -187,8 +190,8 @@ const Blog = () => {
                 <div key={data.id} className={styles.content}>
                   <div className={styles.card}>
                     <div className={styles.cardTop}>
-                      <span className={styles.text1}>Tags</span>
-                      <span className={styles.text2}>New Technology</span>
+                      <span className={styles.text1}>{data.tag1}</span>
+                      <span className={styles.text2}>{data.tag2}</span>
                     </div>
 
                     <div className={styles.cardMiddle}>
