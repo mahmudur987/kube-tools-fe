@@ -24,14 +24,19 @@ const SingleTool = ({ category }) => {
   };
   const handleDeletetool = async (id) => {
     try {
-      const { data } = await Axios.delete(`/deletetool/${category._id}/${id}`);
-      toast.success(
-        data.message ? data.message : "Tool  Deleted successfully",
-        {
-          id: 1,
-        }
-      );
-      refetch();
+      const isOk = confirm("Do you want to delete");
+      if (isOk) {
+        const { data } = await Axios.delete(
+          `/deletetool/${category._id}/${id}`
+        );
+        toast.success(
+          data.message ? data.message : "Tool  Deleted successfully",
+          {
+            id: 1,
+          }
+        );
+        refetch();
+      }
     } catch (error) {
       toast.error(error ? error.message : "An error occurred", { id: 1 });
     }

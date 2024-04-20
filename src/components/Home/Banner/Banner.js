@@ -11,7 +11,7 @@ const Banner = () => {
       <div className={styles.mainContainer}>
         <div className={styles.container}>
           <p className={styles.topDescription}>
-            Empowering Kubernetes Success with Premier Tools
+            Demystifying the Kubernetes Landscape
           </p>
           <h1 className={styles.heading}>
             The Future of Kubernetes Tools Discovery

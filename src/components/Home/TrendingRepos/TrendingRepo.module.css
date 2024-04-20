@@ -204,7 +204,6 @@
 }
 .contentRight {
   width: 100%;
-  padding: 0px 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -218,9 +217,15 @@
   justify-content: space-between;
   gap: 50px;
 }
+.row1 {
+  background-color: lightgray;
+  padding: 5px 20px;
+  border-radius: 8px;
+}
 .row2 {
   border-bottom: 1px solid rgb(240, 223, 223);
   padding-bottom: 5px;
+  padding: 0px 20px;
 }
 .row1 h4 {
   color: #101010;
@@ -248,7 +253,7 @@
 }
 .col2 {
   text-decoration: none;
-  color: black;
+  color: blue;
   flex-grow: 1;
   display: flex;
   justify-content: flex-start;

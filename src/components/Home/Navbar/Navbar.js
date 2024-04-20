@@ -54,20 +54,20 @@ const Navbar = () => {
                 />
               </svg>
               <div className={styles.subDropdown}>
-                <ol className={styles.dropDownMenu}>
+                <ol style={{ width: "220px" }} className={styles.dropDownMenu}>
                   <li>
                     <Link href={pathname === "/" ? "#offer" : "/#offer"}>
-                      Ranking Engine
+                      Recommendation Engine
                     </Link>
                   </li>
                   <li>
                     <Link href={pathname === "/" ? "#offer" : "/#offer"}>
-                      Kubetools Gpt
+                      Kubetools GPT
                     </Link>
                   </li>
                   <li>
                     <Link href={pathname === "/" ? "#offer" : "/#offer"}>
-                      Sandboxes
+                      Sandbox
                     </Link>
                   </li>
                   <li>

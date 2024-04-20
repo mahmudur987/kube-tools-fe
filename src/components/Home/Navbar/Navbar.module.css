@@ -98,9 +98,8 @@
 }
 
 .subDropdown ol {
-  width: 160px;
   position: absolute;
-  left: 100%;
+  left: 50%;
   top: 0;
   background-color: #fff;
   list-style: none;
