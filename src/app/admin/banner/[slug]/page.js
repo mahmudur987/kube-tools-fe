@@ -25,8 +25,6 @@ const SingleBanner = ({ params }) => {
   const [formData, setFormData] = useState({
     index: 0,
     description: "",
-    link: "",
-    linkText: "",
   });
 
   const handleInputChange = async (e) => {
@@ -44,7 +42,7 @@ const SingleBanner = ({ params }) => {
       const imageData = new FormData();
       imageData.append("image", image);
 
-      const url = `https://api.imgbb.com/1/upload?key=8eb7115635ce90b5c861efdf7ac3bb3a`;
+      const url = `https://api.imgbb.com/1/upload?key=01e9a46c0987f0b1cd8a75c228de8843`;
       fetch(url, {
         method: "POST",
         body: imageData,
@@ -58,12 +56,6 @@ const SingleBanner = ({ params }) => {
             if (data) {
               toast.success("Banner update successfully", { id: 3 });
               refetch();
-              setFormData({
-                index: 0,
-                description: "",
-                link: "",
-                linkText: "",
-              });
               setImage(null);
             }
             if (error) {
@@ -78,13 +70,6 @@ const SingleBanner = ({ params }) => {
       if (data) {
         toast.success("Banner update successfully", { id: 3 });
         refetch();
-        setFormData({
-          index: 0,
-          description: "",
-          link: "",
-          linkText: "",
-        });
-        setImage(null);
       }
       if (error) {
         toast.error("Error", { id: 2 });

@@ -39,14 +39,13 @@ const AddNewBanner = () => {
     const imageData = new FormData();
     imageData.append("image", image);
 
-    const url = `https://api.imgbb.com/1/upload?key=8eb7115635ce90b5c861efdf7ac3bb3a`;
+    const url = `https://api.imgbb.com/1/upload?key=01e9a46c0987f0b1cd8a75c228de8843`;
     fetch(url, {
       method: "POST",
       body: imageData,
     })
       .then((res) => res.json())
       .then(async (imagedata) => {
-        // console.log(imagedata.data)
         if (imagedata.success) {
           const photoURL = imagedata.data.display_url;
           formData.image = photoURL;
@@ -61,10 +60,10 @@ const AddNewBanner = () => {
               linkText: "",
             });
             setImage(null);
+            // router.push("/admin/banner");
           }
           if (error) {
             console.log(error);
-
             toast.error("Error", { id: 2 });
           }
 

@@ -40,10 +40,6 @@ const Banner = () => {
                 />
                 <div className={styles.bannerdescription}>
                   <p>{item.description}</p>
-                  <a className={styles.link} href={item.link}>
-                    {" "}
-                    {item.linkText}{" "}
-                  </a>
                 </div>
               </div>
             </Link>
