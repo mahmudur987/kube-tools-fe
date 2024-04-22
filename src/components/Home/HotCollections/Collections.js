@@ -56,12 +56,12 @@ export default function Collections() {
       },
     ],
   };
-  const next = () => {
+  const previous = () => {
     sliderRef.current.slickPause();
     sliderRef.current.slickNext();
   };
 
-  const previous = () => {
+  const next = () => {
     sliderRef.current.slickPause();
     sliderRef.current.slickPrev();
   };
