@@ -239,7 +239,53 @@ const Navbar = () => {
         <div className={styles.mobileMenu}>
           <div className={styles.navItem}>
             <Link href={"/newpage"} className={styles.dropdown}>
-              <p>Collection</p>
+              <p>Products</p>
+
+              <div className={styles.subDropdown}>
+                <ol className={styles.dropDownMenu}>
+                  <li>
+                    <Link href={pathname === "/" ? "#offer" : "/#offer"}>
+                      Recommendation Engine
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={pathname === "/" ? "#offer" : "/#offer"}>
+                      Kubetools GPT
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={pathname === "/" ? "#offer" : "/#offer"}>
+                      Sandbox
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href={"/newpage"}>Services</Link>
+                  </li>
+                  <li>
+                    <Link href="/newpage">Consulting</Link>
+                  </li>
+                </ol>
+              </div>
+            </Link>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="21"
+              viewBox="0 0 20 21"
+              fill="none"
+            >
+              <path
+                d="M5 8L10 13L15 8"
+                stroke="#6D45F1"
+                stroke-width="1.66667"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div className={styles.navItem}>
+            <Link href={"/newpage"} className={styles.dropdown}>
+              <p>Community</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -258,25 +304,27 @@ const Navbar = () => {
               <div className={styles.subDropdown}>
                 <ol className={styles.dropDownMenu}>
                   <li>
-                    <Link href={pathname === "/" ? "#offer" : "/#offer"}>
-                      Ranking Engine
+                    <Link href={"https://x.com/kubetools"} target="_blank">
+                      Twitter
                     </Link>
                   </li>
                   <li>
-                    <Link href={pathname === "/" ? "#offer" : "/#offer"}>
-                      Kubetools Gpt
+                    <Link
+                      href={" https://www.linkedin.com/company/kubetools/"}
+                      target="_blank"
+                    >
+                      Linkedin
                     </Link>
                   </li>
                   <li>
-                    <Link href={pathname === "/" ? "#offer" : "/#offer"}>
-                      Sandboxes
+                    <Link
+                      href={
+                        "https://join.slack.com/t/kubetoolsio/shared_invite/zt-2haak9hap-bwum9UwIwcZEfAAXZXVqwA"
+                      }
+                      target="_blank"
+                    >
+                      Slack
                     </Link>
-                  </li>
-                  <li>
-                    <Link href="#">Services</Link>
-                  </li>
-                  <li>
-                    <Link href="#">Consulting</Link>
                   </li>
                 </ol>
               </div>
@@ -301,24 +349,7 @@ const Navbar = () => {
               />
             </svg>
           </nav>
-          <nav className={styles.navItem}>
-            <Link href={"/newpage"}>Community</Link>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="21"
-              viewBox="0 0 20 21"
-              fill="none"
-            >
-              <path
-                d="M5 8L10 13L15 8"
-                stroke="#6D45F1"
-                stroke-width="1.66667"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </nav>
+
           <nav className={styles.navItem}>
             <Link href={"/newpage"}>Events</Link>
             <svg
