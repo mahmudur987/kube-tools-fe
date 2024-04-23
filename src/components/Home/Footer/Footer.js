@@ -32,8 +32,11 @@ const Footer = () => {
                 <div className={styles.contatUs}>
                   <h4>Contact Us</h4>
                   <p>
-                    Kubetools Technologies Inc 8 Nelson St W, Brampton, ON L6X
-                    1B7 Canada  Email : contact@kubetools.io
+                    Kubetools Technologies Inc
+                    <br />
+                    8 Nelson St W, Brampton, ON L6X 1B7 Canada
+                    <br />
+                    Email : contact@kubetools.io
                   </p>
                   <p className={styles.socialMedia}>
                     <Link

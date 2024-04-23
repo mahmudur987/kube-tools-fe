@@ -62,7 +62,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link href={pathname === "/" ? "#offer" : "/#offer"}>
-                      Kubetools GPT
+                      KubetoolsGPT
                     </Link>
                   </li>
                   <li>
@@ -238,11 +238,14 @@ const Navbar = () => {
       {showMobileMenu && (
         <div className={styles.mobileMenu}>
           <div className={styles.navItem}>
-            <Link href={"/newpage"} className={styles.dropdown}>
+            <Link href={"#"} className={styles.dropdown}>
               <p>Products</p>
 
               <div className={styles.subDropdown}>
-                <ol className={styles.dropDownMenu}>
+                <ol
+                  className={styles.dropDownMenu}
+                  onClick={() => setShowMobileMenu(false)}
+                >
                   <li>
                     <Link href={pathname === "/" ? "#offer" : "/#offer"}>
                       Recommendation Engine
@@ -284,7 +287,7 @@ const Navbar = () => {
             </svg>
           </div>
           <div className={styles.navItem}>
-            <Link href={"/newpage"} className={styles.dropdown}>
+            <Link href={"#"} className={styles.dropdown}>
               <p>Community</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -302,7 +305,10 @@ const Navbar = () => {
                 />
               </svg>
               <div className={styles.subDropdown}>
-                <ol className={styles.dropDownMenu}>
+                <ol
+                  className={styles.dropDownMenu}
+                  onClick={() => setShowMobileMenu(false)}
+                >
                   <li>
                     <Link href={"https://x.com/kubetools"} target="_blank">
                       Twitter
@@ -330,7 +336,10 @@ const Navbar = () => {
               </div>
             </Link>
           </div>
-          <nav className={styles.navItem}>
+          <nav
+            className={styles.navItem}
+            onClick={() => setShowMobileMenu(false)}
+          >
             <Link href={pathname === "/" ? "#blog" : "/#blog"}>Blog</Link>
 
             <svg
@@ -350,7 +359,10 @@ const Navbar = () => {
             </svg>
           </nav>
 
-          <nav className={styles.navItem}>
+          <nav
+            className={styles.navItem}
+            onClick={() => setShowMobileMenu(false)}
+          >
             <Link href={"/newpage"}>Events</Link>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -369,7 +381,12 @@ const Navbar = () => {
             </svg>
           </nav>
           <nav className={styles.navItem}>
-            <Link href={"/newpage"}>Contact us</Link>
+            <Link
+              href={pathname === "/" ? "#footer" : "/#footer"}
+              onClick={() => setShowMobileMenu(false)}
+            >
+              Contact us
+            </Link>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

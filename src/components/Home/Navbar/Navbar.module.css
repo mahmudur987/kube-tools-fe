@@ -109,7 +109,7 @@
 }
 
 .subDropdown li {
-  padding: 8px 16px;
+  padding: 8px 10px;
   color: var(--Primary-color, #6d45f1);
   font-family: DM Sans;
   font-size: 16px;
@@ -121,10 +121,10 @@
 
 .subDropdown li a {
   text-decoration: none;
+  padding: 5px;
 }
 .subDropdown li a:hover {
   background-color: lightblue;
-  padding: 5px;
   border-radius: 8px;
 }
 
