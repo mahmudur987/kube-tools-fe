@@ -7,7 +7,7 @@ import { useGetCategories, useGetToolsByCategory } from "@/utils/ToolsData";
 import LoadingSpinner from "@/components/Common/LoadingSpiner/LoadingSpiner";
 import downArrow from "../../../assets/icons/Vector.png";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import Highlighter from "react-highlight-words";
 const options = [
@@ -31,6 +31,7 @@ const options = [
 ];
 
 const TrendingRepos = () => {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const search = searchParams.get("collectionId");
   const searchText = searchParams.get("SearchText");
@@ -106,6 +107,7 @@ const TrendingRepos = () => {
   useEffect(() => {
     if (search) {
       setCollectionId(search);
+      setCount(categoriesQuery?.data?.data?.length);
     }
   }, [search]);
   useEffect(() => {

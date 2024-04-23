@@ -253,7 +253,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link href={pathname === "/" ? "#offer" : "/#offer"}>
-                      Kubetools GPT
+                      KubetoolsGPT
                     </Link>
                   </li>
                   <li>
