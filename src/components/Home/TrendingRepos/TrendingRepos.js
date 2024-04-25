@@ -31,7 +31,6 @@ const options = [
 ];
 
 const TrendingRepos = () => {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const search = searchParams.get("collectionId");
   const searchText = searchParams.get("SearchText");
@@ -42,7 +41,6 @@ const TrendingRepos = () => {
   const [filteredTools, setFilteredTools] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const categoriesQuery = useGetCategories();
-  const [count, setCount] = useState(10);
   const [collectionId, setCollectionId] = useState(
     categoriesQuery?.data?.data?.[0]?._id
   );
@@ -107,7 +105,6 @@ const TrendingRepos = () => {
   useEffect(() => {
     if (search) {
       setCollectionId(search);
-      setCount(categoriesQuery?.data?.data?.length);
     }
   }, [search]);
   useEffect(() => {
@@ -150,23 +147,21 @@ const TrendingRepos = () => {
                       className={styles.collectionSelect}
                     >
                       <option>Collections</option>
-                      {categoriesQuery?.data?.data
-                        ?.slice(0, count)
-                        .map((item, i) => {
-                          return (
-                            <option
-                              value={item._id}
-                              style={{
-                                color: `${
-                                  item.id === collectionId ? "#6d45f1" : ""
-                                }`,
-                              }}
-                              key={item._id}
-                            >
-                              {item?.category}
-                            </option>
-                          );
-                        })}
+                      {categoriesQuery?.data?.data?.map((item, i) => {
+                        return (
+                          <option
+                            value={item._id}
+                            style={{
+                              color: `${
+                                item.id === collectionId ? "#6d45f1" : ""
+                              }`,
+                            }}
+                            key={item._id}
+                          >
+                            {item?.category}
+                          </option>
+                        );
+                      })}
                     </select>
                   </div>
                 </div>
@@ -187,26 +182,24 @@ const TrendingRepos = () => {
                 <div className={styles.contentBottom}>
                   <div className={styles.contentleft}>
                     <h3>Select a category </h3>
-                    {categoriesQuery?.data?.data
-                      ?.slice(0, count)
-                      .map((item, i) => {
-                        return (
-                          <p
-                            className={styles.categoryItem}
-                            style={{
-                              backgroundColor: `${
-                                item._id === collectionId
-                                  ? "rgb(205, 230, 238)"
-                                  : ""
-                              }`,
-                            }}
-                            onClick={() => setCollectionId(item._id)}
-                            key={item._id}
-                          >
-                            {item.category}
-                          </p>
-                        );
-                      })}
+                    {categoriesQuery?.data?.data?.map((item, i) => {
+                      return (
+                        <p
+                          className={styles.categoryItem}
+                          style={{
+                            backgroundColor: `${
+                              item._id === collectionId
+                                ? "rgb(205, 230, 238)"
+                                : ""
+                            }`,
+                          }}
+                          onClick={() => setCollectionId(item._id)}
+                          key={item._id}
+                        >
+                          {item.category}
+                        </p>
+                      );
+                    })}
                   </div>
                   <div className={styles.contentRight}>
                     <div className={styles.row1}>
@@ -284,9 +277,9 @@ const TrendingRepos = () => {
                   </div>
                 </div>
               )}
-              {count < categoriesQuery?.data?.data?.length && (
+              {rowsPerPage < toolsQuery?.data?.data?.length && (
                 <div
-                  onClick={() => setCount((pre) => pre + 5)}
+                  onClick={() => setRowsPerPage((pre) => pre + 5)}
                   className={styles.loadMore}
                 >
                   <button>Load more</button>

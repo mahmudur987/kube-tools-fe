@@ -36,7 +36,9 @@ const Navbar = () => {
           <div className={styles.navItem}>
             <div className={styles.dropdown}>
               <p>
-                <Link href={"/newpage"}>Products</Link>
+                <Link href={"https://blog.kubetools.io/"} target="_blank">
+                  Products
+                </Link>
               </p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +73,9 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href={"/newpage"}>Services</Link>
+                    <Link href={"https://blog.kubetools.io/"} target="_blank">
+                      Services
+                    </Link>
                   </li>
                   <li>
                     <Link href="/newpage">Consulting</Link>
@@ -130,12 +134,19 @@ const Navbar = () => {
           </div>
           {/* Blog */}
           <nav className={styles.navItem}>
-            <Link href={pathname === "/" ? "#blog" : "/#blog"}>Blog</Link>
+            <Link
+              href={"https://blog.kubetools.io/category/kubernetes/"}
+              target="_blank"
+            >
+              Blog
+            </Link>
           </nav>
 
           {/* Event */}
           <nav className={styles.navItem}>
-            <Link href={"/newpage"}>Events</Link>
+            <Link href={"https://blog.kubetools.io/"} target="_blank">
+              Events
+            </Link>
           </nav>
         </div>
 
@@ -262,7 +273,9 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href={"/newpage"}>Services</Link>
+                    <Link href={"https://blog.kubetools.io/"} target="_blank">
+                      Services
+                    </Link>
                   </li>
                   <li>
                     <Link href="/newpage">Consulting</Link>
@@ -363,7 +376,9 @@ const Navbar = () => {
             className={styles.navItem}
             onClick={() => setShowMobileMenu(false)}
           >
-            <Link href={"/newpage"}>Events</Link>
+            <Link href={"https://blog.kubetools.io/"} target="_blank">
+              Events
+            </Link>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
