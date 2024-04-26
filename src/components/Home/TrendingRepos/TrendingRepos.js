@@ -277,7 +277,7 @@ const TrendingRepos = () => {
                   </div>
                 </div>
               )}
-              {rowsPerPage < toolsQuery?.data?.data?.length && (
+              {rowsPerPage < toolsQuery?.data?.data?.tools?.length && (
                 <div
                   onClick={() => setRowsPerPage((pre) => pre + 5)}
                   className={styles.loadMore}

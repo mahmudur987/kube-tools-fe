@@ -355,4 +355,7 @@
   .row2 p {
     font-size: 14px;
   }
+  .loadMore {
+    margin-top: 15px;
+  }
 }

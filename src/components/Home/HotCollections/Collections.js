@@ -11,11 +11,7 @@ import LoadingSpinner from "@/components/Common/LoadingSpiner/LoadingSpiner";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 export default function Collections() {
   const { data, isLoading, isError, error } = useGetTools();
-  const [AutoPlay, setAutoPlay] = useState(true);
-
   const sliderRef = useRef(null);
-  console.log(AutoPlay);
-
   const settings = {
     dots: false,
     infinite: true,
