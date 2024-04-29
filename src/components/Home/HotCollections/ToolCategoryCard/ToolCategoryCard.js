@@ -7,7 +7,7 @@ const ToolCategoryCard = ({ category, tools }) => {
   const [count, setCount] = useState(3);
 
   const sortedTools = tools.sort((a, b) => b.githubStars - a.githubStars);
-  const topThreeTools = sortedTools.slice(0, 4);
+  const topThreeTools = sortedTools.slice(0, 3);
 
   return (
     <div

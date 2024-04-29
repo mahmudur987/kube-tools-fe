@@ -5,7 +5,7 @@
   border-radius: 12px;
   padding: 14px;
   margin: 10px;
-  height: 300px;
+  height: 280px;
   background-color: #2b2b2b;
   color: white;
   display: flex;
@@ -65,4 +65,60 @@
   letter-spacing: -0.04em;
   text-align: left;
   color: #6d45f1;
+}
+
+@media only screen and (max-width: 700px) {
+  .card {
+    border: 1px solid #cdcdcd;
+    border-radius: 4px;
+    padding: 8px 3px;
+    margin: 10px;
+    height: 110px;
+    box-shadow: 4px 4px 10px 0px #6d45f133;
+    gap: 5px;
+    justify-content: space-between;
+  }
+
+  .categoryName {
+    font-size: 6px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .toolsNumber {
+    margin: 0px;
+    padding: 0px;
+    font-size: 6px;
+  }
+
+  .topThreeList {
+    gap: 3px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .tool {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    gap: 5px;
+    font-size: 6px;
+  }
+
+  .tool a {
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    font-size: 5px;
+  }
+
+  .tool p {
+    margin: 3px 0;
+  }
+  .seeMore {
+    gap: 5px;
+
+    font-size: 8px;
+  }
 }

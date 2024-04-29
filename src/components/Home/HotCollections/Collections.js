@@ -24,33 +24,33 @@ export default function Collections() {
     speed: 1000,
     autoplaySpeed: 2000,
     pauseOnHover: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 768, // Adjust this breakpoint according to your needs
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerMode: true,
-        },
-      },
-    ],
+    // responsive: [
+    //   {
+    //     breakpoint: 1024,
+    //     settings: {
+    //       slidesToShow: 2,
+    //       slidesToScroll: 3,
+    //       infinite: true,
+    //       dots: true,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 800,
+    //     settings: {
+    //       slidesToShow: 2,
+    //       slidesToScroll: 1,
+    //       initialSlide: 2,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 768, // Adjust this breakpoint according to your needs
+    //     settings: {
+    //       slidesToShow: 1,
+    //       slidesToScroll: 1,
+    //       centerMode: true,
+    //     },
+    //   },
+    // ],
   };
   const previous = () => {
     sliderRef.current.slickPause();

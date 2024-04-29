@@ -377,7 +377,7 @@
   }
   .contentleft {
     max-width: 130px;
-    gap: 5px;
+    gap: 0px;
   }
   .contentleft h3 {
     width: 100%;
@@ -388,7 +388,7 @@
     font-size: 7px;
   }
   .categoryItem {
-    padding: 5px;
+    padding: 3px;
     border-radius: 10px;
   }
   .categoryItem:hover {
@@ -405,7 +405,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 10px;
+    gap: 0px;
   }
   .row1 {
     background-color: lightgray;
@@ -415,31 +415,31 @@
   .row2 {
     border-bottom: 1px solid rgb(240, 223, 223);
     padding-bottom: 5px;
-    padding: 0px 5px;
+    padding: 0px 3px;
   }
   .row1 h4 {
     font-size: 8px;
   }
   .row2 p,
   .row2 a {
-    font-size: 10px;
+    font-size: 7px;
   }
 
   .col1 {
     max-width: 20px;
     width: 100%;
-    text-align: center;
   }
   .col2 {
-    gap: 5px;
+    gap: 2px;
+    margin-right: 3px;
   }
   .new {
     background-color: red;
     color: #fff;
     border-radius: 4px;
-    height: 8px;
-    width: 15px;
-    font-size: 6px;
+    height: 7px;
+    width: 10px;
+    font-size: 5px;
   }
   .col3 {
     width: 20%;
