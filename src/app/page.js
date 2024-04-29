@@ -43,7 +43,7 @@ export default function Home() {
         <Banner />
         <div className={styles.join}>
           <div className={styles.left}>
-            <MiddleBanner />
+            {/* <MiddleBanner /> */}
             <Suspense
               fallback={
                 <div>
@@ -53,8 +53,16 @@ export default function Home() {
             >
               <TrendingRepos />
             </Suspense>
+            <Suspense
+              fallback={
+                <div>
+                  <LoadingSpinner />
+                </div>
+              }
+            >
+              <CollectionsSection />
+            </Suspense>
 
-            <CollectionsSection />
             <OurOffer />
             <Blog />
           </div>

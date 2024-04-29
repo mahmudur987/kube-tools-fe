@@ -129,6 +129,50 @@
 }
 
 @media only screen and (max-width: 700px) {
+  .mainContainer {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+  }
+
+  .container {
+    max-width: 400px;
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    padding: 20px 10px;
+    gap: 10px;
+  }
+
+  .topDescription {
+    font-size: 9px;
+    letter-spacing: 0.4px;
+  }
+  .heading {
+    width: 100%;
+    font-size: 13px;
+    letter-spacing: 0.21px;
+  }
+  .description {
+    font-size: 7px;
+    letter-spacing: 0.21px;
+  }
+
+  .action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .action button {
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 7px;
+  }
+}
+
+/* @media only screen and (max-width: 700px) {
   .container {
     width: 88%;
     flex-shrink: 0;
@@ -152,4 +196,4 @@
     line-height: normal;
     letter-spacing: -0.64px;
   }
-}
+} */

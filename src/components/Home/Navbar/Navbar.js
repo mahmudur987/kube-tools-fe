@@ -201,7 +201,7 @@ const Navbar = () => {
             </Link>
           </button>
         </div>
-        <div className={styles.mobileContainer}>
+        {/* <div className={styles.mobileContainer}>
           <p
             onClick={() => setShowMobileMenu((pre) => !pre)}
             className={styles.mobileHamBtn}
@@ -243,10 +243,10 @@ const Navbar = () => {
               />
             </svg>
           </p>
-        </div>
+        </div> */}
       </div>
 
-      {showMobileMenu && (
+      {/* {showMobileMenu && (
         <div className={styles.mobileMenu}>
           <div className={styles.navItem}>
             <Link href={"#"} className={styles.dropdown}>
@@ -419,7 +419,7 @@ const Navbar = () => {
             </svg>
           </nav>
         </div>
-      )}
+      )} */}
     </section>
   );
 };

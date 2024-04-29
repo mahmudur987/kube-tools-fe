@@ -115,7 +115,7 @@ const TrendingRepos = () => {
       }
     }
   }, [sectionId, toolId, collectionId]);
-
+  console.log(toolsQuery?.data?.data?.tools);
   return (
     <Suspense>
       <section id="rank" className={styles.containerWrapper}>

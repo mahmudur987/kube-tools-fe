@@ -59,3 +59,48 @@
   gap: 10px;
   align-self: stretch;
 }
+@media only screen and (max-width: 780px) {
+  .resultsWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0px 0px 5px 5px;
+    gap: 5px;
+  }
+  .resultContainer {
+    width: 100%;
+    min-height: 21px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px 5px;
+  }
+  .noResult {
+    font-size: 7px;
+  }
+  .resultsRow1,
+  .resultsRow2 {
+    gap: 4px;
+    font-size: 7px;
+    font-weight: 500;
+    line-height: 8.23px;
+  }
+
+  .resultsRow1 p,
+  .resultsRow2 p {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+  }
+
+  .resultsRow1 h5,
+  .resultsRow2 h5 {
+    font-size: 7px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+  }
+}

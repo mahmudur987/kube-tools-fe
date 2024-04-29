@@ -4,8 +4,6 @@ import Link from "next/link";
 import styles from "./Banner.module.css";
 
 const Banner = () => {
-  // const [showSearch, setShowSearch] = useState(false);
-
   return (
     <section className={styles.containerWrapper}>
       <div className={styles.mainContainer}>
