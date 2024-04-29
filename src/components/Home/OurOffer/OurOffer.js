@@ -107,7 +107,7 @@ const OurOffer = () => {
         <header className={styles.header}>
           <h1>What We Offer</h1>
         </header>
-        {windowWidth > 600 ? (
+        {windowWidth > 100 ? (
           <div className={styles.contents}>
             {offersData.map((data) => (
               <div key={data.id} className={styles.content}>
@@ -128,7 +128,10 @@ const OurOffer = () => {
                   </div>
 
                   <p className={styles.cardBottom}>
-                    <Link href={"/newpage"}> {data.bottomText} </Link>
+                    <Link href={"https://blog.kubetools.io/"} target="_blank">
+                      {" "}
+                      {data.bottomText}{" "}
+                    </Link>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"

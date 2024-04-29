@@ -112,7 +112,7 @@ const Blog = () => {
             <h1>Blog</h1>
           </header>
 
-          {windowWidth > 800 ? (
+          {windowWidth > 100 ? (
             <>
               <div className={styles.sliderContents}>
                 <Slider ref={sliderRef} {...settings}>

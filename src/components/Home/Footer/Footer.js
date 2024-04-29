@@ -29,38 +29,38 @@ const Footer = () => {
                   <Image src={logo} width={50} height={50} />
                 </figure>
                 <h3 onClick={() => router.push("/")}>KUBETOOLS</h3>
-                <div className={styles.contatUs}>
-                  <h4>Contact Us</h4>
-                  <p>
-                    Kubetools Technologies Inc
-                    <br />
-                    8 Nelson St W, Brampton, ON L6X 1B7 Canada
-                    <br />
-                    Email : contact@kubetools.io
-                  </p>
-                  <p className={styles.socialMedia}>
-                    <Link
-                      target="_blank"
-                      href={
-                        "https://join.slack.com/t/kubetoolsio/shared_invite/zt-2haak9hap-bwum9UwIwcZEfAAXZXVqwA"
-                      }
-                    >
-                      <span style={{ fontSize: "25px", color: "white" }}>
-                        <FaSlack />
-                      </span>
-                    </Link>
-                    <Link href={"https://x.com/kubetools"} target="_blank">
-                      <Image src={img2} width={30} height={30} />
-                    </Link>
+              </div>
+              <div className={styles.contatUs}>
+                <h4>Contact Us</h4>
+                <p>
+                  Kubetools Technologies Inc
+                  <br />
+                  8 Nelson St W, Brampton, ON L6X 1B7 Canada
+                  <br />
+                  Email : contact@kubetools.io
+                </p>
+                <p className={styles.socialMedia}>
+                  <Link
+                    target="_blank"
+                    href={
+                      "https://join.slack.com/t/kubetoolsio/shared_invite/zt-2haak9hap-bwum9UwIwcZEfAAXZXVqwA"
+                    }
+                  >
+                    <span>
+                      <FaSlack />
+                    </span>
+                  </Link>
+                  <Link href={"https://x.com/kubetools"} target="_blank">
+                    <Image src={img2} width={30} height={30} />
+                  </Link>
 
-                    <Link
-                      href={"https://www.linkedin.com/company/kubetools/"}
-                      target="_blank"
-                    >
-                      <Image src={img3} width={30} height={30} />
-                    </Link>
-                  </p>
-                </div>
+                  <Link
+                    href={"https://www.linkedin.com/company/kubetools/"}
+                    target="_blank"
+                  >
+                    <Image src={img3} width={30} height={30} />
+                  </Link>
+                </p>
               </div>
             </div>
             {/* right    */}

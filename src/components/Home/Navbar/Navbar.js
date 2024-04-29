@@ -73,7 +73,10 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href={"https://blog.kubetools.io/"} target="_blank">
+                    <Link
+                      href={"https://blog.kubetools.io/sponsors/"}
+                      target="_blank"
+                    >
                       Services
                     </Link>
                   </li>

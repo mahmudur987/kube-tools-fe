@@ -38,14 +38,16 @@
   max-width: 300px;
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+
+  gap: 30px;
 }
 .footerLeftWrapper {
   max-width: 230px;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  gap: 30px;
+  align-items: center;
+  gap: 10px;
 }
 .footerLeftWrapper figure img {
   border-radius: 10px;
@@ -128,6 +130,10 @@
   gap: 12px;
   cursor: pointer;
 }
+.socialMedia span {
+  font-size: 25px;
+  color: #fff;
+}
 .coppy {
   display: flex;
   justify-content: center;
@@ -146,7 +152,7 @@
   line-height: normal;
   letter-spacing: -0.32px;
 }
-@media only screen and (max-width: 1224px) {
+/* @media only screen and (max-width: 1224px) {
   .mainContainer {
     padding: 20px 0px;
   }
@@ -197,5 +203,122 @@
     font-style: normal;
     font-weight: 400;
     text-align: left;
+  }
+} */
+@media only screen and (max-width: 700px) {
+  .footer {
+    max-width: 700px;
+    width: 100%;
+  }
+
+  .mainContainer {
+    max-width: 700px;
+    width: 100%;
+    min-height: 250px;
+    padding: 0px 5px;
+  }
+
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    gap: 0px;
+    margin-top: 30px;
+    padding: 0px 1px;
+    flex-wrap: nowrap;
+  }
+  .footerLeft {
+    margin: 0px;
+    padding: 0px;
+    max-width: 75px;
+    width: 100%;
+    gap: 5px;
+  }
+  .footerLeftWrapper {
+    max-width: 50px;
+    width: 100%;
+    display: flex;
+    gap: 5px;
+  }
+  .footerLeftWrapper figure img {
+    height: 15px;
+    width: 15px;
+    border-radius: 5px;
+  }
+  .footerLeft h3 {
+    line-height: 8.66px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 7px;
+  }
+  .contatUs {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .contatUs h4 {
+    font-size: 7px;
+    line-height: 8.66px;
+  }
+  .contatUs p {
+    font-size: 4px;
+    font-style: normal;
+  }
+
+  .footerRight {
+    flex-grow: 1;
+  }
+
+  .contents {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+  .cols {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .cols h4 {
+    font-family: DM Sans;
+    font-size: 8px;
+  }
+  .blog {
+    text-align: center;
+  }
+  .cols p {
+    font-size: 4px;
+  }
+  .socialMedia {
+    display: flex;
+    gap: 2px;
+    cursor: pointer;
+  }
+  .socialMedia span {
+    font-size: 10px;
+  }
+  .socialMedia img {
+    width: 10px;
+    height: 10px;
+  }
+  .coppy {
+    display: flex;
+    justify-content: center;
+  }
+  .coppy p {
+    max-width: 400px;
+    width: 100%;
+    border-top: 1px solid white;
+    padding-top: 10px;
+
+    font-size: 8px;
   }
 }

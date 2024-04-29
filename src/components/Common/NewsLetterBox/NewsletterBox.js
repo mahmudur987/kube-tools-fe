@@ -27,7 +27,9 @@ const NewsletterBox = () => {
       <div className={styles.wrapper}>
         <div className={styles.top}>
           <h2>Subscribe to our Newsletter</h2>
-          <p>Stay updated with our latest news and promotions.</p>
+          <p className={styles.description}>
+            Stay updated with our latest news and promotions.
+          </p>
         </div>
         <form className={styles.form}>
           <input
