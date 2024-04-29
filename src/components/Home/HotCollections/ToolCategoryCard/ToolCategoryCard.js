@@ -14,7 +14,7 @@ const ToolCategoryCard = ({ category, tools }) => {
       className={styles.card}
       style={{ display: `${tools.length == 0 ? "none" : ""}` }}
     >
-      <h2 className={styles.categoryName}>{category.name}</h2>
+      <h2 className={styles.categoryName}>{category.name.slice(0, 40)}</h2>
       <p className={styles.toolsNumber}> {tools.length} repository</p>
 
       <ul className={styles.topThreeList}>
