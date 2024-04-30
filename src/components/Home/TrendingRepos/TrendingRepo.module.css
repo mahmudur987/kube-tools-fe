@@ -386,6 +386,7 @@
   }
   .contentleft p {
     font-size: 7px;
+    letter-spacing: 0.11px;
   }
   .categoryItem {
     padding: 3px;
