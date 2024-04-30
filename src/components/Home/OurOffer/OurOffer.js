@@ -107,53 +107,50 @@ const OurOffer = () => {
         <header className={styles.header}>
           <h1>What We Offer</h1>
         </header>
-        {windowWidth > 100 ? (
-          <div className={styles.contents}>
-            {offersData.map((data) => (
-              <div key={data.id} className={styles.content}>
-                <div className={styles.card}>
-                  <figure className={styles.imageWrapper}>
-                    <Image width={200} height={200} src={data.image} alt="" />
-                    <span className={styles.roundImage}>
-                      <Image width={200} height={200} src={img4} alt="" />
-                    </span>
-                  </figure>
 
-                  <div className={styles.cardMiddle}>
-                    <h3 className={styles.cardtitle}>{data.title}</h3>
-                    <p className={styles.cardDescription}>
-                      {" "}
-                      {data.description}{" "}
-                    </p>
-                  </div>
+        <div className={styles.contents}>
+          {offersData.map((data) => (
+            <div key={data.id} className={styles.content}>
+              <div className={styles.card}>
+                <figure className={styles.imageWrapper}>
+                  <Image width={200} height={200} src={data.image} alt="" />
+                  <span className={styles.roundImage}>
+                    <Image width={200} height={200} src={img4} alt="" />
+                  </span>
+                </figure>
 
-                  <p className={styles.cardBottom}>
-                    <Link href={"https://blog.kubetools.io/"} target="_blank">
-                      {" "}
-                      {data.bottomText}{" "}
-                    </Link>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path
-                        d="M4 17L10 11L4 5"
-                        stroke="#6D45F1"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </p>
+                <div className={styles.cardMiddle}>
+                  <h3 className={styles.cardtitle}>{data.title}</h3>
+                  <p className={styles.cardDescription}> {data.description} </p>
                 </div>
+
+                <p className={styles.cardBottom}>
+                  <Link href={"https://blog.kubetools.io/"} target="_blank">
+                    {" "}
+                    {data.bottomText}{" "}
+                  </Link>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M4 17L10 11L4 5"
+                      stroke="#6D45F1"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </p>
               </div>
-            ))}
-          </div>
-        ) : (
-          <div className={styles.slidercontents}>
+            </div>
+          ))}
+        </div>
+
+        {/* <div className={styles.slidercontents}>
             <Slider ref={sliderRef} {...settings}>
               {offersData?.map((data) => (
                 <div key={data.id} className={styles.content}>
@@ -250,8 +247,7 @@ const OurOffer = () => {
                 </svg>
               </button>
             </div>
-          </div>
-        )}
+          </div> */}
       </section>
     </main>
   );

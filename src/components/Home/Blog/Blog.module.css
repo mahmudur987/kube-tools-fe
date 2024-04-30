@@ -256,18 +256,18 @@
     gap: 2px;
   }
   .text1 {
-    height: 10px;
-    padding: 3px 2px;
+    height: 6.5px;
+    padding: 2px 2px;
     border-radius: 4px;
-    font-size: 6px;
-    line-height: 00.065px;
+    font-size: 4px;
+    line-height: 0px;
   }
   .text2 {
-    height: 10px;
-    padding: 3px 2px;
+    height: 6.5px;
+    padding: 2px 2px;
     border-radius: 4px;
-    font-size: 6px;
-    line-height: 00.065px;
+    font-size: 4px;
+    line-height: 0px;
   }
 
   .cardMiddle {
@@ -278,7 +278,7 @@
   }
 
   .cardDescription {
-    font-size: 7px;
+    font-size: 5px;
   }
 
   .cardBottom {
