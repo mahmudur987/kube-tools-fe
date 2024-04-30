@@ -261,6 +261,7 @@
     border-radius: 4px;
     font-size: 4px;
     line-height: 0px;
+    letter-spacing: 0.12px;
   }
   .text2 {
     height: 6.5px;
@@ -268,6 +269,7 @@
     border-radius: 4px;
     font-size: 4px;
     line-height: 0px;
+    letter-spacing: 0.12px;
   }
 
   .cardMiddle {
