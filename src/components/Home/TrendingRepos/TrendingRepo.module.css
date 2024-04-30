@@ -309,7 +309,7 @@
   .container {
     max-width: 650px;
     width: 100%;
-    min-height: 3w55px;
+    min-height: 355px;
     gap: 5px;
     border-radius: 8px;
   }
