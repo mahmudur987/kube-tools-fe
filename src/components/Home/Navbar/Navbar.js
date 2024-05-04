@@ -199,7 +199,7 @@ const Navbar = () => {
         </div>
         <div className={styles.action}>
           <button>
-            <Link href={pathname === "/" ? "#footer" : "/#footer"}>
+            <Link href={" https://blog.kubetools.io/contact/"} target="_blank">
               Contact Us
             </Link>
           </button>

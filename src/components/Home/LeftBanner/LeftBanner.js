@@ -38,7 +38,9 @@ const LeftBanner = () => {
           ))}
 
         <div className={styles.bottomLink}>
-          <Link href={"/newpage"}>Promote Your Product Here</Link>
+          <Link href={" https://blog.kubetools.io/sponsors/"} target="_blank">
+            Promote Your Product Here
+          </Link>
         </div>
       </div>
     </div>

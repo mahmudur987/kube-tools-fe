@@ -14,7 +14,7 @@ const Footer = () => {
   const router = useRouter();
 
   const handleNavigate = () => {
-    router.push("/newpage");
+    window.open("https://blog.kubetools.io/", "_blank");
   };
 
   return (
@@ -72,7 +72,7 @@ const Footer = () => {
                 </div>
                 <div className={styles.cols}>
                   <h4>Company</h4>
-                  <p onClick={handleNavigate}>About Us</p>
+                  <p>About Us</p>
                   <p onClick={handleNavigate}>Policy</p>
                   <p onClick={handleNavigate}>Events</p>
                   <p onClick={handleNavigate}> Career</p>
@@ -83,14 +83,50 @@ const Footer = () => {
                 <div className={styles.cols}>
                   <h4>Product</h4>
                   <p onClick={handleNavigate}>Recommended System</p>
-                  <p onClick={handleNavigate}>Contact Us</p>
+                  <p
+                    onClick={() => {
+                      window.open(
+                        " https://blog.kubetools.io/contact/",
+                        "_blank"
+                      );
+                    }}
+                  >
+                    Contact Us
+                  </p>
                 </div>
                 {/* cols-3 */}
                 <div className={styles.cols}>
                   <h4>Resources</h4>
-                  <p onClick={handleNavigate}>Contact support</p>
-                  <p onClick={handleNavigate}>Knowledge base</p>
-                  <p onClick={handleNavigate}>Help desk</p>
+                  <p
+                    onClick={() => {
+                      window.open(
+                        " https://blog.kubetools.io/contact/",
+                        "_blank"
+                      );
+                    }}
+                  >
+                    Contact support
+                  </p>
+                  <p
+                    onClick={() => {
+                      window.open(
+                        "https://blog.kubetools.io/cheatsheet/",
+                        "_blank"
+                      );
+                    }}
+                  >
+                    Knowledge base
+                  </p>
+                  <p
+                    onClick={() => {
+                      window.open(
+                        " https://blog.kubetools.io/contact/",
+                        "_blank"
+                      );
+                    }}
+                  >
+                    Help desk
+                  </p>
                 </div>
               </div>
             </div>
