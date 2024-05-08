@@ -34,7 +34,6 @@ export const blogData = [
 
 const Blog = () => {
   const [windowWidth, setWindowWidth] = useState(0);
-  const [AutoPlay, setAutoPlay] = useState(true);
   const updateWindowWidth = () => {
     setWindowWidth(window.innerWidth);
   };

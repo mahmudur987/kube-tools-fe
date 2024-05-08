@@ -9,13 +9,16 @@ import { useRouter } from "next/navigation";
 
 const LeftBanner = () => {
   const { data: banner, isLoading, isError, error } = useGetAllBanner();
-  const router = useRouter();
+
   if (isLoading) {
     return <LoadingSpinner />;
   }
   if (isError) {
     return <ErrorComponent message={error ? error.message : "Error"} />;
   }
+
+  console.log(error);
+
   return (
     <div className={styles.containerWrapper}>
       <div className={styles.container}>
