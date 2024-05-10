@@ -20,7 +20,7 @@ export const blogData = [
     tag1: "Cluster Management",
     tag2: "Kubernetes",
     description: "k0smotron: Revolutionizing Kubernetes Cluster Management",
-    link: "https://www.kubetools.io/k0smotron-revolutionizing-kubernetes-cluster-management/",
+    link: "https://blog.kubetools.io/k0smotron-revolutionizing-kubernetes-cluster-management/",
   },
 
   {
