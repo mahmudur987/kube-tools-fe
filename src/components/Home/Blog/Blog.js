@@ -12,7 +12,7 @@ export const blogData = [
     tag2: " Storage",
     description:
       "Top 5 Kubernetes Backup and Storage Solutions: Velero and More",
-    link: "https://blog.kubetools.io/category/kubernetes/",
+    link: "https://blog.kubetools.io/top-5-kubernetes-backup-and-storage-solutions-velero-and-more/",
   },
 
   {
@@ -20,7 +20,7 @@ export const blogData = [
     tag1: "Cluster Management",
     tag2: "Kubernetes",
     description: "k0smotron: Revolutionizing Kubernetes Cluster Management",
-    link: "https://blog.kubetools.io/category/kubernetes/",
+    link: "https://www.kubetools.io/k0smotron-revolutionizing-kubernetes-cluster-management/",
   },
 
   {
@@ -28,7 +28,7 @@ export const blogData = [
     tag1: " Kubernetes",
     tag2: "Storage Providers",
     description: "Top 5 Storage Provider Tools for Kubernetes",
-    link: "https://blog.kubetools.io/category/kubernetes/",
+    link: "https://blog.kubetools.io/top-5-storage-provider-tools-for-kubernetes/",
   },
 ];
 
