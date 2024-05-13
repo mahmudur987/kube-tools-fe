@@ -16,7 +16,7 @@ const UpdateToolModal = ({ isOpen, onClose, tool, categoryid }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = { name, description, link, githubStars };
-    console.log(categoryid, tool._id);
+
     const id = tool._id;
     updatetool(
       { data, categoryid, toolid: tool._id },

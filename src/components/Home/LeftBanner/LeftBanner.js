@@ -17,8 +17,6 @@ const LeftBanner = () => {
     return <ErrorComponent message={error ? error.message : "Error"} />;
   }
 
-  console.log(error);
-
   return (
     <div className={styles.containerWrapper}>
       <div className={styles.container}>
@@ -26,12 +24,12 @@ const LeftBanner = () => {
           !isError &&
           !isLoading &&
           banner?.data.map((item) => (
-            <div key={item.id} className={styles.banner}>
+            <div key={item._id} className={styles.banner}>
               <Image
                 width={200}
                 height={200}
                 src={item?.image}
-                alt={`Image ${item.index}`}
+                alt={`Image Banner`}
               />
               <div
                 dangerouslySetInnerHTML={{ __html: item.description }}

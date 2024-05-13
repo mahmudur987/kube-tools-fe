@@ -69,7 +69,6 @@ export const useAddToolInCategory = () => {
 export const useUpdatetool = () => {
   return useMutation({
     mutationFn: async ({ data, categoryid, toolid }) => {
-      console.log(data, categoryid, toolid);
       const response = await Axios.patch(
         `updatetool/${categoryid}/${toolid}`,
         data
