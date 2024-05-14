@@ -6,8 +6,8 @@ import styles from "./NewPage.module.css";
 const MaintenancePage = () => {
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Coming Soon . . . </h1>
-      <Link href={"/"}>Back</Link>
+      <h1>Welcome to Our Birdwatching Blog!</h1>
+      {/* Add bird content here */}
     </div>
   );
 };
